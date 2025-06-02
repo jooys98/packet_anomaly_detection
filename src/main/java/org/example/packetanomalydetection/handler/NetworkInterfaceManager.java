@@ -1,0 +1,222 @@
+package org.example.packetanomalydetection.handler;
+
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.example.packetanomalydetection.config.PacketCaptureConfig;
+import org.pcap4j.core.PcapAddress;
+import org.pcap4j.core.PcapNativeException;
+import org.pcap4j.core.PcapNetworkInterface;
+import org.pcap4j.core.Pcaps;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
+
+/**
+ * 네트워크 인터페이스 관리 전담 클래스
+ *
+ * 책임:
+ * - 시스템 호환성 검사 (Apple Silicon, Pcap4J)
+ * - 네트워크 인터페이스 검색 및 선택
+ * - 인터페이스 유효성 검증
+ */
+@Component
+@RequiredArgsConstructor
+@Slf4j
+public class NetworkInterfaceManager {
+
+    private final PacketCaptureConfig captureConfig;
+    // Getter 메서드들
+    @Getter
+    private PcapNetworkInterface selectedInterface;
+
+    /**
+     * Apple Silicon Mac 여부 확인
+     */
+    public boolean isAppleSiliconMac() {
+        String osName = System.getProperty("os.name").toLowerCase();
+        String osArch = System.getProperty("os.arch").toLowerCase();
+
+        boolean isMac = osName.contains("mac");
+        boolean isARM = osArch.contains("aarch64") || osArch.contains("arm");
+
+        log.info("시스템 정보: OS={}, Architecture={}", osName, osArch);
+        return isMac && isARM;
+    }
+
+    /**
+     * Pcap4J 호환성 테스트
+     */
+    public boolean testPcap4jCompatibility() {
+        try {
+            // Pcap4J 라이브러리 로딩 테스트
+            Class.forName("org.pcap4j.core.Pcaps");
+
+            // 네트워크 인터페이스 조회 시도
+            Pcaps.findAllDevs();
+
+            log.info("Pcap4J 호환성 테스트 성공");
+            return true;
+
+        } catch (Exception e) {
+            log.warn("Pcap4J 호환성 테스트 실패: {} - 시뮬레이션 모드 필요", e.getMessage());
+            return false;
+        }
+    }
+
+    /**
+     * 네트워크 인터페이스 초기화
+     */
+    public void initializeInterface() throws PcapNativeException {
+        // 모든 네트워크 인터페이스 조회
+        List<PcapNetworkInterface> allInterfaces = Pcaps.findAllDevs();
+
+        if (allInterfaces.isEmpty()) {
+            throw new RuntimeException("사용 가능한 네트워크 인터페이스가 없습니다. 권한을 확인하세요.");
+        }
+
+        logAvailableInterfaces(allInterfaces);
+
+        // 설정된 인터페이스 찾기
+        String configuredInterfaceName = captureConfig.getInterfaceName();
+        selectedInterface = findInterfaceByName(allInterfaces, configuredInterfaceName);
+
+        if (selectedInterface == null) {
+            log.warn("설정된 인터페이스 '{}' 를 찾을 수 없습니다.", configuredInterfaceName);
+
+            // 자동으로 최적의 인터페이스 선택
+            selectedInterface = selectBestInterface(allInterfaces);
+
+            if (selectedInterface == null) {
+                log.error("적합한 네트워크 인터페이스를 찾을 수 없습니다");
+                printInterfaceSelectionGuide(allInterfaces);
+                throw new RuntimeException("사용 가능한 네트워크 인터페이스 없음");
+            }
+
+            log.info("자동 선택된 인터페이스: {}", selectedInterface.getName());
+            log.info("application.yml에서 interface-name을 '{}'로 변경하는 것을 권장합니다",
+                    selectedInterface.getName());
+        }
+    }
+
+    /**
+     * 사용 가능한 인터페이스 목록 로그 출력
+     */
+    private void logAvailableInterfaces(List<PcapNetworkInterface> interfaces) {
+        log.info("발견된 네트워크 인터페이스 목록:");
+        for (int i = 0; i < interfaces.size(); i++) {
+            PcapNetworkInterface nif = interfaces.get(i);
+            log.info("{}. {} - {} (활성: {}, 루프백: {})",
+                    i + 1,
+                    nif.getName(),
+                    nif.getDescription() != null ? nif.getDescription() : "설명 없음",
+                    nif.isUp() ? "예" : "아니오",
+                    nif.isLoopBack() ? "예" : "아니오"
+            );
+
+            // IP 주소 정보 출력
+            for (PcapAddress addr : nif.getAddresses()) {
+                if (addr.getAddress() != null) {
+                    log.info("     IP: {}", addr.getAddress().getHostAddress());
+                }
+            }
+        }
+    }
+
+    /**
+     * 이름으로 인터페이스 찾기
+     */
+    private PcapNetworkInterface findInterfaceByName(List<PcapNetworkInterface> interfaces,
+                                                     String targetName) {
+        return interfaces.stream()
+                .filter(nif -> nif.getName().equals(targetName))
+                .findFirst()
+                .orElse(null);
+    }
+
+    /**
+     * 최적의 네트워크 인터페이스 자동 선택
+     *
+     * 선택 기준:
+     * 1. 루프백이 아님 (실제 네트워크 트래픽)
+     * 2. 활성화 상태
+     * 3. IP 주소 할당됨
+     * 4. 이더넷 또는 WiFi 인터페이스 우선
+     */
+    private PcapNetworkInterface selectBestInterface(List<PcapNetworkInterface> interfaces) {
+        // 1순위: 이더넷/WiFi 인터페이스
+        for (PcapNetworkInterface nif : interfaces) {
+            if (isValidInterface(nif) && isPreferredInterfaceType(nif)) {
+                return nif;
+            }
+        }
+
+        // 2순위: 그냥 유효한 인터페이스
+        for (PcapNetworkInterface nif : interfaces) {
+            if (isValidInterface(nif)) {
+                return nif;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * 인터페이스 유효성 검사
+     */
+    private boolean isValidInterface(PcapNetworkInterface nif) {
+        return !nif.isLoopBack() && nif.isUp() && hasValidIpAddress(nif);
+    }
+
+    /**
+     * 선호하는 인터페이스 타입인지 확인
+     */
+    private boolean isPreferredInterfaceType(PcapNetworkInterface nif) {
+        String name = nif.getName().toLowerCase();
+        return name.contains("eth") || name.contains("en") ||
+                name.contains("wlan") || name.contains("wi-fi") ||
+                name.contains("ethernet");
+    }
+
+    /**
+     * 유효한 IP 주소가 있는지 확인
+     */
+    private boolean hasValidIpAddress(PcapNetworkInterface nif) {
+        for (PcapAddress addr : nif.getAddresses()) {
+            if (addr.getAddress() != null) {
+                String ip = addr.getAddress().getHostAddress();
+                // 루프백 IP가 아닌 유효한 IP 주소
+                if (!ip.equals("127.0.0.1") && !ip.equals("::1")) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 인터페이스 선택 가이드 출력
+     */
+    private void printInterfaceSelectionGuide(List<PcapNetworkInterface> interfaces) {
+        log.info("인터페이스 선택 가이드:");
+        log.info("application.yml에서 다음 중 하나를 선택하세요:");
+
+        for (PcapNetworkInterface nif : interfaces) {
+            if (!nif.isLoopBack() && nif.isUp()) {
+                log.info("monitoring:");
+                log.info("  packet:");
+                log.info("    interface-name: \"{}\"  # {}",
+                        nif.getName(),
+                        nif.getDescription() != null ? nif.getDescription() : "");
+            }
+        }
+    }
+
+    public String getSelectedInterfaceName() {
+        return selectedInterface != null ? selectedInterface.getName() : null;
+    }
+
+    public String getSelectedInterfaceDescription() {
+        return selectedInterface != null ? selectedInterface.getDescription() : null;
+    }
+}

@@ -1,7 +1,7 @@
 package org.example.packetanomalydetection.util;
 
 import lombok.extern.slf4j.Slf4j;
-import org.example.packetanomalydetection.config.PacketCaptureConfig;
+import org.example.packetanomalydetection.config.PacketFilterConfig;
 import org.example.packetanomalydetection.entity.enums.PacketFilterType;
 import org.springframework.stereotype.Component;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * 🔍 패킷 필터 생성기
+ *  패킷 필터 생성기
  * 사용자 설정에 따라 Berkeley Packet Filter (BPF) 문법으로 필터 생성
  */
 @Component
@@ -19,7 +19,7 @@ public class PacketFilterBuilder {
     /**
      * 🎯 메인 필터 생성 메서드
      */
-    public String buildFilter(PacketCaptureConfig.PacketFilterConfig filterConfig) {
+    public String buildFilter(PacketFilterConfig filterConfig) {
 
         if (!filterConfig.getEnableFilter()) {
             log.info("🔍 패킷 필터 비활성화 - 모든 패킷 캡처");
@@ -45,9 +45,9 @@ public class PacketFilterBuilder {
     }
 
     /**
-     * 🟢 기본 필터 (IP 트래픽만)
+     * 기본 필터 (IP 트래픽만)
      */
-    private String buildBasicFilter(PacketCaptureConfig.PacketFilterConfig filterConfig) {
+    private String buildBasicFilter(PacketFilterConfig filterConfig) {
         List<String> parts = new ArrayList<>();
 
         // 기본: IPv4 트래픽만
@@ -60,7 +60,7 @@ public class PacketFilterBuilder {
     /**
      * 🔧 고급 필터 (프로토콜, 포트, 네트워크 제외 등)
      */
-    private String buildAdvancedFilter(PacketCaptureConfig.PacketFilterConfig filterConfig) {
+    private String buildAdvancedFilter(PacketFilterConfig filterConfig) {
         List<String> parts = new ArrayList<>();
 
         // 1. 기본 IP 필터
@@ -81,14 +81,14 @@ public class PacketFilterBuilder {
                     .map(port -> "port " + port)
                     .collect(Collectors.joining(" or "));
             parts.add("(" + portFilter + ")");
-            log.info("🚪 포트 필터: {}", portFilter);
+            log.info(" 포트 필터: {}", portFilter);
         }
 
         // 4. 네트워크 제외 필터
         if (!filterConfig.getExcludeNetworks().isEmpty()) {
             for (String network : filterConfig.getExcludeNetworks()) {
                 parts.add("not net " + network);
-                log.info("🚫 네트워크 제외: {}", network);
+                log.info("네트워크 제외: {}", network);
             }
         }
 
@@ -100,7 +100,7 @@ public class PacketFilterBuilder {
     /**
      * 🎨 사용자 정의 필터
      */
-    private String buildCustomFilter(PacketCaptureConfig.PacketFilterConfig filterConfig) {
+    private String buildCustomFilter(PacketFilterConfig filterConfig) {
         String customFilter = filterConfig.getCustomFilter();
 
         if (customFilter == null || customFilter.trim().isEmpty()) {
@@ -121,7 +121,7 @@ public class PacketFilterBuilder {
     /**
      * 📋 프리셋 필터 (미리 정의된 필터들)
      */
-    private String buildPresetFilter(PacketCaptureConfig.PacketFilterConfig filterConfig) {
+    private String buildPresetFilter(PacketFilterConfig filterConfig) {
         // 설정에서 프리셋 타입을 가져와서 사용
         // 실제로는 별도 설정 필드가 필요하지만, 예시로 웹 트래픽 필터 사용
         return PacketFilterType.WEB_TRAFFIC.getFilterExpression();

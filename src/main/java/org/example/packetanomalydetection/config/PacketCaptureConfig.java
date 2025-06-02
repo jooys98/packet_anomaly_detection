@@ -25,11 +25,11 @@ public class PacketCaptureConfig {
 
     //1000ms = 1초 (1초마다 한번씩 캠처된 패킷들을 정리)
     /*
-     * Timeout이 짧을 때 (100ms):
+     * Timeout 이 짧을 때 (100ms):
      * - 장점: 실시간성 높음, 빠른 위협 탐지
      * - 단점: CPU 사용량 높음, 시스템 부하 증가
      *
-     * Timeout이 길 때 (5000ms):
+     * Timeout 이 길 때 (5000ms):
      * - 장점: 효율적인 배치 처리, 낮은 시스템 부하
      * - 단점: 위협 탐지 지연, 실시간성 떨어짐
      */
@@ -55,14 +55,5 @@ public class PacketCaptureConfig {
 
     private PacketFilterConfig filter = new PacketFilterConfig();
 
-    @Data
-    @NoArgsConstructor
-    public static class PacketFilterConfig {
-        private Boolean enableFilter = false;                    // 필터 사용 여부
-        private String filterMode = "BASIC";                     // 필터 모드 (BASIC, ADVANCED, CUSTOM)
-        private List<String> protocols = new ArrayList<>();     // 캡처할 프로토콜
-        private List<Integer> ports = new ArrayList<>();        // 캡처할 포트
-        private List<String> excludeNetworks = new ArrayList<>(); // 제외할 네트워크 대역
-        private String customFilter = "";                       // 사용자 정의 필터
-    }
+
 }

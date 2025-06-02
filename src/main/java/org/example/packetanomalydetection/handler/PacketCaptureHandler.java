@@ -10,7 +10,6 @@ import org.pcap4j.packet.Packet;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Consumer;
 
@@ -18,6 +17,7 @@ import java.util.function.Consumer;
  * 실제 패킷 캡처 핸들러
  *
  * 책임:
+ * PacketFilterBuilder 의 구축된 필터를 호출하여 패킷을 캡처함
  * - 실제 네트워크 인터페이스에서 패킷 캡처
  * - Pcap4J를 이용한 저수준 패킷 처리
  * - 패킷 필터링 설정

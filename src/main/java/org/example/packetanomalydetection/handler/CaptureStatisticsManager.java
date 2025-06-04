@@ -20,6 +20,7 @@ import java.util.concurrent.atomic.AtomicLong;
  */
 @Component
 @Slf4j
+@Getter
 public class CaptureStatisticsManager {
 
     // 통계 관련 변수들 (멀티쓰레드 안전)
@@ -28,9 +29,8 @@ public class CaptureStatisticsManager {
     private final AtomicBoolean isActive = new AtomicBoolean(false);
 
     // 시간 관련 변수들
-    @Getter
+
     private LocalDateTime captureStartTime;
-    @Getter
     private LocalDateTime lastPacketTime;
     private long lastStatsPrintTime = 0;
 

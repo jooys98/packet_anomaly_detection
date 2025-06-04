@@ -3,6 +3,7 @@ package org.example.packetanomalydetection.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.pcap4j.packet.Packet;
 
 import java.time.LocalDateTime;
 
@@ -74,6 +75,15 @@ public class PacketData {
 
 
     }
+
+
+
+
+
+
+
+
+
 
     // 의심스러운 패턴 탐지 예시
 //    public boolean isSuspiciousPayload(PacketData packet) {

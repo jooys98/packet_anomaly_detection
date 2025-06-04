@@ -31,7 +31,7 @@ public class PacketCaptureService {
     private final PacketDataRepository packetRepository;
     private final ThreatDetectionService threatDetectionService;
 
-    // 분리된 컴포넌트들
+
     private final NetworkInterfaceManager networkInterfaceManager;
     private final PacketCaptureHandler realCaptureHandler;
     private final SimulationPacketCaptureHandler simulationCaptureHandler;

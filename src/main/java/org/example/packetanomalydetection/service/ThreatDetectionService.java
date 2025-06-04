@@ -24,13 +24,13 @@ import java.util.stream.Collectors;
 /**
  * 🛡️ ThreatDetectionService - 위협 탐지 핵심 서비스
  *
- * 🎯 주요 기능:
+ *  주요 기능:
  * 1. 실시간 패킷 분석 - 패킷이 캡처될 때마다 즉시 분석
  * 2. 주기적 패턴 분석 - 일정 시간 간격으로 누적 데이터 분석
  * 3. 다양한 공격 패턴 탐지 - 포트 스캔, DDoS, 브루트포스 등
  * 4. 알림 생성 및 관리 - 위협 발견 시 Alert 생성
  *
- * 🔍 탐지 방식:
+ *  탐지 방식:
  * - 규칙 기반 탐지 (Rule-based Detection)
  * - 통계적 이상 탐지 (Statistical Anomaly Detection)
  * - 패턴 매칭 (Pattern Matching)
@@ -45,7 +45,7 @@ public class ThreatDetectionService {
     private final AlertRepository alertRepository;
     private final AlertService alertService;
 
-    // 📊 실시간 통계 추적용 메모리 캐시
+    // 실시간 통계 추적용 메모리 캐시
     // IP별 연결 시도 횟수 추적 (메모리에서 빠른 접근)
     private final Map<String, ConnectionAttemptTracker> connectionAttempts = new ConcurrentHashMap<>();
 
@@ -56,7 +56,7 @@ public class ThreatDetectionService {
     private final Map<String, TrafficTracker> trafficStats = new ConcurrentHashMap<>();
 
     /**
-     * 🚨 실시간 패킷 분석 - 가장 중요한 메서드!
+     *  실시간 패킷 분석
      *
      * PacketCaptureService에서 패킷이 캡처될 때마다 호출됨
      * 빠른 응답이 필요하므로 간단하고 효율적인 검사만 수행
@@ -68,7 +68,7 @@ public class ThreatDetectionService {
         }
 
         try {
-            log.debug("🔍 실시간 패킷 분석: {}:{} → {}:{}",
+            log.debug(" 실시간 패킷 분석: {}:{} → {}:{}",
                     packet.getSourceIp(), packet.getSourcePort(),
                     packet.getDestIp(), packet.getDestPort());
 
@@ -109,9 +109,9 @@ public class ThreatDetectionService {
         int threshold = detectionConfig.getLargePacketThreshold();
 
         if (packetSize > threshold) {
-            log.warn("📦 대용량 패킷 탐지: {} bytes (임계값: {} bytes)", packetSize, threshold);
+            log.warn(" 대용량 패킷 탐지: {} bytes (임계값: {} bytes)", packetSize, threshold);
 
-            // 🚨 알림 생성
+            // 알림 생성
             Alert alert = Alert.builder()
                     .alertType(AlertType.LARGE_PACKET)
                     .description(String.format(
@@ -166,11 +166,11 @@ public class ThreatDetectionService {
         );
 
         if (suspiciousPorts.contains(destPort)) {
-            log.info("🚪 의심스러운 포트 접근: {}:{} → {}:{}",
+            log.info(" 의심스러운 포트 접근: {}:{} → {}:{}",
                     packet.getSourceIp(), packet.getSourcePort(),
                     packet.getDestIp(), destPort);
 
-            // 🔍 같은 IP에서 여러 의심스러운 포트에 접근하는지 확인
+            //  같은 IP에서 여러 의심스러운 포트에 접근하는지 확인
             String sourceIp = packet.getSourceIp();
             PortScanTracker tracker = portScanAttempts.computeIfAbsent(
                     sourceIp, k -> new PortScanTracker()
@@ -178,7 +178,7 @@ public class ThreatDetectionService {
 
             tracker.addPortAccess(destPort, packet.getDestIp());
 
-            // 📊 의심스러운 포트를 3개 이상 접근했으면 알림
+            //  의심스러운 포트를 3개 이상 접근했으면 알림
             if (tracker.getSuspiciousPortCount() >= 3) {
                 createSuspiciousConnectionAlert(packet, tracker);
             }
@@ -186,7 +186,7 @@ public class ThreatDetectionService {
     }
 
     /**
-     * 📊 3. 연결 시도 횟수 추적 및 브루트포스 탐지
+     *  3. 연결 시도 횟수 추적 및 브루트포스 탐지
      *
      * 동일한 IP에서 짧은 시간에 많은 연결을 시도하는 것은:
      * - 브루트포스 공격 (무차별 대입 공격)
@@ -197,33 +197,33 @@ public class ThreatDetectionService {
 
         String sourceIp = packet.getSourceIp();
 
-        // 🔄 연결 시도 추적기 가져오기 (없으면 새로 생성)
+        //  연결 시도 추적기 가져오기 (없으면 새로 생성)
         ConnectionAttemptTracker tracker = connectionAttempts.computeIfAbsent(
                 sourceIp, k -> new ConnectionAttemptTracker()
         );
 
-        // 📈 연결 시도 추가
+        //  연결 시도 추가
         tracker.addAttempt(packet);
 
-        // ⏰ 설정된 시간 윈도우 내의 연결 시도 수 계산
+        //  설정된 시간 윈도우 내의 연결 시도 수 계산
         int timeWindowMinutes = detectionConfig.getTimeWindowMinutes();
         int attemptsInWindow = tracker.getAttemptsInLastMinutes(timeWindowMinutes);
         int threshold = detectionConfig.getConnectionAttemptThreshold();
 
-        // 🚨 임계값 초과 시 브루트포스 공격으로 판단
+        //  임계값 초과 시 브루트포스 공격으로 판단
         if (attemptsInWindow >= threshold) {
             log.warn("🔨 브루트포스 공격 탐지: {} ({}분간 {}회 연결 시도)",
                     sourceIp, timeWindowMinutes, attemptsInWindow);
 
             createBruteForceAlert(packet, attemptsInWindow, timeWindowMinutes);
 
-            // 📊 추적기 리셋 (중복 알림 방지)
+            //  추적기 리셋 (중복 알림 방지)
             tracker.reset();
         }
     }
 
     /**
-     * 🎯 4. 포트 스캔 패턴 추적
+     *  4. 포트 스캔 패턴 추적
      *
      * 포트 스캔의 특징:
      * - 동일한 IP에서 여러 포트에 연속적으로 접근
@@ -238,27 +238,27 @@ public class ThreatDetectionService {
                 sourceIp, k -> new PortScanTracker()
         );
 
-        // 🎯 포트 접근 기록 추가
+        //  포트 접근 기록 추가
         if (packet.getDestPort() != null) {
             tracker.addPortAccess(packet.getDestPort(), packet.getDestIp());
         }
 
-        // 📊 포트 스캔 임계값 체크
+        //  포트 스캔 임계값 체크
         int uniquePortCount = tracker.getUniquePortCount();
         int threshold = detectionConfig.getPortScanThreshold();
 
         if (uniquePortCount >= threshold) {
-            log.warn("🔍 포트 스캔 탐지: {} ({}개 포트 스캔)", sourceIp, uniquePortCount);
+            log.warn(" 포트 스캔 탐지: {} ({}개 포트 스캔)", sourceIp, uniquePortCount);
 
             createPortScanAlert(packet, tracker);
 
-            // 📊 추적기 리셋
+            //  추적기 리셋
             tracker.reset();
         }
     }
 
     /**
-     * 📈 5. 트래픽 통계 업데이트 및 급증 탐지
+     *  5. 트래픽 통계 업데이트 및 급증 탐지
      *
      * 트래픽 급증의 원인:
      * - DDoS 공격
@@ -267,7 +267,7 @@ public class ThreatDetectionService {
      */
     private void updateTrafficStats(PacketData packet) {
 
-        // 🕐 현재 분(minute) 단위로 트래픽 집계
+        //  현재 분(minute) 단위로 트래픽 집계
         String currentMinute = LocalDateTime.now().toString().substring(0, 16); // YYYY-MM-DDTHH:mm
 
         TrafficTracker tracker = trafficStats.computeIfAbsent(
@@ -277,12 +277,12 @@ public class ThreatDetectionService {
         tracker.incrementPacketCount();
         tracker.addSourceIp(packet.getSourceIp());
 
-        // 📊 1분간 패킷 수가 임계값 초과 시 알림
+        //  1분간 패킷 수가 임계값 초과 시 알림
         int packetCount = tracker.getPacketCount();
         int threshold = detectionConfig.getTrafficSpikeThreshold();
 
         if (packetCount >= threshold) {
-            log.warn("📈 트래픽 급증 탐지: {}분에 {}개 패킷 (임계값: {})",
+            log.warn(" 트래픽 급증 탐지: {}분에 {}개 패킷 (임계값: {})",
                     currentMinute, packetCount, threshold);
 
             createTrafficSpikeAlert(currentMinute, tracker);
@@ -317,7 +317,7 @@ public class ThreatDetectionService {
     }
 
     /**
-     * 🔍 포트 스캔 알림 생성
+     *  포트 스캔 알림 생성
      */
     private void createPortScanAlert(PacketData packet, PortScanTracker tracker) {
         Alert alert = Alert.builder()
@@ -372,7 +372,7 @@ public class ThreatDetectionService {
     }
 
     /**
-     * 📈 트래픽 급증 알림 생성
+     *  트래픽 급증 알림 생성
      */
     private void createTrafficSpikeAlert(String timeWindow, TrafficTracker tracker) {
         Alert alert = Alert.builder()
@@ -398,8 +398,7 @@ public class ThreatDetectionService {
 
 
     /**
-     * 🕐 주기적 종합 분석 (5분마다)
-     *
+     * 주기적 종합 분석 (5분마다)
      * 실시간으로는 탐지하기 어려운 복잡한 패턴들을 분석
      * - 시간대별 트래픽 패턴 변화
      * - IP별 장기간 행동 패턴
@@ -415,11 +414,11 @@ public class ThreatDetectionService {
         try {
             log.info(" 주기적 위협 분석 시작...");
 
-            // 🕐 분석 시간 범위 설정 (최근 5분)
+            //  분석 시간 범위 설정 (최근 5분)
             LocalDateTime now = LocalDateTime.now();
             LocalDateTime fiveMinutesAgo = now.minusMinutes(5);
 
-            // 📊 최근 5분간의 패킷 데이터 조회
+            // 최근 5분간의 패킷 데이터 조회
             List<PacketData> recentPackets = packetRepository.findByTimestampBetween(
                     fiveMinutesAgo, now
             );
@@ -517,7 +516,7 @@ public class ThreatDetectionService {
      */
     private void cleanupOldTrackingData() {
 
-        // 🕐 1시간 이상 된 데이터 정리
+        //  1시간 이상 된 데이터 정리
         LocalDateTime oneHourAgo = LocalDateTime.now().minusHours(1);
 
         // 연결 시도 추적 데이터 정리
@@ -546,7 +545,7 @@ public class ThreatDetectionService {
     }
 
     // =========================================================================
-    // 🔧 유틸리티 메서드들
+    //  유틸리티 메서드들
     // =========================================================================
 
     /**
@@ -580,6 +579,7 @@ public class ThreatDetectionService {
     }
 
     //  현재 탐지 상태 조회 (API용)
+    //TODO : dto 로 수정하기
     public Map<String, Object> getDetectionStatus() {
         Map<String, Object> status = new HashMap<>();
         status.put("autoDetectionEnabled", detectionConfig.getEnableAutoDetection());

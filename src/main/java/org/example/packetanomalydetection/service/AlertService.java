@@ -17,16 +17,16 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 
 /**
- * 🚨 AlertService - 알림 생성 및 관리 서비스
+ *  AlertService - 알림 생성 및 관리 서비스
  *
- * 🎯 주요 기능:
+ *  주요 기능:
  * 1. 알림 생성 및 저장 - ThreatDetectionService에서 호출
  * 2. 알림 상태 관리 - 해결, 무시, 에스컬레이션
  * 3. 중복 알림 방지 - 같은 유형의 알림 반복 생성 방지
  * 4. 알림 우선순위 관리 - 심각도별 처리 순서
  * 5. 자동 정리 - 오래된 알림 자동 삭제
  *
- * 🔄 동작 방식:
+ *  동작 방식:
  * - ThreatDetectionService → AlertService.createAlert() 호출
  * - 중복 체크 → 알림 생성 → 데이터베이스 저장
  * - 심각도별 즉시 알림 → 콘솔/이메일/SMS 전송
@@ -38,15 +38,15 @@ public class AlertService {
 
     private final AlertRepository alertRepository;
 
-    // 📊 통계 추적
+    //  통계 추적
     private final AtomicLong totalAlertsCreated = new AtomicLong(0);
     private final AtomicLong criticalAlertsToday = new AtomicLong(0);
 
-    // 🚫 중복 알림 방지용 캐시 (IP + 알림타입 + 시간)
+    // 중복 알림 방지용 캐시 (IP + 알림타입 + 시간)
     private final Map<String, LocalDateTime> recentAlerts = new HashMap<>();
 
     /**
-     * 🚨 새로운 알림 생성 - 핵심 메서드!
+     * 새로운 알림 생성 - 핵심 메서드!
      *
      * ThreatDetectionService에서 위협 탐지 시 호출됨
      */
@@ -56,13 +56,13 @@ public class AlertService {
         try {
             // 1. 입력 검증
             if (!isValidAlert(alert)) {
-                log.warn("⚠️ 유효하지 않은 알림 요청: {}", alert);
+                log.warn(" 유효하지 않은 알림 요청: {}", alert);
                 return null;
             }
 
             // 2. 중복 알림 체크
             if (isDuplicateAlert(alert)) {
-                log.debug("🔄 중복 알림 무시: {} - {}", alert.getAlertType(), alert.getSourceIp());
+                log.debug("중복 알림 무시: {} - {}", alert.getAlertType(), alert.getSourceIp());
                 return null;
             }
 
@@ -207,7 +207,7 @@ public class AlertService {
      */
     private void sendCriticalAlert(Alert alert) {
 
-        // 📱 콘솔에 강조 표시
+        //  콘솔에 강조 표시
         System.out.println("\n" + "=".repeat(60));
         System.out.println(" =============CRITICAL SECURITY ALERT============= ");
         System.out.println("시간: " + alert.getTimestamp());

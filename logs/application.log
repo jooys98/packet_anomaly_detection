@@ -1,24 +1,24 @@
-2025-06-02 14:53:52 [restartedMain] INFO  o.e.p.PacketAnomalyDetectionApplication - Starting PacketAnomalyDetectionApplication using Java 17.0.12 with PID 35651 (/Users/lo5er/packet-anomaly-detection/build/classes/java/main started by lo5er in /Users/lo5er/packet-anomaly-detection)
-2025-06-02 14:53:52 [restartedMain] INFO  o.e.p.PacketAnomalyDetectionApplication - No active profile set, falling back to 1 default profile: "default"
-2025-06-02 14:53:52 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-06-02 14:53:52 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-06-02 14:53:52 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-02 14:53:52 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 41 ms. Found 2 JPA repository interfaces.
-2025-06-02 14:53:53 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-06-02 14:53:53 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-06-02 14:53:53 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2025-06-02 14:53:53 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
-2025-06-02 14:53:53 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 777 ms
-2025-06-02 14:53:53 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-02 14:53:53 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
-2025-06-02 14:53:53 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-06-02 14:53:53 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-02 14:53:53 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-06-02 14:53:53 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2453bbe1
-2025-06-02 14:53:53 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2025-06-02 14:53:53 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-06-02 14:53:53 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-06-02 14:53:53 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+2025-06-04 16:28:55 [restartedMain] INFO  o.e.p.PacketAnomalyDetectionApplication - Starting PacketAnomalyDetectionApplication using Java 17.0.12 with PID 75400 (/Users/lo5er/packet-anomaly-detection/build/classes/java/main started by lo5er in /Users/lo5er/packet-anomaly-detection)
+2025-06-04 16:28:55 [restartedMain] INFO  o.e.p.PacketAnomalyDetectionApplication - No active profile set, falling back to 1 default profile: "default"
+2025-06-04 16:28:55 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-04 16:28:55 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-04 16:28:55 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-04 16:28:55 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 26 ms. Found 2 JPA repository interfaces.
+2025-06-04 16:28:55 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-06-04 16:28:55 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-06-04 16:28:55 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-04 16:28:55 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-06-04 16:28:55 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 575 ms
+2025-06-04 16:28:55 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-04 16:28:55 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-06-04 16:28:55 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-06-04 16:28:55 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-04 16:28:55 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-06-04 16:28:56 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@27971506
+2025-06-04 16:28:56 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-06-04 16:28:56 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-04 16:28:56 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-06-04 16:28:56 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 8.0
@@ -26,18 +26,28 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-06-02 14:53:54 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-02 14:53:54 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-02 14:53:54 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-06-02 14:53:54 [restartedMain] INFO  o.e.p.service.PacketCaptureService - PacketCaptureService 초기화 중...
-2025-06-02 14:53:54 [restartedMain] INFO  o.e.p.h.NetworkInterfaceManager - 시스템 정보: OS=mac os x, Architecture=aarch64
-2025-06-02 14:53:54 [restartedMain] WARN  o.e.p.service.PacketCaptureService - Apple Silicon Mac 감지 - 시뮬레이션 모드로 전환
-2025-06-02 14:53:54 [restartedMain] INFO  o.e.p.service.PacketCaptureService - 패킷 캡처 시작 (모드: 시뮬레이션)
-2025-06-02 14:53:54 [restartedMain] INFO  o.e.p.h.CaptureStatisticsManager - 통계 관리 시작: 2025-06-02T14:53:54.596810
-2025-06-02 14:53:54 [restartedMain] INFO  o.e.p.h.SimulationPacketCaptureHandler - 시뮬레이션 모드 패킷 캡처 시작
-2025-06-02 14:53:54 [restartedMain] INFO  o.e.p.h.SimulationPacketCaptureHandler - 학습 목적: 실제 패킷 대신 가상 데이터로 위협 탐지 테스트
-2025-06-02 14:53:59 [restartedMain] INFO  o.e.p.service.ThreatDetectionService - 🚪 의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-02 14:54:01 [restartedMain] INFO  o.e.p.service.ThreatDetectionService - 🚪 의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-02 14:54:02 [restartedMain] INFO  o.e.p.service.ThreatDetectionService - 🚪 의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:23
-2025-06-02 14:54:02 [restartedMain] INFO  o.e.p.service.ThreatDetectionService - 🚪 의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-02 14:54:04 [restartedMain] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 2.0 개 처리됨)
+2025-06-04 16:28:56 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-04 16:28:56 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-04 16:28:56 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-04 16:28:57 [restartedMain] INFO  o.e.p.service.PacketCaptureService - PacketCaptureService 초기화 중...
+2025-06-04 16:28:57 [restartedMain] INFO  o.e.p.h.NetworkInterfaceManager - 시스템 정보: OS=mac os x, Architecture=aarch64
+2025-06-04 16:28:57 [restartedMain] WARN  o.e.p.service.PacketCaptureService - Apple Silicon Mac 감지 - 시뮬레이션 모드로 전환
+2025-06-04 16:28:57 [restartedMain] INFO  o.e.p.service.PacketCaptureService - 패킷 캡처 시작 (모드: 시뮬레이션)
+2025-06-04 16:28:57 [restartedMain] INFO  o.e.p.h.CaptureStatisticsManager - 통계 관리 시작: 2025-06-04T16:28:57.028523
+2025-06-04 16:28:57 [restartedMain] INFO  o.e.p.h.SimulationPacketCaptureHandler - 시뮬레이션 모드 패킷 캡처 시작
+2025-06-04 16:28:57 [restartedMain] INFO  o.e.p.h.SimulationPacketCaptureHandler - 학습 목적: 실제 패킷 대신 가상 데이터로 위협 탐지 테스트
+2025-06-04 16:28:57 [restartedMain] INFO  o.e.p.service.ThreatDetectionService - 🚪 의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
+2025-06-04 16:29:00 [restartedMain] INFO  o.e.p.service.ThreatDetectionService - 🚪 의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
+2025-06-04 16:29:01 [restartedMain] INFO  o.e.p.service.ThreatDetectionService - 🚪 의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:22
+2025-06-04 16:29:01 [restartedMain] INFO  o.e.p.service.ThreatDetectionService - 🚪 의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:22
+2025-06-04 16:29:07 [restartedMain] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 2.1 개 처리됨)
+2025-06-04 16:29:07 [restartedMain] WARN  o.e.p.service.ThreatDetectionService - 📦 대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
+2025-06-04 16:29:07 [restartedMain] INFO  o.e.p.service.AlertService - MEDIUM 알림: LARGE_PACKET - 172.16.0.50
+2025-06-04 16:29:07 [restartedMain] INFO  o.e.p.service.AlertService - 알림 생성 완료: [MEDIUM] LARGE_PACKET - 172.16.0.50
+2025-06-04 16:29:08 [restartedMain] WARN  o.e.p.service.ThreatDetectionService - 📦 대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
+2025-06-04 16:29:09 [restartedMain] INFO  o.e.p.service.ThreatDetectionService - 🚪 의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
+2025-06-04 16:29:10 [restartedMain] INFO  o.e.p.service.ThreatDetectionService - 🚪 의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:3389
+2025-06-04 16:29:11 [restartedMain] INFO  o.e.p.service.ThreatDetectionService - 🚪 의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:1433
+2025-06-04 16:29:12 [restartedMain] INFO  o.e.p.service.ThreatDetectionService - 🚪 의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:1433
+2025-06-04 16:29:12 [restartedMain] INFO  o.e.p.service.AlertService - MEDIUM 알림: SUSPICIOUS_CONNECTION - 203.0.113.50
+2025-06-04 16:29:12 [restartedMain] INFO  o.e.p.service.AlertService - 알림 생성 완료: [MEDIUM] SUSPICIOUS_CONNECTION - 203.0.113.50

@@ -32,6 +32,7 @@ public class NetworkInterfaceManager {
 
     /**
      * Apple Silicon Mac 여부 확인
+     * Pcap4j와 호환성 문제로 시뮬레이션 모드로 설정하기 위한 로직
      */
     public boolean isAppleSiliconMac() {
         String osName = System.getProperty("os.name").toLowerCase();

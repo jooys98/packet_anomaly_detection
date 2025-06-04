@@ -14,9 +14,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Consumer;
 
 /**
- * 실제 패킷 캡처 핸들러
- *
- * 책임:
+ * 패킷 캡처 핸들러
  * PacketFilterBuilder 의 구축된 필터를 호출하여 패킷을 캡처함
  * - 실제 네트워크 인터페이스에서 패킷 캡처
  * - Pcap4J를 이용한 저수준 패킷 처리
@@ -33,16 +31,19 @@ public class PacketCaptureHandler {
 
     private PcapHandle pcapHandle;
     private final AtomicBoolean isCapturing = new AtomicBoolean(false);
+    //Consumer : 함수형 인터페이스 - 콜백 함수를 저장해줌
     private Consumer<PacketData> packetHandler;
 
     /**
-     * 실제 패킷 캡처 시작
+     * 패킷 캡처 시작
+     * PcapNetworkInterface : 살제 네트워크 인터페이스를 제공해주는 pcap4j의 객체 (eth0,en0 ..)
      */
     @Async
     public void startCapture(PcapNetworkInterface networkInterface,
                              Consumer<PacketData> packetHandler) {
+        //중복 실행 방지 검사
         if (isCapturing.get()) {
-            log.warn("실제 패킷 캡처가 이미 실행 중입니다");
+            log.info("실제 패킷 캡처가 이미 실행 중입니다");
             return;
         }
 
@@ -81,11 +82,11 @@ public class PacketCaptureHandler {
         int snapLen = captureConfig.getBufferSize();     // 패킷 캡처 크기
         int timeout = captureConfig.getCaptureTimeout(); // 타임아웃 (ms)
 
-        // Pcap 핸들 생성 (가장 중요한 부분!)
+        // Pcap 핸들 생성
         pcapHandle = networkInterface.openLive(
-                snapLen,                                      // 스냅샷 길이 (캡처할 최대 바이트)
-                PcapNetworkInterface.PromiscuousMode.PROMISCUOUS,  // 프로미스큐어스 모드 (모든 패킷 캡처)
-                timeout                                       // 읽기 타임아웃
+                snapLen,                                      // 캡처할 패킷의 최대 바이트
+                PcapNetworkInterface.PromiscuousMode.PROMISCUOUS,  //networkInterface - 해당 인터페이스의 모든 패킷을 캡처하는 설정 객체
+                timeout                                       // 설정 해놓은 읽기 타임아웃
         );
 
         log.info("Pcap 핸들 생성 완료:");
@@ -95,16 +96,20 @@ public class PacketCaptureHandler {
     }
 
     /**
-     * 패킷 필터 설정 (선택적 기능)
+     * 패킷 필터 설정
+     * PacketFilterBuilder 에서 구축해놓은 패킷을 가져와서 적용시킴
      */
     private void setupPacketFilter() throws PcapNativeException, NotOpenException {
         String filter = filterBuilder.buildFilter(captureConfig.getFilter());
 
+        //TODO : 성능개선 작업 - 필터가 없을 경우의 예외처리
         if (!filter.isEmpty()) {
+            //BpfProgram: 하드웨어 레벨에서 패킷을 필터링(어플리케이션 레이어까지 올라오는 패킷수를 감소시킴)
             pcapHandle.setFilter(filter, BpfProgram.BpfCompileMode.OPTIMIZE);
             log.info("패킷 필터 설정: {}", filter);
+
         } else {
-            log.info("패킷 필터 없음 - 모든 패킷 캡처");
+            throw new IllegalStateException("패킷 필터 미설정으로 인한 캡처 중단");
         }
     }
 
@@ -115,6 +120,7 @@ public class PacketCaptureHandler {
         // 패킷 리스너 설정 - 패킷이 올 때마다 이 메서드가 호출됨!
         PacketListener packetListener = new PacketListener() {
             @Override
+            //패킷이 도착할 때마다 gotPacket() 자동 호
             public void gotPacket(Packet packet) {
                 try {
                     handleRealNetworkPacket(packet);
@@ -129,15 +135,17 @@ public class PacketCaptureHandler {
     }
 
     /**
-     * 실제 네트워크 패킷 처리
+     *네트워크 패킷 처리
      */
     private void handleRealNetworkPacket(Packet packet) {
         try {
-            // 패킷 파싱 - 네트워크 헤더에서 정보 추출
+            // 패킷 파싱 - 네트워크 헤더에서 정보를 추출하여 PacketData 객체로 변환
             PacketData packetData = packetParser.parseNetworkPacket(packet);
 
             if (packetData != null && packetHandler != null) {
                 packetHandler.accept(packetData);
+                //PacketCaptureService 의 handleCapturedPacket 를 실행시킴
+                // db 저장 -> 위협 탐지 시작
             }
 
         } catch (Exception e) {

@@ -11,7 +11,6 @@ import java.util.List;
 
 /**
  * 패킷 파싱 전담 유틸리티 클래스
- *
  * 책임:
  * - 실제 네트워크 패킷에서 헤더 정보 추출
  * - IP, 포트, 프로토콜, 플래그 등 정보 파싱
@@ -22,8 +21,7 @@ import java.util.List;
 public class PacketParser {
 
     /**
-     * 실제 네트워크 패킷 파싱
-     *
+     * 네트워크 패킷 파싱
      * 패킷의 헤더 정보를 추출해서 PacketData 객체로 변환
      */
     public PacketData parseNetworkPacket(Packet packet) {
@@ -37,7 +35,6 @@ public class PacketParser {
             // IPv4 패킷 확인 및 파싱
             IpV4Packet ipv4Packet = packet.get(IpV4Packet.class);
             if (ipv4Packet == null) {
-                // IPv6 패킷은 일단 무시 (필요시 나중에 추가)
                 return null;
             }
 
@@ -146,14 +143,6 @@ public class PacketParser {
         }
     }
 
-    /**
-     * IPv6 패킷 파싱 (향후 확장용)
-     */
-    public PacketData parseIpv6Packet(Packet packet) {
-        // TODO: IPv6 패킷 파싱 로직 구현
-        // 현재는 IPv4만 지원하므로 null 반환
-        return null;
-    }
 
     /**
      * 포트 및 플래그 정보를 담는 내부 클래스

@@ -7,9 +7,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.example.packetanomalydetection.config.PacketCaptureConfig;
 import org.example.packetanomalydetection.entity.PacketData;
 import org.example.packetanomalydetection.handler.CaptureStatisticsManager;
-import org.example.packetanomalydetection.handler.NetworkInterfaceManager;
+import org.example.packetanomalydetection.networkInterface.NetworkInterfaceManager;
 import org.example.packetanomalydetection.handler.PacketCaptureHandler;
 import org.example.packetanomalydetection.handler.SimulationPacketCaptureHandler;
+import org.example.packetanomalydetection.networkInterface.NetworkSystemValidator;
 import org.example.packetanomalydetection.repository.PacketDataRepository;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +33,7 @@ public class PacketCaptureService {
     private final ThreatDetectionService threatDetectionService;
 
 
+    private final NetworkSystemValidator networkSystemValidator;
     private final NetworkInterfaceManager networkInterfaceManager;
     private final PacketCaptureHandler realCaptureHandler;
     private final SimulationPacketCaptureHandler simulationCaptureHandler;
@@ -58,13 +60,13 @@ public class PacketCaptureService {
      */
     private boolean determineCaptureMode() {
         // Apple Silicon 체크
-        if (networkInterfaceManager.isAppleSiliconMac()) {
+        if (networkSystemValidator.isAppleSiliconMac()) {
             log.warn("Apple Silicon Mac 감지 - 시뮬레이션 모드로 전환");
             return true;
         }
 
         // Pcap4J 호환성 체크
-        if (!networkInterfaceManager.testPcap4jCompatibility()) {
+        if (!networkSystemValidator.testPcap4jCompatibility()) {
             log.warn("Pcap4J 호환성 문제 - 시뮬레이션 모드로 전환");
             return true;
         }

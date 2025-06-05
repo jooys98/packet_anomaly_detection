@@ -74,7 +74,7 @@ public class PacketFilterBuilder {
             log.info(" 프로토콜 필터: {}", protocolFilter);
         }
 
-        // 3. 포트 필터
+        // 3. 포트 필터id
         if (!filterConfig.getPorts().isEmpty()) {
             String portFilter = filterConfig.getPorts().stream()
                     .map(port -> "port " + port)

@@ -8,12 +8,11 @@ import org.example.packetanomalydetection.entity.enums.ScanPattern;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Collectors;
 
 /**
  *  PortScanTracker - 포트 스캔 추적기
  *
- * 역할: 특정 IP에서 여러 포트에 접근하는 패턴을 추적해서 포트 스캔 탐지
+ * 역할: 특정 IP 에서 여러 포트에 접근하는 패턴을 추적해서 포트 스캔 탐지
  *
  * 포트 스캔의 특징:
  * 1. 짧은 시간에 여러 포트 접근

@@ -39,6 +39,49 @@ public class TrafficTracker {
     private final LocalDateTime startTime = LocalDateTime.now();
 
     /**
+     *  DDoS 공격 의심 여부 판단
+     */
+    public synchronized boolean isDdosSuspicious() {
+
+        //  판단 기준들
+        boolean highPacketRate = getPacketsPerSecond() > 1000;  // 초당 1000개 이상
+        boolean manySourceIps = getUniqueSourceIpCount() > 100; // 100개 이상 IP
+        boolean shortDuration = java.time.Duration.between(startTime, LocalDateTime.now()).getSeconds() < 60; // 1분 이내
+
+        //  프로토콜 집중도 (하나의 프로토콜이 80% 이상)
+        Map<String, Double> distribution = getProtocolDistribution();
+        boolean protocolConcentration = distribution.values().stream()
+                .anyMatch(percentage -> percentage > 80);
+
+        //  2개 이상 조건 만족 시 의심
+        int suspiciousFactors = 0;
+        if (highPacketRate) suspiciousFactors++;
+        if (manySourceIps) suspiciousFactors++;
+        if (shortDuration) suspiciousFactors++;
+        if (protocolConcentration) suspiciousFactors++;
+
+        boolean suspicious = suspiciousFactors >= 2;
+
+        if (suspicious) {
+            log.warn(" DDoS 공격 의심: PPS={}, IPs={}, 프로토콜 집중={}",
+                    getPacketsPerSecond(), getUniqueSourceIpCount(), protocolConcentration);
+        }
+
+        return suspicious;
+    }
+
+    /**
+     * 트래픽 요약 정보
+     */
+    public synchronized String getTrafficSummary() {
+        return String.format(
+                " 트래픽 요약: 패킷 %d개, IP %d개, PPS %.1f, 평균크기 %.1f bytes",
+                packetCount, getUniqueSourceIpCount(),
+                getPacketsPerSecond(), getAveragePacketSize()
+        );
+    }
+
+    /**
      *  패킷 수 증가
      */
     public synchronized void incrementPacketCount() {
@@ -111,46 +154,7 @@ public class TrafficTracker {
         return distribution;
     }
 
-    /**
-     *  DDoS 공격 의심 여부 판단
-     */
-    public synchronized boolean isDdosSuspicious() {
 
-        //  판단 기준들
-        boolean highPacketRate = getPacketsPerSecond() > 1000;  // 초당 1000개 이상
-        boolean manySourceIps = getUniqueSourceIpCount() > 100; // 100개 이상 IP
-        boolean shortDuration = java.time.Duration.between(startTime, LocalDateTime.now()).getSeconds() < 60; // 1분 이내
 
-        //  프로토콜 집중도 (하나의 프로토콜이 80% 이상)
-        Map<String, Double> distribution = getProtocolDistribution();
-        boolean protocolConcentration = distribution.values().stream()
-                .anyMatch(percentage -> percentage > 80);
 
-        //  2개 이상 조건 만족 시 의심
-        int suspiciousFactors = 0;
-        if (highPacketRate) suspiciousFactors++;
-        if (manySourceIps) suspiciousFactors++;
-        if (shortDuration) suspiciousFactors++;
-        if (protocolConcentration) suspiciousFactors++;
-
-        boolean suspicious = suspiciousFactors >= 2;
-
-        if (suspicious) {
-            log.warn(" DDoS 공격 의심: PPS={}, IPs={}, 프로토콜 집중={}",
-                    getPacketsPerSecond(), getUniqueSourceIpCount(), protocolConcentration);
-        }
-
-        return suspicious;
-    }
-
-    /**
-     * 트래픽 요약 정보
-     */
-    public synchronized String getTrafficSummary() {
-        return String.format(
-                " 트래픽 요약: 패킷 %d개, IP %d개, PPS %.1f, 평균크기 %.1f bytes",
-                packetCount, getUniqueSourceIpCount(),
-                getPacketsPerSecond(), getAveragePacketSize()
-        );
-    }
 }

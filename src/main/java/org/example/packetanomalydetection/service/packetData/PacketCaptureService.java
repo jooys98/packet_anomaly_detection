@@ -1,4 +1,4 @@
-package org.example.packetanomalydetection.service;
+package org.example.packetanomalydetection.service.packetData;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
@@ -12,6 +12,7 @@ import org.example.packetanomalydetection.handler.PacketCaptureHandler;
 import org.example.packetanomalydetection.handler.SimulationPacketCaptureHandler;
 import org.example.packetanomalydetection.networkInterface.NetworkSystemValidator;
 import org.example.packetanomalydetection.repository.PacketDataRepository;
+import org.example.packetanomalydetection.service.threatDetection.ThreatDetectionService;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -55,24 +56,6 @@ public class PacketCaptureService {
         }
     }
 
-    /**
-     * 캡처 모드 결정 로직
-     */
-    private boolean determineCaptureMode() {
-        // Apple Silicon 체크
-        if (networkSystemValidator.isAppleSiliconMac()) {
-            log.warn("Apple Silicon Mac 감지 - 시뮬레이션 모드로 전환");
-            return true;
-        }
-
-        // Pcap4J 호환성 체크
-        if (!networkSystemValidator.testPcap4jCompatibility()) {
-            log.warn("Pcap4J 호환성 문제 - 시뮬레이션 모드로 전환");
-            return true;
-        }
-
-        return false;
-    }
 
     /**
      * 캡처 시작
@@ -100,45 +83,6 @@ public class PacketCaptureService {
         }
     }
 
-    /**
-     * 캡처된 패킷 처리 (콜백 메서드)
-     */
-    private void handleCapturedPacket(PacketData packetData) {
-        try {
-            // 데이터베이스 저장
-            PacketData savedPacket = packetRepository.save(packetData);
-
-            // 통계 업데이트
-            statisticsManager.updateStats();
-
-            // 위협 탐지
-            threatDetectionService.analyzePacketRealtime(savedPacket);
-
-            // 진행 상황 출력
-            if (statisticsManager.shouldPrintProgress()) {
-                printCaptureProgress(savedPacket);
-            }
-
-        } catch (Exception e) {
-            log.error("패킷 처리 중 오류", e);
-        }
-    }
-
-    /**
-     * 캡처 진행 상황 출력
-     */
-    private void printCaptureProgress(PacketData packet) {
-        System.out.printf("[%s #%d] %s:%s -> %s:%s (%s, %d bytes)\n",
-                useSimulationMode ? "시뮬레이션" : "실제 패킷",
-                statisticsManager.getTotalCapturedPackets(),
-                packet.getSourceIp(),
-                packet.getSourcePort() != null ? packet.getSourcePort() : "?",
-                packet.getDestIp(),
-                packet.getDestPort() != null ? packet.getDestPort() : "?",
-                packet.getProtocol(),
-                packet.getPacketSize()
-        );
-    }
 
     /**
      * 캡처 중지
@@ -179,6 +123,63 @@ public class PacketCaptureService {
 
     public boolean isUsingSimulationMode() {
         return useSimulationMode;
+    }
+    /**
+     * 캡처 모드 결정 로직
+     */
+    private boolean determineCaptureMode() {
+        // Apple Silicon 체크
+        if (networkSystemValidator.isAppleSiliconMac()) {
+            log.warn("Apple Silicon Mac 감지 - 시뮬레이션 모드로 전환");
+            return true;
+        }
+
+        // Pcap4J 호환성 체크
+        if (!networkSystemValidator.testPcap4jCompatibility()) {
+            log.warn("Pcap4J 호환성 문제 - 시뮬레이션 모드로 전환");
+            return true;
+        }
+
+        return false;
+    }
+    /**
+     * 캡처된 패킷 처리 (콜백 메서드)
+     */
+    private void handleCapturedPacket(PacketData packetData) {
+        try {
+            // 데이터베이스 저장
+            PacketData savedPacket = packetRepository.save(packetData);
+
+            // 통계 업데이트
+            statisticsManager.updateStats();
+
+            // 위협 탐지
+            threatDetectionService.analyzePacketRealtime(savedPacket);
+
+            // 진행 상황 출력
+            if (statisticsManager.shouldPrintProgress()) {
+                printCaptureProgress(savedPacket);
+            }
+
+        } catch (Exception e) {
+            log.error("패킷 처리 중 오류", e);
+        }
+    }
+
+    /**
+     * 캡처 진행 상황 출력
+     */
+    private void printCaptureProgress(PacketData packet) {
+        System.out.printf("[%s #%d] %s:%s -> %s:%s (%s, %d bytes)\n",
+                useSimulationMode ? "시뮬레이션" : "실제 패킷",
+                statisticsManager.getTotalCapturedPackets(),
+                packet.getSourceIp(),
+                packet.getSourcePort() != null ? packet.getSourcePort() : "?",
+                packet.getDestIp(),
+                packet.getDestPort() != null ? packet.getDestPort() : "?",
+                packet.getProtocol(),
+                packet.getPacketSize()
+        );
     }
 
     @PreDestroy

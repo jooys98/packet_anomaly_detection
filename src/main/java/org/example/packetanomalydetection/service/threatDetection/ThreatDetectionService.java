@@ -1,4 +1,4 @@
-package org.example.packetanomalydetection.service;
+package org.example.packetanomalydetection.service.threatDetection;
 
 
 import lombok.RequiredArgsConstructor;
@@ -8,8 +8,8 @@ import org.example.packetanomalydetection.entity.Alert;
 import org.example.packetanomalydetection.entity.PacketData;
 import org.example.packetanomalydetection.entity.constants.AlertType;
 import org.example.packetanomalydetection.entity.enums.AlertSeverity;
-import org.example.packetanomalydetection.repository.AlertRepository;
 import org.example.packetanomalydetection.repository.PacketDataRepository;
+import org.example.packetanomalydetection.service.alert.AlertService;
 import org.example.packetanomalydetection.util.tracker.ConnectionAttemptTracker;
 import org.example.packetanomalydetection.util.tracker.PortScanTracker;
 import org.example.packetanomalydetection.util.tracker.TrafficTracker;
@@ -42,7 +42,6 @@ public class ThreatDetectionService {
 
     private final DetectionConfig detectionConfig;
     private final PacketDataRepository packetRepository;
-    private final AlertRepository alertRepository;
     private final AlertService alertService;
 
     // 실시간 통계 추적용 메모리 캐시
@@ -55,10 +54,10 @@ public class ThreatDetectionService {
     // 트래픽 급증 탐지용 (시간대별 패킷 수)
     private final Map<String, TrafficTracker> trafficStats = new ConcurrentHashMap<>();
 
+
     /**
      *  실시간 패킷 분석
-     *
-     * PacketCaptureService에서 패킷이 캡처될 때마다 호출됨
+     * PacketCaptureService 에서 패킷이 캡처될 때마다 호출됨
      * 빠른 응답이 필요하므로 간단하고 효율적인 검사만 수행
      */
     public void analyzePacketRealtime(PacketData packet) {
@@ -129,7 +128,7 @@ public class ThreatDetectionService {
 
             alertService.createAlert(alert);
 
-            // 📱 즉시 출력
+            // 즉시 출력
             System.out.println(" [대용량 패킷] " + packet.getSourceIp() + " → " +
                     packet.getDestIp() + " (" + packetSize + " bytes)");
         }
@@ -187,8 +186,7 @@ public class ThreatDetectionService {
 
     /**
      *  3. 연결 시도 횟수 추적 및 브루트포스 탐지
-     *
-     * 동일한 IP에서 짧은 시간에 많은 연결을 시도하는 것은:
+     * 동일한 IP 에서 짧은 시간에 많은 연결을 시도하는 것은:
      * - 브루트포스 공격 (무차별 대입 공격)
      * - 자동화된 스캔 도구 사용
      * - 봇넷 공격
@@ -224,7 +222,6 @@ public class ThreatDetectionService {
 
     /**
      *  4. 포트 스캔 패턴 추적
-     *
      * 포트 스캔의 특징:
      * - 동일한 IP에서 여러 포트에 연속적으로 접근
      * - 짧은 시간에 많은 포트 시도

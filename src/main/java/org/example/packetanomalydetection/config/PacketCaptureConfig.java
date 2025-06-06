@@ -5,8 +5,6 @@ import lombok.NoArgsConstructor;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @Component
 @ConfigurationProperties(prefix = "monitoring.packet")
@@ -53,7 +51,7 @@ public class PacketCaptureConfig {
     //초당 처리할 수 있는 최대 패킷 수 (성능 제한)
     private Integer maxPacketsPerSecond = 1000;
 
-    private PacketFilterConfig filter = new PacketFilterConfig();
+
 
 
 }

@@ -9,10 +9,10 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 /**
- *  ConnectionAttemptTracker - 연결 시도 추적기
- * 역할: 특정 IP에서 오는 연결 시도를 추적해서 브루트포스 공격 탐지
+ * ConnectionAttemptTracker - 연결 시도 추적기
+ * 역할: 특정 IP 에서 오는 연결 시도를 추적해서 브루트포스 공격 탐지
  * 동작 원리:
- * 1. IP별로 연결 시도 시간과 대상을 기록
+ * 1. IP 별로 연결 시도 시간과 대상을 기록
  * 2. 설정된 시간 윈도우 내의 시도 횟수 계산
  * 3. 임계값 초과 시 브루트포스 공격으로 판단
  * 예시:
@@ -30,7 +30,7 @@ public class ConnectionAttemptTracker {
     private LocalDateTime lastActivity = LocalDateTime.now();
 
     /**
-     *  새로운 연결 시도 추가
+     * 새로운 연결 시도 추가
      */
     public synchronized void addAttempt(PacketData packet) {
         ConnectionAttempt attempt = new ConnectionAttempt(
@@ -51,13 +51,13 @@ public class ConnectionAttemptTracker {
     }
 
     /**
-     *  지정된 시간(분) 내의 연결 시도 수 계산
+     * 지정된 시간(분) 내의 연결 시도 수 계산
      */
     public synchronized int getAttemptsInLastMinutes(int minutes) {
         LocalDateTime cutoff = LocalDateTime.now().minusMinutes(minutes);
 
         int count = (int) attempts.stream()
-                .filter(attempt -> attempt.getTimestamp().isAfter(cutoff))
+                .filter(attempt -> attempt.timestamp().isAfter(cutoff))
                 .count();
 
         log.debug("최근 {}분간 연결 시도: {}회", minutes, count);
@@ -65,27 +65,19 @@ public class ConnectionAttemptTracker {
     }
 
     /**
-     *  특정 포트에 대한 연결 시도 수
+     * 특정 포트에 대한 연결 시도 수
      */
     public synchronized int getAttemptsToPort(int port, int minutes) {
         LocalDateTime cutoff = LocalDateTime.now().minusMinutes(minutes);
 
         return (int) attempts.stream()
-                .filter(attempt -> attempt.getTimestamp().isAfter(cutoff))
-                .filter(attempt -> Objects.equals(attempt.getTargetPort(), port))
+                .filter(attempt -> attempt.timestamp().isAfter(cutoff))
+                .filter(attempt -> Objects.equals(attempt.targetPort(), port))
                 .count();
     }
 
     /**
-     *  오래된 시도 기록 제거
-     */
-    private void cleanupOldAttempts(int maxAgeMinutes) {
-        LocalDateTime cutoff = LocalDateTime.now().minusMinutes(maxAgeMinutes);
-        attempts.removeIf(attempt -> attempt.getTimestamp().isBefore(cutoff));
-    }
-
-    /**
-     *  추적기 리셋 (알림 생성 후 중복 방지용)
+     * 추적기 리셋 (알림 생성 후 중복 방지용)
      */
     public synchronized void reset() {
         attempts.clear();
@@ -94,29 +86,30 @@ public class ConnectionAttemptTracker {
     }
 
     /**
-     *  총 연결 시도 수
+     * 총 연결 시도 수
      */
     public synchronized int getTotalAttempts() {
         return attempts.size();
     }
 
     /**
+     * 오래된 시도 기록 제거
+     */
+    private void cleanupOldAttempts(int maxAgeMinutes) {
+        LocalDateTime cutoff = LocalDateTime.now().minusMinutes(maxAgeMinutes);
+        attempts.removeIf(attempt -> attempt.timestamp().isBefore(cutoff));
+    }
+
+
+    /**
      * 연결 시도 데이터 클래스
      */
     @Getter
-    public static class ConnectionAttempt {
-        private final LocalDateTime timestamp;
-        private final String targetIp;
-        private final Integer targetPort;
-        private final String protocol;
-
-        public ConnectionAttempt(LocalDateTime timestamp, String targetIp,
-                                 Integer targetPort, String protocol) {
-            this.timestamp = timestamp;
-            this.targetIp = targetIp;
-            this.targetPort = targetPort;
-            this.protocol = protocol;
-        }
+    public record ConnectionAttempt(
+            LocalDateTime timestamp,
+            String targetIp,
+            Integer targetPort,
+            String protocol) {
 
         @Override
         public String toString() {

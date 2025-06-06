@@ -53,7 +53,7 @@ monitoring:
       ports: [ ]
       exclude-networks: [ ]
       custom-filter: ""
-
+# 위협 탐지 기준 설정
   detection:
     traffic-spike-threshold: 1000
     port-scan-threshold: 10

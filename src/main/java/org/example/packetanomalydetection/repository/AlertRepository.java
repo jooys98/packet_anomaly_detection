@@ -10,6 +10,9 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface AlertRepository extends JpaRepository<Alert, Long> {
+
+
+    //TODO : JPQL vs native 쿼리 속도 성능 분석 비교
     /**
      * 해결되지 않은 알림 조회
      */
@@ -46,12 +49,6 @@ public interface AlertRepository extends JpaRepository<Alert, Long> {
      */
     @Query("SELECT COUNT(a) FROM Alert a WHERE a.resolved = false")
     Long countActiveAlerts();
-
-    /**
-     * 특정 시간 이후의 알림 수 조회
-     */
-    @Query("SELECT COUNT(a) FROM Alert a WHERE a.timestamp >= :since")
-    Long countAlertsSince(@Param("since") LocalDateTime since);
 
 
     @Query(" SELECT a FROM Alert a WHERE a.severity =:severity AND a.timestamp < timestamp")

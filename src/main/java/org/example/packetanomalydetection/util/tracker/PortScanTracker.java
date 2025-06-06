@@ -11,14 +11,11 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  *  PortScanTracker - 포트 스캔 추적기
- *
  * 역할: 특정 IP 에서 여러 포트에 접근하는 패턴을 추적해서 포트 스캔 탐지
- *
  * 포트 스캔의 특징:
  * 1. 짧은 시간에 여러 포트 접근
  * 2. 대부분 연결 실패 (포트가 닫혀있음)
  * 3. 순차적 또는 무작위 포트 스캔
- *
  * 예시:
  * - 203.0.113.50에서 22, 23, 80, 443, 3389, 21 포트 순차 접근
  * → 포트 스캔 공격으로 탐지
@@ -85,29 +82,29 @@ public class PortScanTracker {
         return new HashSet<>(scannedPorts.keySet());
     }
 
-    /**
-     *  대상 IP 목록
-     */
-    public synchronized Set<String> getTargetIps() {
-        return new HashSet<>(targetIps);
-    }
+//    /**
+//     *  대상 IP 목록
+//     */
+//    public synchronized Set<String> getTargetIps() {
+//        return new HashSet<>(targetIps);
+//    }
 
     /**
      * 스캔 지속 시간 (분)
      */
-    public synchronized long getScanDurationMinutes() {
-        if (scannedPorts.isEmpty()) return 0;
-
-        LocalDateTime earliest = scannedPorts.values().stream()
-                .min(LocalDateTime::compareTo)
-                .orElse(LocalDateTime.now());
-
-        LocalDateTime latest = scannedPorts.values().stream()
-                .max(LocalDateTime::compareTo)
-                .orElse(LocalDateTime.now());
-
-        return java.time.Duration.between(earliest, latest).toMinutes();
-    }
+//    public synchronized long getScanDurationMinutes() {
+//        if (scannedPorts.isEmpty()) return 0;
+//
+//        LocalDateTime earliest = scannedPorts.values().stream()
+//                .min(LocalDateTime::compareTo)
+//                .orElse(LocalDateTime.now());
+//
+//        LocalDateTime latest = scannedPorts.values().stream()
+//                .max(LocalDateTime::compareTo)
+//                .orElse(LocalDateTime.now());
+//
+//        return java.time.Duration.between(earliest, latest).toMinutes();
+//    }
 
     /**
      *  오래된 스캔 기록 정리
@@ -139,40 +136,40 @@ public class PortScanTracker {
     /**
      *  스캔 패턴 분석
      */
-    public synchronized ScanPattern analyzeScanPattern() {
-        if (scannedPorts.size() < 3) {
-            return ScanPattern.INSUFFICIENT_DATA;
-        }
-
-        List<Integer> sortedPorts = scannedPorts.keySet().stream()
-                .sorted()
-                .toList();
-
-        //  순차적 스캔인지 확인 (연속된 포트 번호)
-        boolean isSequential = true;
-        for (int i = 1; i < sortedPorts.size(); i++) {
-            if (sortedPorts.get(i) - sortedPorts.get(i-1) > 5) {
-                isSequential = false;
-                break;
-            }
-        }
-
-        if (isSequential) {
-            return ScanPattern.SEQUENTIAL;
-        }
-
-        //  일반적인 포트들인지 확인
-        Set<Integer> commonPorts = Set.of(21, 22, 23, 25, 53, 80, 110, 143, 443, 993, 995, 3389);
-        long commonPortCount = sortedPorts.stream()
-                .filter(commonPorts::contains)
-                .count();
-
-        if (commonPortCount >= sortedPorts.size() * 0.7) {
-            return ScanPattern.COMMON_PORTS;
-        }
-
-        return ScanPattern.RANDOM;
-    }
+//    public synchronized ScanPattern analyzeScanPattern() {
+//        if (scannedPorts.size() < 3) {
+//            return ScanPattern.INSUFFICIENT_DATA;
+//        }
+//
+//        List<Integer> sortedPorts = scannedPorts.keySet().stream()
+//                .sorted()
+//                .toList();
+//
+//        //  순차적 스캔인지 확인 (연속된 포트 번호)
+//        boolean isSequential = true;
+//        for (int i = 1; i < sortedPorts.size(); i++) {
+//            if (sortedPorts.get(i) - sortedPorts.get(i-1) > 5) {
+//                isSequential = false;
+//                break;
+//            }
+//        }
+//
+//        if (isSequential) {
+//            return ScanPattern.SEQUENTIAL;
+//        }
+//
+//        //  일반적인 포트들인지 확인
+//        Set<Integer> commonPorts = Set.of(21, 22, 23, 25, 53, 80, 110, 143, 443, 993, 995, 3389);
+//        long commonPortCount = sortedPorts.stream()
+//                .filter(commonPorts::contains)
+//                .count();
+//
+//        if (commonPortCount >= sortedPorts.size() * 0.7) {
+//            return ScanPattern.COMMON_PORTS;
+//        }
+//
+//        return ScanPattern.RANDOM;
+//    }
 
 
 

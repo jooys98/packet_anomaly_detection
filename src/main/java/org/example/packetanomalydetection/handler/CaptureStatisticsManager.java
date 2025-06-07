@@ -22,7 +22,7 @@ import java.util.concurrent.atomic.AtomicLong;
 @Getter
 public class CaptureStatisticsManager {
 
-    // 통계 관련 변수들 (멀티쓰레드 안전)
+    // 통계 관련 변수들
     private final AtomicLong totalCapturedPackets = new AtomicLong(0);
     private final AtomicLong packetsPerSecondCounter = new AtomicLong(0);
     private final AtomicBoolean isActive = new AtomicBoolean(false);
@@ -30,6 +30,7 @@ public class CaptureStatisticsManager {
     // 시간 관련 변수들
 
     private LocalDateTime captureStartTime;
+    @Getter
     private LocalDateTime lastPacketTime;
     private long lastStatsPrintTime = 0;
 
@@ -177,12 +178,7 @@ public class CaptureStatisticsManager {
         return 0.0;
     }
 
-    /**
-     * 상태 확인 메서드들
-     */
-    public boolean isActive() {
-        return isActive.get();
-    }
+
 
     public long getTotalCapturedPackets() {
         return totalCapturedPackets.get();
@@ -206,16 +202,5 @@ public class CaptureStatisticsManager {
         return runningSeconds > 0 ? (double) totalCapturedPackets.get() / runningSeconds : 0.0;
     }
 
-    /**
-     * 통계 리셋 (테스트용)
-     */
-    public void resetStats() {
-        totalCapturedPackets.set(0);
-        packetsPerSecondCounter.set(0);
-        captureStartTime = LocalDateTime.now();
-        lastPacketTime = null;
-        lastStatsPrintTime = System.currentTimeMillis() / 1000;
 
-        log.info("통계 초기화 완료");
-    }
 }

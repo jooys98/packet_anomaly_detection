@@ -9,10 +9,49 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface PacketDataRepository extends JpaRepository<PacketData, Long> {
-    /**
-     * 특정 시간 범위의 패킷 조회
-     */
+
     List<PacketData> findByTimestampBetween(LocalDateTime start, LocalDateTime end);
+
+    /**
+     * 특정 날짜 범위의 패킷 개수 조회
+     */
+    @Query("SELECT COUNT(p) FROM PacketData p WHERE p.timestamp BETWEEN :startTime AND :endTime")
+    Long countPacketsByDateRange(@Param("startTime") LocalDateTime startTime,
+                                 @Param("endTime") LocalDateTime endTime);
+
+    /**
+     * 특정 날짜 범위의 첫 번째 패킷 시간
+     */
+    @Query("SELECT MIN(p.timestamp) FROM PacketData p WHERE p.timestamp BETWEEN :startTime AND :endTime")
+    LocalDateTime findFirstPacketTimeByDateRange(@Param("startTime") LocalDateTime startTime,
+                                                 @Param("endTime") LocalDateTime endTime);
+
+    /**
+     * 특정 날짜 범위의 마지막 패킷 시간
+     */
+    @Query("SELECT MAX(p.timestamp) FROM PacketData p WHERE p.timestamp BETWEEN :startTime AND :endTime")
+    LocalDateTime findLastPacketTimeByDateRange(@Param("startTime") LocalDateTime startTime,
+                                                @Param("endTime") LocalDateTime endTime);
+
+//    /**
+//     * 특정 날짜의 시간별 패킷 개수 분포
+//     */
+//    @Query("SELECT HOUR(p.timestamp) as hour, COUNT(p) as count " +
+//            "FROM PacketData p " +
+//            "WHERE p.timestamp BETWEEN :startTime AND :endTime " +
+//            "GROUP BY HOUR(p.timestamp) " +
+//            "ORDER BY hour")
+//    List<Object[]> findHourlyPacketDistribution(@Param("startTime") LocalDateTime startTime,
+//                                                @Param("endTime") LocalDateTime endTime);
+
+    /**
+     * 특정 날짜 범위의 모든 패킷 (PPS 계산용)
+     */
+    @Query("SELECT p.timestamp FROM PacketData p " +
+            "WHERE p.timestamp BETWEEN :startTime AND :endTime " +
+            "ORDER BY p.timestamp")
+    List<LocalDateTime> findPacketTimestampsByDateRange(@Param("startTime") LocalDateTime startTime,
+                                                        @Param("endTime") LocalDateTime endTime);
 
     /**
      * 특정 IP의 패킷 조회

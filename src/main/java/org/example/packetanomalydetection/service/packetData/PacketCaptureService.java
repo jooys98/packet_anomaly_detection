@@ -78,6 +78,7 @@ public class PacketCaptureService {
                 try {
                     if (captureMode) {
                         useSimulationMode = true;
+                        statisticsManager.startCapture();
                         simulationCaptureHandler.startCapture(this::handleCapturedPacket);
                     } else {
                         try {
@@ -119,6 +120,7 @@ public class PacketCaptureService {
     @PreDestroy
     public boolean cleanup() {
         log.info("PacketCaptureService 정리 중...");
+        isRunning.set(false);
         stopCapture();
         return true;
     }
@@ -146,7 +148,7 @@ public class PacketCaptureService {
      */
     private boolean determineCaptureMode() {
         // Apple Silicon 체크
-        if (networkSystemValidator.isAppleSiliconMac()||networkSystemValidator.testPcap4jCompatibility()) {
+        if (networkSystemValidator.isAppleSiliconMac() || networkSystemValidator.testPcap4jCompatibility()) {
             log.warn("Apple Silicon Mac 감지 - 시뮬레이션 모드로 전환");
             return true;
         }

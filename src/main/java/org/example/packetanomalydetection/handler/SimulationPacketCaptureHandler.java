@@ -6,8 +6,12 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Consumer;
+
 
 /**
  * 시뮬레이션 패킷 캡처 핸들러
@@ -22,7 +26,8 @@ public class SimulationPacketCaptureHandler {
 
     private final AtomicBoolean isCapturing = new AtomicBoolean(false);
     private Consumer<PacketData> packetHandler;
-
+    private ScheduledExecutorService executorService;
+    private ScheduledFuture<?> captureTask;
     /**
      * 시뮬레이션 캡처 시작
      */
@@ -48,15 +53,28 @@ public class SimulationPacketCaptureHandler {
         if (isCapturing.get()) {
             log.info("시뮬레이션 캡처 중지");
             isCapturing.set(false);
+        }// 실행 중인 태스크 중단
+        if (captureTask != null && !captureTask.isCancelled()) {
+            captureTask.cancel(true);
         }
+
+        // ExecutorService 종료
+        if (executorService != null && !executorService.isShutdown()) {
+            executorService.shutdown();
+            try {
+                if (!executorService.awaitTermination(5, TimeUnit.SECONDS)) {
+                    executorService.shutdownNow();
+                    Thread.currentThread().interrupt();
+                }
+            } catch (InterruptedException e) {
+                executorService.shutdownNow();
+                Thread.currentThread().interrupt();
+            }
+        }
+        log.info("시뮬레이션 캡처 완전 중지됨");
     }
 
-    /**
-     * 캡처 상태 확인
-     */
-    private boolean isCapturing() {
-        return isCapturing.get();
-    }
+
 
     /**
      * 시뮬레이션 루프
@@ -76,9 +94,11 @@ public class SimulationPacketCaptureHandler {
 
             } catch (InterruptedException e) {
                 log.info("시뮬레이션 루프 중단됨");
+                Thread.currentThread().interrupt();
                 break;
             } catch (Exception e) {
                 log.error("시뮬레이션 패킷 처리 중 오류", e);
+                Thread.currentThread().interrupt();
             }
         }
     }

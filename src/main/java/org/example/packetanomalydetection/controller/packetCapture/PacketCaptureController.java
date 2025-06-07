@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 
 @Slf4j
 @RestController
@@ -31,25 +32,39 @@ public class PacketCaptureController {
         Map<String, Object> response = new HashMap<>();
 
         try {
-            boolean started = packetCaptureService.initializeCapture();
-
-            if (started) {
-                response.put("status", "SUCCESS");
-                response.put("message", "패킷 캡처가 시작되었습니다");
-                response.put("captureStatus", "RUNNING");
-                response.put("timestamp", LocalDateTime.now());
-                return ResponseEntity.ok(response);
-            } else {
+            // 현재 상태 먼저 확인
+            if (packetCaptureService.isRunning()) {
                 response.put("status", "ERROR");
-                response.put("message", "패킷 캡처가 이미 실행 중이거나 시작할 수 없습니다");
-                response.put("captureStatus", "FAILED");
+                response.put("message", "패킷 캡처가 이미 실행 중입니다");
+                response.put("captureStatus", "ALREADY_RUNNING");
+                response.put("timestamp", LocalDateTime.now());
                 return ResponseEntity.badRequest().body(response);
             }
+
+            // 비동기로 캡처 시작
+            CompletableFuture.runAsync(() -> {
+                try {
+                    log.info(" 백그라운드에서 패킷 캡처 초기화 시작...");
+                    packetCaptureService.initializeCapture();
+                } catch (Exception e) {
+                    log.error(" 백그라운드 패킷 캡처 초기화 실패: {}", e.getMessage(), e);
+                }
+            });
+
+            // 즉시 응답 반환
+            response.put("status", "SUCCESS");
+            response.put("message", "패킷 캡처 시작 요청이 접수되었습니다. 백그라운드에서 초기화 중입니다.");
+            response.put("captureStatus", "INITIALIZING");
+            response.put("timestamp", LocalDateTime.now());
+
+            return ResponseEntity.ok(response);
+
         } catch (Exception e) {
-            log.error("❌ 패킷 캡처 시작 실패: {}", e.getMessage(), e);
+            log.error("패킷 캡처 시작 요청 처리 실패: {}", e.getMessage(), e);
             response.put("status", "ERROR");
-            response.put("message", "패킷 캡처 시작 중 오류 발생: " + e.getMessage());
+            response.put("message", "패킷 캡처 시작 요청 처리 중 오류 발생: " + e.getMessage());
             response.put("captureStatus", "ERROR");
+            response.put("timestamp", LocalDateTime.now());
             return ResponseEntity.internalServerError().body(response);
         }
     }
@@ -79,7 +94,7 @@ public class PacketCaptureController {
                 return ResponseEntity.badRequest().body(response);
             }
         } catch (Exception e) {
-            log.error("❌ 패킷 캡처 중지 실패: {}", e.getMessage(), e);
+            log.error("패킷 캡처 중지 실패: {}", e.getMessage(), e);
             response.put("status", "ERROR");
             response.put("message", "패킷 캡처 중지 중 오류 발생: " + e.getMessage());
             return ResponseEntity.internalServerError().body(response);

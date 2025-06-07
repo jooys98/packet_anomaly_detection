@@ -3,7 +3,6 @@ package org.example.packetanomalydetection.service.packetData;
 import jakarta.annotation.PreDestroy;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.packetanomalydetection.config.PacketCaptureConfig;
 import org.example.packetanomalydetection.entity.PacketData;
 import org.example.packetanomalydetection.handler.CaptureStatisticsManager;
 import org.example.packetanomalydetection.networkInterface.NetworkInterfaceManager;
@@ -13,6 +12,8 @@ import org.example.packetanomalydetection.networkInterface.NetworkSystemValidato
 import org.example.packetanomalydetection.repository.PacketDataRepository;
 import org.example.packetanomalydetection.service.threatDetection.ThreatDetectionService;
 import org.springframework.stereotype.Service;
+
+import java.util.concurrent.atomic.AtomicBoolean;
 
 
 /**
@@ -27,7 +28,6 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class PacketCaptureService {
 
-    private final PacketCaptureConfig captureConfig;
     private final PacketDataRepository packetRepository;
     private final ThreatDetectionService threatDetectionService;
 
@@ -38,64 +38,90 @@ public class PacketCaptureService {
     private final SimulationPacketCaptureHandler simulationCaptureHandler;
     private final CaptureStatisticsManager statisticsManager;
 
-    boolean useSimulationMode = false;
+    private final AtomicBoolean isRunning = new AtomicBoolean(false);
+    boolean useSimulationMode;
 
 
-    // 상태 조회 메서드들 (API용)
-//    public boolean isCapturing() {
-//        return useSimulationMode ?
-//                simulationCaptureHandler.isCapturing() :
-//                realCaptureHandler.isCapturing();
-//    }
+    public void initializeCapture() {
+        if (isRunning.get()) {
+            log.warn("패킷 캡처가 이미 실행 중입니다");
+            return;
+        }
 
-    public boolean isUsingSimulationMode() {
-        return useSimulationMode;
-    }
+        log.info(" 패킷 캡처 초기화 시작...");
 
+        try {
+            // 캡처 모드 결정
+            boolean captureMode = determineCaptureMode();
 
-    public boolean initializeCapture() {
-        log.info("PacketCaptureService 초기화 중...");
+            // 별도 스레드에서 캡처 시작
+            startCaptureInBackground(captureMode);
 
-        // 캡처 모드 결정
-        useSimulationMode = determineCaptureMode();
+            isRunning.set(true);
+            log.info("패킷 캡처 초기화 완료 (모드: {})", getCaptureMode());
 
-        if (captureConfig.getEnableCapture()) {
-            startCapture();
-            return true;
-        } else {
-            log.warn("패킷 캡처 비활성화 상태");
-            return false;
+        } catch (Exception e) {
+            log.error(" 패킷 캡처 초기화 실패: {}", e.getMessage(), e);
+            isRunning.set(false);
+            throw new RuntimeException("패킷 캡처 초기화 실패", e);
         }
     }
 
+    private void startCaptureInBackground(boolean captureMode) {
+        // 100ms 대기
+        // 오류가 발생해도 계속 시도 (필요에 따라 조정)
+        Thread captureThread = new Thread(() -> {
+            log.info("백그라운드 패킷 캡처 시작");
 
-    /**
-     * 캡처 시작
-     */
-    public void startCapture() {
-        log.info("패킷 캡처 시작 (모드: {})",
-                useSimulationMode ? "시뮬레이션" : "실제 캡처");
 
-        statisticsManager.startCapture();
+            while (isRunning.get() && !Thread.currentThread().isInterrupted()) {
+                try {
+                    if (captureMode) {
+                        useSimulationMode = true;
+                        simulationCaptureHandler.startCapture(this::handleCapturedPacket);
+                    } else {
+                        try {
+                            useSimulationMode = false;
+                            networkInterfaceManager.initializeInterface();
+                            realCaptureHandler.startCapture(
+                                    networkInterfaceManager.getSelectedInterface(),
+                                    this::handleCapturedPacket
+                            );
+                        } catch (Exception e) {
+                            log.error("실제 패킷 캡처 시작 실패 - 시뮬레이션 모드로 전환", e);
+                            useSimulationMode = true;
+                            simulationCaptureHandler.startCapture(this::handleCapturedPacket);
+                        }
+                    }
 
-        if (useSimulationMode) {
-            simulationCaptureHandler.startCapture(this::handleCapturedPacket);
-        } else {
-            try {
-                networkInterfaceManager.initializeInterface();
-                realCaptureHandler.startCapture(
-                        networkInterfaceManager.getSelectedInterface(),
-                        this::handleCapturedPacket
-                );
-            } catch (Exception e) {
-                log.error("실제 패킷 캡처 시작 실패 - 시뮬레이션 모드로 전환", e);
-                useSimulationMode = true;
-                simulationCaptureHandler.startCapture(this::handleCapturedPacket);
+                    Thread.sleep(100); // 100ms 대기
+
+                } catch (InterruptedException e) {
+                    log.info("패킷 캡처 스레드 중단 요청");
+                    Thread.currentThread().interrupt();
+                    break;
+                } catch (Exception e) {
+                    log.error(" 패킷 캡처 중 오류: {}", e.getMessage(), e);
+                    // 오류가 발생해도 계속 시도 (필요에 따라 조정)
+                }
             }
-        }
 
+            log.info(" 패킷 캡처 스레드 종료");
+        }, "PacketCaptureThread");
+
+        captureThread.setDaemon(true); // 데몬 스레드로 설정
+        captureThread.start();
+
+        log.info("패킷 캡처 백그라운드 스레드 시작됨");
     }
 
+
+    @PreDestroy
+    public boolean cleanup() {
+        log.info("PacketCaptureService 정리 중...");
+        stopCapture();
+        return true;
+    }
 
     /**
      * 캡처 중지
@@ -108,7 +134,6 @@ public class PacketCaptureService {
 
         } else {
             realCaptureHandler.stopCapture();
-
         }
 
         statisticsManager.stopCapture();
@@ -121,19 +146,13 @@ public class PacketCaptureService {
      */
     private boolean determineCaptureMode() {
         // Apple Silicon 체크
-        if (networkSystemValidator.isAppleSiliconMac()) {
+        if (networkSystemValidator.isAppleSiliconMac()||networkSystemValidator.testPcap4jCompatibility()) {
             log.warn("Apple Silicon Mac 감지 - 시뮬레이션 모드로 전환");
             return true;
         }
-
-        // Pcap4J 호환성 체크
-        if (!networkSystemValidator.testPcap4jCompatibility()) {
-            log.warn("Pcap4J 호환성 문제 - 시뮬레이션 모드로 전환");
-            return true;
-        }
-
         return false;
     }
+
 
     /**
      * 캡처된 패킷 처리 (콜백 메서드)
@@ -175,10 +194,14 @@ public class PacketCaptureService {
         );
     }
 
-    @PreDestroy
-    public boolean cleanup() {
-        log.info("PacketCaptureService 정리 중...");
-        stopCapture();
-        return true;
+    public boolean isRunning() {
+        return isRunning.get();
     }
+
+
+    private String getCaptureMode() {
+        return useSimulationMode ? "SIMULATION" : "REAL";
+    }
+
+
 }

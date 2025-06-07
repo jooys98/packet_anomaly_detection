@@ -3,7 +3,6 @@ package org.example.packetanomalydetection.config;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -27,7 +26,7 @@ public class PacketFilterConfig {
      * false: 모든 패킷 캡처 (성능 영향 있음)
      * true: 지정된 조건에 맞는 패킷만 캡처
      */
-    private Boolean enableFilter ;
+    private Boolean enableFilter = false;
 
     /**
      * 필터 모드
@@ -35,7 +34,7 @@ public class PacketFilterConfig {
      * - ADVANCED: 고급 조건부 필터링
      * - CUSTOM: 사용자 정의 BPF 필터
      */
-    private String filterMode ;
+    private String filterMode= "basic";
 
     /**
      * 캡처할 프로토콜 목록
@@ -83,6 +82,23 @@ public class PacketFilterConfig {
      * 0보다 크면 해당 크기 이하의 패킷만 캡처
      */
     private Integer maxPacketSize = 0;
+
+    public void changeFilterMode(Boolean enableFilter, String filterMode,
+                                 List<String> protocols, List<Integer> ports,
+                                 List<String> excludeNetworks, List<String> includeNetworks,
+                                 String customFilter, Integer minPacketSize, Integer maxPacketSize
+    ) {
+        this.filterMode = filterMode;
+        this.protocols = protocols;
+        this.ports = ports;
+        this.excludeNetworks = excludeNetworks;
+        this.includeNetworks = includeNetworks;
+        this.customFilter = customFilter;
+        this.minPacketSize = minPacketSize;
+        this.maxPacketSize = maxPacketSize;
+        this.enableFilter = enableFilter;
+    }
+
 
     /**
      * 필터 검증 메서드

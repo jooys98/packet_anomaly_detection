@@ -17,7 +17,7 @@ public class PacketCaptureConfig {
 
     //패킷을 캡처할 네트워크 인터페이스 이름
     //eth0 : 리눅스에서 일반적인 인터페이스 이름
-    private String interfaceName;
+    private String interfaceName = "en0";
 
     //1000ms = 1초 (1초마다 한번씩 캠처된 패킷들을 정리)
     /*
@@ -29,7 +29,7 @@ public class PacketCaptureConfig {
      * - 장점: 효율적인 배치 처리, 낮은 시스템 부하
      * - 단점: 위협 탐지 지연, 실시간성 떨어짐
      */
-    private Integer captureTimeout;
+    private Integer captureTimeout = 1000;
 
     //패킷 캡처용 메모리 버퍼 크기
     /*
@@ -41,13 +41,13 @@ public class PacketCaptureConfig {
      * - 패킷 손실 위험 적음
      * - 메모리 사용량 증가
      */
-    private Integer bufferSize;
+    private Integer bufferSize =25536;
 
     //패킷 캡처 기능 자체를 켜고 끄는 마스터 스위치
     private Boolean enableCapture=true;
 
     //초당 처리할 수 있는 최대 패킷 수 (성능 제한)
-    private Integer maxPacketsPerSecond;
+    private Integer maxPacketsPerSecond = 500;
 
 
     public void changeCaptureConfig(String interfaceName, Integer captureTimeout, Integer bufferSize, Boolean enableCapture) {

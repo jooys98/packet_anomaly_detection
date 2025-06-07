@@ -54,7 +54,7 @@ public class SimulationPacketCaptureHandler {
     /**
      * 캡처 상태 확인
      */
-    public boolean isCapturing() {
+    private boolean isCapturing() {
         return isCapturing.get();
     }
 

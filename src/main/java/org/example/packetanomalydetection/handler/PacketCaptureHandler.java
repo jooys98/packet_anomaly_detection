@@ -134,7 +134,7 @@ public class PacketCaptureHandler {
             log.info("패킷 필터 설정: {}", filter);
 
         } else {
-            throw new IllegalStateException("패킷 필터 미설정으로 인한 캡처 중단");
+            return;
         }
     }
 

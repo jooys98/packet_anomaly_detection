@@ -39,11 +39,11 @@ public class NetworkSystemValidator {
             Pcaps.findAllDevs();
 
             log.info("Pcap4J 호환성 테스트 성공");
-            return true;
+            return false;
 
         } catch (Exception e) {
             log.warn("Pcap4J 호환성 테스트 실패: {} - 시뮬레이션 모드 필요", e.getMessage());
-            return false;
+            return true;
         }
     }
 

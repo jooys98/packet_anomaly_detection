@@ -57,19 +57,6 @@ logging:
 
 
 monitoring:
-  packet:
-    interface-name: "eth0"
-    capture-timeout: 1000
-    buffer-size: 65536
-
-#여기서 설정한 패킷 캡처 모드가 PacketFilterConfig 클래스로 전달되어 패킷 캡처모드를 설정한다
-    filter:
-      enable-filter: false
-      filter-mode: "BASIC"
-      protocols: [ ]
-      ports: [ ]
-      exclude-networks: [ ]
-      custom-filter: ""
 # 위협 탐지 기준 설정
   detection:
     traffic-spike-threshold: 1000

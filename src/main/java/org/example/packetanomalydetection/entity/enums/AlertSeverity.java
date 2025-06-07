@@ -9,14 +9,13 @@ import java.util.stream.Collectors;
 
 @Getter
 public enum AlertSeverity {
-    LOW("낮음", 1, "#28a745"),           // 녹색
-    MEDIUM("보통", 2, "#ffc107"),        // 노란색
-    HIGH("높음", 3, "#fd7e14"),          // 주황색
-    CRITICAL("심각", 4, "#dc3545");      // 빨간색
+    LOW("낮음", 1),           // 녹색
+    MEDIUM("보통", 2),        // 노란색
+    HIGH("높음", 3 ),          // 주황색
+    CRITICAL("심각", 4 );      // 빨간색
 
     private final String level;
     private final int priority;
-    private final String colorCode;
 
 
     private static final Map<Integer, AlertSeverity> PRIORITY_MAP =
@@ -32,10 +31,9 @@ public enum AlertSeverity {
     }
 
 
-    AlertSeverity(String level, int priority, String colorCode) {
+    AlertSeverity(String level, int priority) {
         this.level = level;
         this.priority = priority;
-        this.colorCode = colorCode;
     }
 
 }

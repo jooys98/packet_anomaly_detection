@@ -1,6 +1,7 @@
 package org.example.packetanomalydetection.config;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
@@ -16,9 +17,9 @@ import java.util.List;
  * - Berkeley Packet Filter (BPF) 규칙 관리
  */
 @Component
-@ConfigurationProperties(prefix = "monitoring.packet.filter")
 @Data
 @NoArgsConstructor
+@Getter
 public class PacketFilterConfig {
 
     /**
@@ -26,7 +27,7 @@ public class PacketFilterConfig {
      * false: 모든 패킷 캡처 (성능 영향 있음)
      * true: 지정된 조건에 맞는 패킷만 캡처
      */
-    private Boolean enableFilter = false;
+    private Boolean enableFilter ;
 
     /**
      * 필터 모드
@@ -34,7 +35,7 @@ public class PacketFilterConfig {
      * - ADVANCED: 고급 조건부 필터링
      * - CUSTOM: 사용자 정의 BPF 필터
      */
-    private String filterMode = "BASIC";
+    private String filterMode ;
 
     /**
      * 캡처할 프로토콜 목록

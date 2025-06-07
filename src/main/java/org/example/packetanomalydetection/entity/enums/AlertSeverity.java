@@ -14,7 +14,7 @@ public enum AlertSeverity {
     HIGH("높음", 3, "#fd7e14"),          // 주황색
     CRITICAL("심각", 4, "#dc3545");      // 빨간색
 
-    private final String koreanName;
+    private final String level;
     private final int priority;
     private final String colorCode;
 
@@ -32,8 +32,8 @@ public enum AlertSeverity {
     }
 
 
-    AlertSeverity(String koreanName, int priority, String colorCode) {
-        this.koreanName = koreanName;
+    AlertSeverity(String level, int priority, String colorCode) {
+        this.level = level;
         this.priority = priority;
         this.colorCode = colorCode;
     }

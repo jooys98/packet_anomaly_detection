@@ -1,9 +1,8 @@
-package org.example.packetanomalydetection.controller;
-
+package org.example.packetanomalydetection.controller.alert;
 
 import lombok.RequiredArgsConstructor;
-import org.example.packetanomalydetection.dto.AlertResponseDTO;
-import org.example.packetanomalydetection.dto.AlertStatisticsResponseDTO;
+import org.example.packetanomalydetection.dto.alert.AlertResponseDTO;
+import org.example.packetanomalydetection.dto.alert.AlertStatisticsResponseDTO;
 import org.example.packetanomalydetection.service.alert.AlertQueryService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

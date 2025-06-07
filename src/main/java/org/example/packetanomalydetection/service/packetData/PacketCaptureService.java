@@ -1,6 +1,5 @@
 package org.example.packetanomalydetection.service.packetData;
 
-import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,7 +14,6 @@ import org.example.packetanomalydetection.repository.PacketDataRepository;
 import org.example.packetanomalydetection.service.threatDetection.ThreatDetectionService;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 
 /**
  * 패킷 캡처 서비스 - 메인 조정자 역할
@@ -40,10 +38,22 @@ public class PacketCaptureService {
     private final SimulationPacketCaptureHandler simulationCaptureHandler;
     private final CaptureStatisticsManager statisticsManager;
 
-    private boolean useSimulationMode = false;
+    boolean useSimulationMode = false;
 
-    @PostConstruct
-    public void initializeCapture() {
+
+    // 상태 조회 메서드들 (API용)
+//    public boolean isCapturing() {
+//        return useSimulationMode ?
+//                simulationCaptureHandler.isCapturing() :
+//                realCaptureHandler.isCapturing();
+//    }
+
+    public boolean isUsingSimulationMode() {
+        return useSimulationMode;
+    }
+
+
+    public boolean initializeCapture() {
         log.info("PacketCaptureService 초기화 중...");
 
         // 캡처 모드 결정
@@ -51,8 +61,10 @@ public class PacketCaptureService {
 
         if (captureConfig.getEnableCapture()) {
             startCapture();
+            return true;
         } else {
             log.warn("패킷 캡처 비활성화 상태");
+            return false;
         }
     }
 
@@ -81,6 +93,7 @@ public class PacketCaptureService {
                 simulationCaptureHandler.startCapture(this::handleCapturedPacket);
             }
         }
+
     }
 
 
@@ -92,38 +105,17 @@ public class PacketCaptureService {
 
         if (useSimulationMode) {
             simulationCaptureHandler.stopCapture();
+
         } else {
             realCaptureHandler.stopCapture();
+
         }
 
         statisticsManager.stopCapture();
         statisticsManager.printFinalStats(useSimulationMode);
     }
 
-    // 상태 조회 메서드들 (API용)
-    public boolean isCapturing() {
-        return useSimulationMode ?
-                simulationCaptureHandler.isCapturing() :
-                realCaptureHandler.isCapturing();
-    }
 
-    public long getTotalCapturedPackets() {
-        return statisticsManager.getTotalCapturedPackets();
-    }
-
-    public LocalDateTime getLastPacketTime() {
-        return statisticsManager.getLastPacketTime();
-    }
-
-    public String getSelectedInterfaceName() {
-        return useSimulationMode ?
-                "시뮬레이션 모드" :
-                networkInterfaceManager.getSelectedInterfaceName();
-    }
-
-    public boolean isUsingSimulationMode() {
-        return useSimulationMode;
-    }
     /**
      * 캡처 모드 결정 로직
      */
@@ -142,6 +134,7 @@ public class PacketCaptureService {
 
         return false;
     }
+
     /**
      * 캡처된 패킷 처리 (콜백 메서드)
      */
@@ -183,8 +176,9 @@ public class PacketCaptureService {
     }
 
     @PreDestroy
-    public void cleanup() {
+    public boolean cleanup() {
         log.info("PacketCaptureService 정리 중...");
         stopCapture();
+        return true;
     }
 }

@@ -3,8 +3,6 @@ package org.example.packetanomalydetection.util.tracker;
 
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
-import org.example.packetanomalydetection.entity.enums.ScanPattern;
-
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;

@@ -1,11 +1,12 @@
 package org.example.packetanomalydetection.config;
 
+import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.security.SecurityScheme;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.info.Contact;
-import io.swagger.v3.oas.models.info.License;
 
 /**
  * Swagger/OpenAPI 설정
@@ -14,18 +15,20 @@ import io.swagger.v3.oas.models.info.License;
 public class SwaggerConfig {
 
     @Bean
-    public OpenAPI securityMonitorOpenAPI() {
-        return new OpenAPI()
-                .info(new Info()
-                        .title("Network Security Monitor API")
-                        .description("네트워크 보안 모니터링 시스템 REST API")
-                        .version("v1.0")
-                        .contact(new Contact()
-                                .name("Security Monitor Team")
-                                .email("security@monitor.com")
-                                .url("https://github.com/security-monitor"))
-                        .license(new License()
-                                .name("MIT License")
-                                .url("https://opensource.org/licenses/MIT")));
+    public OpenAPI openAPI() {
+        return new OpenAPI().openapi("3.0.0") // openAPI 버전 명시
+                .components(new Components())
+                .info(apiInfo());
+    }
+
+    private Info apiInfo() {
+        return new Info()
+                .title("Network Security Monitor API")
+                .description("네트워크 보안 모니터링 시스템 REST API")
+                .contact(new Contact()
+                        .name("주윤수")
+                        .email("jooys98@naver.com")
+                        .url("https://github.com/jooys98/packet_anomaly_detection.git"))
+                .version("1.0.0");
     }
 }

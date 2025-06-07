@@ -104,7 +104,7 @@ public class ConnectionAttemptTracker {
     /**
      * 연결 시도 데이터 클래스
      */
-    @Getter
+
     public record ConnectionAttempt(
             LocalDateTime timestamp,
             String targetIp,

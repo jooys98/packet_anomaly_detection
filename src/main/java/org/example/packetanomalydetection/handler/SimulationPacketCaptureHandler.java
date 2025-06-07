@@ -11,7 +11,6 @@ import java.util.function.Consumer;
 
 /**
  * 시뮬레이션 패킷 캡처 핸들러
- *
  * 책임:
  * - Apple Silicon 등 호환성 문제 환경에서 가상 패킷 생성
  * - 다양한 공격 시나리오 시뮬레이션
@@ -41,6 +40,22 @@ public class SimulationPacketCaptureHandler {
         log.info("학습 목적: 실제 패킷 대신 가상 데이터로 위협 탐지 테스트");
 
         startSimulationLoop();
+    }
+    /**
+     * 캡처 중지
+     */
+    public void stopCapture() {
+        if (isCapturing.get()) {
+            log.info("시뮬레이션 캡처 중지");
+            isCapturing.set(false);
+        }
+    }
+
+    /**
+     * 캡처 상태 확인
+     */
+    public boolean isCapturing() {
+        return isCapturing.get();
     }
 
     /**
@@ -180,20 +195,5 @@ public class SimulationPacketCaptureHandler {
                 .build();
     }
 
-    /**
-     * 캡처 중지
-     */
-    public void stopCapture() {
-        if (isCapturing.get()) {
-            log.info("시뮬레이션 캡처 중지");
-            isCapturing.set(false);
-        }
-    }
 
-    /**
-     * 캡처 상태 확인
-     */
-    public boolean isCapturing() {
-        return isCapturing.get();
-    }
 }

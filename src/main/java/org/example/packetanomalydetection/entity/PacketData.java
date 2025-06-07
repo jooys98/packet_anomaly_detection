@@ -3,7 +3,6 @@ package org.example.packetanomalydetection.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.pcap4j.packet.Packet;
 
 import java.time.LocalDateTime;
 

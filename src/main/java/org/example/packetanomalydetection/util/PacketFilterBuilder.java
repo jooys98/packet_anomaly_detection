@@ -2,7 +2,6 @@ package org.example.packetanomalydetection.util;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.packetanomalydetection.config.PacketFilterConfig;
-import org.example.packetanomalydetection.entity.enums.PacketFilterType;
 import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;

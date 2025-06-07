@@ -24,11 +24,6 @@ public interface PacketDataRepository extends JpaRepository<PacketData, Long> {
      */
     List<PacketData> findTop100ByOrderByTimestampDesc();
 
-    /**
-     * 특정 시간 이후의 패킷 수 조회
-     */
-    @Query("SELECT COUNT(p) FROM PacketData p WHERE p.timestamp >= :since")
-    Long countPacketsSince(@Param("since") LocalDateTime since);
 
     /**
      * 가장 활발한 소스 IP 조회

@@ -1,8 +1,7 @@
-package org.example.packetanomalydetection.dto;
+package org.example.packetanomalydetection.dto.alert;
 
 import lombok.*;
 import org.example.packetanomalydetection.entity.Alert;
-import org.example.packetanomalydetection.entity.enums.AlertSeverity;
 
 import java.time.LocalDateTime;
 

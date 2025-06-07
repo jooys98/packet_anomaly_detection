@@ -1,7 +1,9 @@
 package org.example.packetanomalydetection.handler;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.packetanomalydetection.config.PacketCaptureConfig;
+import org.example.packetanomalydetection.config.PacketFilterConfig;
 import org.example.packetanomalydetection.entity.PacketData;
 import org.example.packetanomalydetection.util.PacketFilterBuilder;
 import org.example.packetanomalydetection.util.PacketParser;
@@ -24,7 +26,7 @@ import java.util.function.Consumer;
 @RequiredArgsConstructor
 @Slf4j
 public class PacketCaptureHandler {
-
+    private final PacketFilterConfig packetFilterConfig;
     private final PacketCaptureConfig captureConfig;
     private final PacketFilterBuilder filterBuilder;
     private final PacketParser packetParser;
@@ -73,6 +75,29 @@ public class PacketCaptureHandler {
             cleanupPcapHandle();
         }
     }
+    /**
+     * 캡처 중지
+     */
+    public void stopCapture() {
+        if (!isCapturing.get()) {
+            log.warn("실제 패킷 캡처가 실행되고 있지 않습니다");
+            return;
+        }
+
+        log.info("실제 패킷 캡처 중지 요청");
+        isCapturing.set(false);
+
+        try {
+            if (pcapHandle != null && pcapHandle.isOpen()) {
+                pcapHandle.breakLoop();
+                log.info("패킷 캡처 루프 중단됨");
+            }
+        } catch (NotOpenException e) {
+            log.error("캡처 중지 중 오류", e);
+        }
+
+        cleanupPcapHandle();
+    }
 
     /**
      * Pcap 핸들 생성 및 설정
@@ -100,7 +125,7 @@ public class PacketCaptureHandler {
      * PacketFilterBuilder 에서 구축해놓은 패킷을 가져와서 적용시킴
      */
     private void setupPacketFilter() throws PcapNativeException, NotOpenException {
-        String filter = filterBuilder.buildFilter(captureConfig.getFilter());
+        String filter = filterBuilder.buildFilter(packetFilterConfig);
 
         //TODO : 성능개선 작업 - 필터가 없을 경우의 예외처리
         if (!filter.isEmpty()) {
@@ -135,7 +160,7 @@ public class PacketCaptureHandler {
     }
 
     /**
-     *네트워크 패킷 처리
+     * 네트워크 패킷 처리
      */
     private void handleRealNetworkPacket(Packet packet) {
         try {
@@ -153,29 +178,7 @@ public class PacketCaptureHandler {
         }
     }
 
-    /**
-     * 캡처 중지
-     */
-    public void stopCapture() {
-        if (!isCapturing.get()) {
-            log.warn("실제 패킷 캡처가 실행되고 있지 않습니다");
-            return;
-        }
 
-        log.info("실제 패킷 캡처 중지 요청");
-        isCapturing.set(false);
-
-        try {
-            if (pcapHandle != null && pcapHandle.isOpen()) {
-                pcapHandle.breakLoop();
-                log.info("패킷 캡처 루프 중단됨");
-            }
-        } catch (NotOpenException e) {
-            log.error("캡처 중지 중 오류", e);
-        }
-
-        cleanupPcapHandle();
-    }
 
     /**
      * Pcap 핸들 정리
@@ -193,10 +196,4 @@ public class PacketCaptureHandler {
         }
     }
 
-    /**
-     * 캡처 상태 확인
-     */
-    public boolean isCapturing() {
-        return isCapturing.get();
-    }
 }

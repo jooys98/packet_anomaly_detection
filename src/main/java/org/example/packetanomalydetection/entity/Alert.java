@@ -17,9 +17,9 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 
-  /**
-  * PacketData 를 분석해서 발견한 의심스러운 흔적을 기록하는 엔티티
-   **/
+/**
+ * PacketData 를 분석해서 발견한 의심스러운 흔적을 기록하는 엔티티
+ **/
 
 public class Alert {
 
@@ -74,6 +74,7 @@ public class Alert {
 
     /**
      * 알림을 해결된 상태로 마크
+     *
      * @param resolvedBy 해결한 사람
      */
     public void markAsResolved(String resolvedBy) {
@@ -82,7 +83,7 @@ public class Alert {
         this.resolvedBy = resolvedBy;
     }
 
-public void addTimestamp(LocalDateTime timestamp) {
+    public void addTimestamp(LocalDateTime timestamp) {
         this.timestamp = timestamp;
-}
+    }
 }

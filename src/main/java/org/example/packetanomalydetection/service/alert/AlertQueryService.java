@@ -1,10 +1,9 @@
 package org.example.packetanomalydetection.service.alert;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j2;
 import lombok.extern.slf4j.Slf4j;
-import org.example.packetanomalydetection.dto.AlertResponseDTO;
-import org.example.packetanomalydetection.dto.AlertStatisticsResponseDTO;
+import org.example.packetanomalydetection.dto.alert.AlertResponseDTO;
+import org.example.packetanomalydetection.dto.alert.AlertStatisticsResponseDTO;
 import org.example.packetanomalydetection.entity.Alert;
 import org.example.packetanomalydetection.entity.enums.AlertSeverity;
 import org.example.packetanomalydetection.repository.AlertRepository;

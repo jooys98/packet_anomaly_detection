@@ -1,11 +1,10 @@
-package org.example.packetanomalydetection.dto;
+package org.example.packetanomalydetection.dto.alert;
 
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.example.packetanomalydetection.entity.Alert;
 import org.example.packetanomalydetection.entity.enums.AlertSeverity;
 
 import java.time.LocalDateTime;
@@ -20,7 +19,6 @@ public class AlertStatisticsResponseDTO {
     //전체 알림 수
     private Long totalAlerts;
     private Long activeAlerts;
-
     private Long todayAlerts;
     private Long totalCreatedSinceStart;
     private SeverityDistribution severityDistribution;
@@ -44,7 +42,7 @@ public class AlertStatisticsResponseDTO {
     @Builder
     @NoArgsConstructor
     @AllArgsConstructor
-    //위험도 분포를 표기하기 위한 서브정적 클래스
+    //위험도 분포를 표기하기 위한 정적 서브 클래스
     public static class SeverityDistribution {
 
         private Long low;

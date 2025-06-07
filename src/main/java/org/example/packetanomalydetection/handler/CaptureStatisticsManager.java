@@ -11,7 +11,6 @@ import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * 패킷 캡처 통계 관리 전담 클래스
- *
  * 책임:
  * - 캡처된 패킷 수 추적
  * - 처리량 계산 (PPS - Packets Per Second)
@@ -62,23 +61,6 @@ public class CaptureStatisticsManager {
 
         // 주기적으로 PPS 통계 출력
         printPeriodicStats();
-    }
-
-    /**
-     * 주기적 통계 출력 (10초마다)
-     */
-    private void printPeriodicStats() {
-        long currentSecond = System.currentTimeMillis() / 1000;
-
-        if (currentSecond - lastStatsPrintTime >= STATS_PRINT_INTERVAL_SECONDS) {
-            long packetsInPeriod = packetsPerSecondCounter.getAndSet(0);
-            double pps = (double) packetsInPeriod / STATS_PRINT_INTERVAL_SECONDS;
-
-            log.info("처리량 통계: {:.1f} 패킷/초 (총 {} 개 처리됨)",
-                    pps, totalCapturedPackets.get());
-
-            lastStatsPrintTime = currentSecond;
-        }
     }
 
     /**
@@ -136,6 +118,24 @@ public class CaptureStatisticsManager {
         // 성능 평가
         printPerformanceAssessment(avgPacketsPerSecond, isSimulationMode);
     }
+
+    /**
+     * 주기적 통계 출력 (10초마다)
+     */
+    private void printPeriodicStats() {
+        long currentSecond = System.currentTimeMillis() / 1000;
+
+        if (currentSecond - lastStatsPrintTime >= STATS_PRINT_INTERVAL_SECONDS) {
+            long packetsInPeriod = packetsPerSecondCounter.getAndSet(0);
+            double pps = (double) packetsInPeriod / STATS_PRINT_INTERVAL_SECONDS;
+
+            log.info("처리량 통계: {:.1f} 패킷/초 (총 {} 개 처리됨)",
+                    pps, totalCapturedPackets.get());
+
+            lastStatsPrintTime = currentSecond;
+        }
+    }
+
 
     /**
      * 성능 평가 출력

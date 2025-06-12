@@ -2,10 +2,17 @@ package org.example.packetanomalydetection.handler;
 
 
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.example.packetanomalydetection.entity.CaptureStatistics;
+import org.example.packetanomalydetection.entity.enums.CaptureMode;
+import org.example.packetanomalydetection.entity.enums.CaptureStatus;
+import org.example.packetanomalydetection.repository.CaptureStatisticsRepository;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -20,7 +27,9 @@ import java.util.concurrent.atomic.AtomicLong;
 @Component
 @Slf4j
 @Getter
+@RequiredArgsConstructor
 public class CaptureStatisticsManager {
+
 
     // 통계 관련 변수들
     private final AtomicLong totalCapturedPackets = new AtomicLong(0);
@@ -29,26 +38,40 @@ public class CaptureStatisticsManager {
 
     // 시간 관련 변수들
 
+    private String currentSessionId;
+    private CaptureStatistics currentStatistics;
     private LocalDateTime captureStartTime;
-    @Getter
-    private LocalDateTime lastPacketTime;
+    private double peakPacketsPerSecond = 0.0;
     private long lastStatsPrintTime = 0;
-
+    private LocalDateTime captureEndTime;
     // 출력 제어 변수들
     private static final int PROGRESS_PRINT_INTERVAL_SIMULATION = 50; // 시뮬레이션: 50개마다
-    private static final int PROGRESS_PRINT_INTERVAL_REAL = 100;      // 실제: 100개마다
     private static final int STATS_PRINT_INTERVAL_SECONDS = 10;       // 통계: 10초마다
+
+
+    private final CaptureStatisticsRepository captureStatisticsRepository;
+
 
     /**
      * 캡처 시작 - 통계 초기화
      */
-    public void startCapture() {
+    public void startCapture(CaptureMode mode, String networkInterface) {
+        currentSessionId = UUID.randomUUID().toString();
+        captureStartTime = LocalDateTime.now();
+
+        if (networkInterface == null) {
+            networkInterface = "SIMULATION";
+        }
+        currentStatistics = CaptureStatistics.from(currentSessionId, captureStartTime, mode, networkInterface);
+
         isActive.set(true);
         captureStartTime = LocalDateTime.now();
         totalCapturedPackets.set(0);
         packetsPerSecondCounter.set(0);
         lastStatsPrintTime = System.currentTimeMillis() / 1000;
 
+
+        currentStatistics.updateStatus(CaptureStatus.ACTIVE);
         log.info("통계 관리 시작: {}", captureStartTime);
     }
 
@@ -58,8 +81,6 @@ public class CaptureStatisticsManager {
     public void updateStats() {
         totalCapturedPackets.incrementAndGet();
         packetsPerSecondCounter.incrementAndGet();
-        lastPacketTime = LocalDateTime.now();
-
         // 주기적으로 PPS 통계 출력
         printPeriodicStats();
     }
@@ -75,19 +96,34 @@ public class CaptureStatisticsManager {
         return total % PROGRESS_PRINT_INTERVAL_SIMULATION == 0;
     }
 
-    /**
-     * 실제 캡처 모드의 진행 상황 출력 여부
-     */
-    public boolean shouldPrintProgressForRealCapture() {
-        return totalCapturedPackets.get() % PROGRESS_PRINT_INTERVAL_REAL == 0;
-    }
 
     /**
      * 캡처 중지
      */
     public void stopCapture() {
+        if (currentStatistics == null) {
+            log.info("저장할 통계 세션이 없음");
+            return;
+        }
+
         isActive.set(false);
         log.info("통계 관리 중지");
+        captureEndTime = LocalDateTime.now();
+        long runningSeconds = java.time.Duration.between(captureStartTime, captureEndTime).getSeconds();
+        double avgPps = runningSeconds > 0 ? (double) totalCapturedPackets.get() / runningSeconds : 0;
+
+        // 최종 통계 업데이트
+        currentStatistics.updateStatistics(captureEndTime, totalCapturedPackets.get(), runningSeconds,
+                avgPps, peakPacketsPerSecond);
+
+        // 상태 변경
+        currentStatistics.updateStatus(CaptureStatus.STOPPED);
+
+        // DB 저장
+        captureStatisticsRepository.save(currentStatistics);
+
+
+        log.info("통계 세션 종료: {}", currentSessionId);
     }
 
     /**
@@ -112,12 +148,10 @@ public class CaptureStatisticsManager {
         log.info("시작 시간: {}", captureStartTime);
         log.info("종료 시간: {}", endTime);
 
-        if (lastPacketTime != null) {
-            log.info("마지막 패킷: {}", lastPacketTime);
+        if (captureEndTime != null) {
+            log.info("마지막 패킷: {}", captureEndTime);
         }
 
-        // 성능 평가
-        printPerformanceAssessment(avgPacketsPerSecond, isSimulationMode);
     }
 
     /**
@@ -138,69 +172,6 @@ public class CaptureStatisticsManager {
     }
 
 
-    /**
-     * 성능 평가 출력
-     */
-    private void printPerformanceAssessment(double avgPps, boolean isSimulationMode) {
-        log.info("=== 성능 평가 ===");
-
-        if (isSimulationMode) {
-            log.info("시뮬레이션 모드 - 성능 테스트 완료");
-            if (avgPps >= 1.0) {
-                log.info("시뮬레이션 성능: 양호 ({:.1f} PPS)", avgPps);
-            } else {
-                log.warn("시뮬레이션 성능: 느림 ({:.1f} PPS)", avgPps);
-            }
-        } else {
-            // 실제 캡처 모드 성능 평가
-            if (avgPps >= 100) {
-                log.info(" 실제 캡처 성능: 우수 ({:.1f} PPS)", avgPps);
-            } else if (avgPps >= 50) {
-                log.info("실제 캡처 성능: 양호 ({:.1f} PPS)", avgPps);
-            } else if (avgPps >= 10) {
-                log.warn("실제 캡처 성능: 보통 ({:.1f} PPS)", avgPps);
-            } else {
-                log.warn(" 실제 캡처 성능: 개선 필요 ({:.1f} PPS)", avgPps);
-            }
-        }
-    }
-
-    /**
-     * 현재 처리량 조회 (API용)
-     */
-    public double getCurrentPacketsPerSecond() {
-        long currentTime = System.currentTimeMillis() / 1000;
-        long timeDiff = currentTime - lastStatsPrintTime;
-
-        if (timeDiff > 0) {
-            return (double) packetsPerSecondCounter.get() / timeDiff;
-        }
-        return 0.0;
-    }
-
-
-
-    public long getTotalCapturedPackets() {
-        return totalCapturedPackets.get();
-    }
-
-    /**
-     * 실행 시간 조회 (초 단위)
-     */
-    public long getRunningTimeSeconds() {
-        if (captureStartTime == null) {
-            return 0;
-        }
-        return java.time.Duration.between(captureStartTime, LocalDateTime.now()).getSeconds();
-    }
-
-    /**
-     * 평균 처리량 조회
-     */
-    public double getAveragePacketsPerSecond() {
-        long runningSeconds = getRunningTimeSeconds();
-        return runningSeconds > 0 ? (double) totalCapturedPackets.get() / runningSeconds : 0.0;
-    }
 
 
 }

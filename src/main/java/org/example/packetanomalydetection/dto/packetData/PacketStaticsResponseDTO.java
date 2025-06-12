@@ -1,6 +1,7 @@
 package org.example.packetanomalydetection.dto.packetData;
 
 import lombok.*;
+import org.example.packetanomalydetection.entity.CaptureStatistics;
 
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
@@ -11,18 +12,26 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @ToString
 public class PacketStaticsResponseDTO {
+    private String sessionId;
+    private String captureMode;
+    private Long runningTimeSeconds;
     private Long totalPackets;
-    private LocalDateTime lastTime;
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
     private DayOfWeek dayOfWeek;
 
 
-    public static PacketStaticsResponseDTO of(LocalDateTime lastTime, Long totalPackets) {
-        DayOfWeek dayOfWeek = lastTime.getDayOfWeek();
+    public static PacketStaticsResponseDTO of(CaptureStatistics captureStatistics) {
+        DayOfWeek dayOfWeek = captureStatistics.getCaptureEndTime().getDayOfWeek();
 
         return PacketStaticsResponseDTO.builder()
-                .lastTime(lastTime)
+                .sessionId(captureStatistics.getSessionId())
+                .captureMode(captureStatistics.getCaptureMode().toString())
+                .runningTimeSeconds(captureStatistics.getRunningTimeSeconds())
+                .startTime(captureStatistics.getCaptureStartTime())
+                .endTime(captureStatistics.getCaptureEndTime())
                 .dayOfWeek(dayOfWeek)
-                .totalPackets(totalPackets)
+                .totalPackets(captureStatistics.getTotalPackets())
                 .build();
     }
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -19,8 +20,8 @@ import java.time.LocalDate;
 public class PacketDataController {
     private final PacketDataQueryService packetDataQueryService;
 
-@GetMapping("/statistics")
-    public ResponseEntity<PacketStaticsResponseDTO> getStatisticsByDaily(@RequestParam LocalDate date) {
-    return ResponseEntity.ok(packetDataQueryService.getStatisticsByDaily(date));
+@GetMapping("/daily")
+    public ResponseEntity <List<PacketStaticsResponseDTO>> getPacketsByDaily(@RequestParam LocalDate date) {
+    return ResponseEntity.ok(packetDataQueryService.getPacketsByDaily(date));
 }
 }

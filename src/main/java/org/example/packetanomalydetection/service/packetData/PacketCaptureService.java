@@ -4,6 +4,7 @@ import jakarta.annotation.PreDestroy;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.packetanomalydetection.entity.PacketData;
+import org.example.packetanomalydetection.entity.enums.CaptureMode;
 import org.example.packetanomalydetection.handler.CaptureStatisticsManager;
 import org.example.packetanomalydetection.networkInterface.NetworkInterfaceManager;
 import org.example.packetanomalydetection.handler.PacketCaptureHandler;
@@ -70,6 +71,7 @@ public class PacketCaptureService {
     private void startCaptureInBackground(boolean captureMode) {
         // 100ms 대기
         // 오류가 발생해도 계속 시도 (필요에 따라 조정)
+
         Thread captureThread = new Thread(() -> {
             log.info("백그라운드 패킷 캡처 시작");
 
@@ -77,17 +79,20 @@ public class PacketCaptureService {
             while (isRunning.get() && !Thread.currentThread().isInterrupted()) {
                 try {
                     if (captureMode) {
+                        CaptureMode mode = CaptureMode.SIMULATION;
                         useSimulationMode = true;
-                        statisticsManager.startCapture();
+                        statisticsManager.startCapture(mode,null);
                         simulationCaptureHandler.startCapture(this::handleCapturedPacket);
                     } else {
                         try {
+                            CaptureMode mode = CaptureMode.REAL_CAPTURE;
                             useSimulationMode = false;
                             networkInterfaceManager.initializeInterface();
                             realCaptureHandler.startCapture(
                                     networkInterfaceManager.getSelectedInterface(),
                                     this::handleCapturedPacket
                             );
+                            statisticsManager.startCapture(mode, String.valueOf(networkInterfaceManager.getSelectedInterface()));
                         } catch (Exception e) {
                             log.error("실제 패킷 캡처 시작 실패 - 시뮬레이션 모드로 전환", e);
                             useSimulationMode = true;
@@ -186,7 +191,7 @@ public class PacketCaptureService {
     private void printCaptureProgress(PacketData packet) {
         System.out.printf("[%s #%d] %s:%s -> %s:%s (%s, %d bytes)\n",
                 useSimulationMode ? "시뮬레이션" : "실제 패킷",
-                statisticsManager.getTotalCapturedPackets(),
+                statisticsManager.getTotalCapturedPackets().get(),
                 packet.getSourceIp(),
                 packet.getSourcePort() != null ? packet.getSourcePort() : "?",
                 packet.getDestIp(),

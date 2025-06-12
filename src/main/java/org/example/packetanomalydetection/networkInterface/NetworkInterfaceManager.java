@@ -31,7 +31,6 @@ public class NetworkInterfaceManager {
     private PcapNetworkInterface selectedInterface;
 
 
-
     /**
      * 네트워크 인터페이스 초기화
      */

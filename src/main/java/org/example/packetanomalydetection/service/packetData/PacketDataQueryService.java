@@ -2,6 +2,8 @@ package org.example.packetanomalydetection.service.packetData;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.example.packetanomalydetection.dto.packetData.HourlyPacketCountResponseDTO;
+import org.example.packetanomalydetection.dto.packetData.PacketDataResponseDTO;
 import org.example.packetanomalydetection.dto.packetData.PacketStaticsResponseDTO;
 import org.example.packetanomalydetection.entity.CaptureStatistics;
 import org.example.packetanomalydetection.handler.CaptureStatisticsManager;
@@ -20,20 +22,25 @@ import java.util.List;
 @Slf4j
 
 public class PacketDataQueryService {
-    private final PacketCaptureService packetCaptureService;
-    private final CaptureStatisticsManager statisticsManager;
-    private final NetworkInterfaceManager networkInterfaceManager;
     private final PacketDataRepository packetDataRepository;
-private final CaptureStatisticsRepository captureStatisticsRepository;
+    private final CaptureStatisticsRepository captureStatisticsRepository;
 
     public List<PacketStaticsResponseDTO> getPacketsByDaily(LocalDate date) {
         LocalDateTime startTime = date.atStartOfDay(); // 2025-06-07 00:00:00
         LocalDateTime endTime = date.atTime(LocalTime.MAX);
-        List<CaptureStatistics> captureStatistics = captureStatisticsRepository.findByDateRange(startTime,endTime);
-
+        List<CaptureStatistics> captureStatistics = captureStatisticsRepository.findByDateRange(startTime, endTime);
         return captureStatistics.stream().map(PacketStaticsResponseDTO::of).toList();
 
     }
 
+    public List<PacketDataResponseDTO> getPacketBySrcPort(Integer sourcePort) {
+        return packetDataRepository.findPacketBySrcPort(sourcePort).stream().map(PacketDataResponseDTO::from).toList();
+    }
 
+    public List<HourlyPacketCountResponseDTO> getHourlyPacketCountByDaily(LocalDate date) {
+        LocalDateTime startTime = date.atStartOfDay();
+        LocalDateTime endTime = date.atTime(LocalTime.MAX);
+        List<Object[]> packetList = packetDataRepository.findHourlyPacketDistribution(startTime, endTime);
+        return packetList.stream().map(HourlyPacketCountResponseDTO::from).toList();
+    }
 }

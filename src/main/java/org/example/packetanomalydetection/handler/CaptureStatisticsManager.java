@@ -3,7 +3,6 @@ package org.example.packetanomalydetection.handler;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.example.packetanomalydetection.entity.CaptureStatistics;
 import org.example.packetanomalydetection.entity.enums.CaptureMode;
@@ -92,7 +91,6 @@ public class CaptureStatisticsManager {
         long total = totalCapturedPackets.get();
 
         // 시뮬레이션 모드: 50개마다, 실제 모드: 100개마다
-        // TODO: 모드 구분을 위해 파라미터 추가 고려
         return total % PROGRESS_PRINT_INTERVAL_SIMULATION == 0;
     }
 

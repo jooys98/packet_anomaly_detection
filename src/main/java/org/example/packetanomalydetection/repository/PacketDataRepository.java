@@ -1,5 +1,6 @@
 package org.example.packetanomalydetection.repository;
 
+import org.example.packetanomalydetection.dto.packetData.HourlyPacketCountResponseDTO;
 import org.example.packetanomalydetection.entity.PacketData;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -12,56 +13,40 @@ public interface PacketDataRepository extends JpaRepository<PacketData, Long> {
 
     List<PacketData> findByTimestampBetween(LocalDateTime start, LocalDateTime end);
 
-    /**
-     * 특정 날짜 범위의 패킷 개수 조회
-     */
-    @Query("SELECT COUNT(p) FROM PacketData p WHERE p.timestamp BETWEEN :startTime AND :endTime")
-    Long countPacketsByDateRange(@Param("startTime") LocalDateTime startTime,
-                                 @Param("endTime") LocalDateTime endTime);
-
-    /**
-     * 특정 날짜 범위의 첫 번째 패킷 시간
-     */
-    @Query("SELECT MIN(p.timestamp) FROM PacketData p WHERE p.timestamp BETWEEN :startTime AND :endTime")
-    LocalDateTime findFirstPacketTimeByDateRange(@Param("startTime") LocalDateTime startTime,
-                                                 @Param("endTime") LocalDateTime endTime);
-
-    /**
-     * 특정 날짜 범위의 마지막 패킷 시간
-     */
-    @Query("SELECT MAX(p.timestamp) FROM PacketData p WHERE p.timestamp BETWEEN :startTime AND :endTime")
-    LocalDateTime findLastPacketTimeByDateRange(@Param("startTime") LocalDateTime startTime,
-                                                @Param("endTime") LocalDateTime endTime);
-
 //    /**
-//     * 특정 날짜의 시간별 패킷 개수 분포
+//     * 특정 날짜 범위의 첫 번째 패킷 시간
 //     */
-//    @Query("SELECT HOUR(p.timestamp) as hour, COUNT(p) as count " +
-//            "FROM PacketData p " +
-//            "WHERE p.timestamp BETWEEN :startTime AND :endTime " +
-//            "GROUP BY HOUR(p.timestamp) " +
-//            "ORDER BY hour")
-//    List<Object[]> findHourlyPacketDistribution(@Param("startTime") LocalDateTime startTime,
+//    @Query("SELECT MIN(p.timestamp) FROM PacketData p WHERE p.timestamp BETWEEN :startTime AND :endTime")
+//    LocalDateTime findFirstPacketTimeByDateRange(@Param("startTime") LocalDateTime startTime,
+//                                                 @Param("endTime") LocalDateTime endTime);
+//
+//    /**
+//     * 특정 날짜 범위의 마지막 패킷 시간
+//     */
+//    @Query("SELECT MAX(p.timestamp) FROM PacketData p WHERE p.timestamp BETWEEN :startTime AND :endTime")
+//    LocalDateTime findLastPacketTimeByDateRange(@Param("startTime") LocalDateTime startTime,
 //                                                @Param("endTime") LocalDateTime endTime);
 
+
+    @Query("select p from PacketData p where p.sourceIp =: srcport order by p.timestamp desc")
+    List<PacketData> findPacketBySrcPort(int srcPort);
+
+
     /**
-     * 특정 날짜 범위의 모든 패킷 (PPS 계산용)
+     * 특정 날짜의 시간별 패킷 개수 분포를 리턴
      */
-    @Query("SELECT p.timestamp FROM PacketData p " +
+    @Query("SELECT HOUR(p.timestamp) as hour, COUNT(p) as count " +
+            "FROM PacketData p " +
             "WHERE p.timestamp BETWEEN :startTime AND :endTime " +
-            "ORDER BY p.timestamp")
-    List<LocalDateTime> findPacketTimestampsByDateRange(@Param("startTime") LocalDateTime startTime,
-                                                        @Param("endTime") LocalDateTime endTime);
+            "GROUP BY HOUR(p.timestamp) " +
+            "ORDER BY HOUR(p.timestamp)")
+    List<Object[]> findHourlyPacketDistribution(@Param("startTime") LocalDateTime startTime,
+                                                @Param("endTime") LocalDateTime endTime);
 
     /**
      * 특정 IP의 패킷 조회
      */
     List<PacketData> findBySourceIpOrDestIp(String sourceIp, String destIp);
-
-    /**
-     * 최근 패킷 조회
-     */
-    List<PacketData> findTop100ByOrderByTimestampDesc();
 
 
     /**
@@ -87,4 +72,33 @@ public interface PacketDataRepository extends JpaRepository<PacketData, Long> {
             "WHERE p.timestamp >= :since " +
             "GROUP BY p.protocol")
     List<Object[]> getProtocolStats(@Param("since") LocalDateTime since);
+
+    /**
+     * 테스트용 쿼리
+     */
+
+    @Query("SELECT HOUR(p.timestamp) as hour, COUNT(p) as count " +
+            "FROM PacketData p " +
+            "WHERE p.timestamp BETWEEN :start AND :end " +
+            "GROUP BY HOUR(p.timestamp) " +
+            "ORDER BY HOUR(p.timestamp)")
+    List<HourlyPacketCountProjection> findHourlyPacketDistributionProjection(
+            @Param("start") LocalDateTime start,
+            @Param("end") LocalDateTime end);
+
+
+
+    @Query("SELECT new org.example.packetanomalydetection.dto.packetData.HourlyPacketCountResponseDTO(HOUR(p.timestamp), COUNT(p)) " +
+            "FROM PacketData p " +
+            "WHERE p.timestamp BETWEEN :start AND :end " +
+            "GROUP BY HOUR(p.timestamp) " +
+            "ORDER BY HOUR(p.timestamp)")
+    List<HourlyPacketCountResponseDTO> findHourlyPacketDistributionDTO(
+            @Param("start") LocalDateTime start,
+            @Param("end") LocalDateTime end);
+
+    interface HourlyPacketCountProjection {
+        Integer getHour();
+        Long getCount();
+    }
 }

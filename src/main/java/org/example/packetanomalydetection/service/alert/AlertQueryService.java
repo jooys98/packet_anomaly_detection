@@ -27,7 +27,6 @@ import java.util.stream.Collectors;
 public class AlertQueryService {
 
     private final AlertRepository alertRepository;
-    private final AlertNotificationService alertNotificationService;
 
     /**
      * 활성 알림 조회 (해결되지 않은 알림들)

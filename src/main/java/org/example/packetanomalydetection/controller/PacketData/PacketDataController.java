@@ -2,6 +2,8 @@ package org.example.packetanomalydetection.controller.PacketData;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.example.packetanomalydetection.dto.packetData.HourlyPacketCountResponseDTO;
+import org.example.packetanomalydetection.dto.packetData.PacketDataResponseDTO;
 import org.example.packetanomalydetection.dto.packetData.PacketStaticsResponseDTO;
 import org.example.packetanomalydetection.service.packetData.PacketDataQueryService;
 import org.springframework.http.ResponseEntity;
@@ -20,8 +22,19 @@ import java.util.List;
 public class PacketDataController {
     private final PacketDataQueryService packetDataQueryService;
 
-@GetMapping("/daily")
-    public ResponseEntity <List<PacketStaticsResponseDTO>> getPacketsByDaily(@RequestParam LocalDate date) {
-    return ResponseEntity.ok(packetDataQueryService.getPacketsByDaily(date));
-}
+    @GetMapping("/daily")
+    public ResponseEntity<List<PacketStaticsResponseDTO>> getPacketsByDaily(@RequestParam LocalDate date) {
+        return ResponseEntity.ok(packetDataQueryService.getPacketsByDaily(date));
+    }
+
+    @GetMapping("/sourcePort")
+    public ResponseEntity<List<PacketDataResponseDTO>> getPacketBySourcePort(@RequestParam Integer sourcePort) {
+        return ResponseEntity.ok(packetDataQueryService.getPacketBySrcPort(sourcePort));
+    }
+
+    @GetMapping("/between")
+    public ResponseEntity<List<HourlyPacketCountResponseDTO>> getHourlyPacketCountByDaily(@RequestParam LocalDate date) {
+        return ResponseEntity.ok(packetDataQueryService.getHourlyPacketCountByDaily(date));
+    }
+
 }

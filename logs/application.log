@@ -1,25 +1,25 @@
-2025-06-12 13:26:02 [restartedMain] INFO  o.e.p.PacketAnomalyDetectionApplication - Starting PacketAnomalyDetectionApplication using Java 17.0.12 with PID 7641 (/Users/lo5er/packet-anomaly-detection/build/classes/java/main started by lo5er in /Users/lo5er/packet-anomaly-detection)
-2025-06-12 13:26:02 [restartedMain] INFO  o.e.p.PacketAnomalyDetectionApplication - No active profile set, falling back to 1 default profile: "default"
-2025-06-12 13:26:02 [restartedMain] INFO  o.s.b.d.restart.ChangeableUrls - The Class-Path manifest attribute in /Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/java-dotenv-5.1.1.jar referenced one or more files that do not exist: file:/Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/kotlin-stdlib-1.3.41.jar,file:/Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/kotlin-stdlib-common-1.3.41.jar,file:/Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/annotations-13.0.jar
-2025-06-12 13:26:02 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-06-12 13:26:02 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-06-12 13:26:04 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-12 13:26:04 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 70 ms. Found 3 JPA repository interfaces.
-2025-06-12 13:26:04 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-06-12 13:26:04 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-06-12 13:26:04 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2025-06-12 13:26:04 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-06-12 13:26:04 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2223 ms
-2025-06-12 13:26:04 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-12 13:26:05 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
-2025-06-12 13:26:05 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-06-12 13:26:05 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-12 13:26:05 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-06-12 13:26:05 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7337a305
-2025-06-12 13:26:05 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2025-06-12 13:26:05 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-06-12 13:26:05 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-06-12 13:26:05 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+2025-06-13 15:33:53 [restartedMain] INFO  o.e.p.PacketAnomalyDetectionApplication - Starting PacketAnomalyDetectionApplication using Java 17.0.12 with PID 29929 (/Users/lo5er/packet-anomaly-detection/build/classes/java/main started by lo5er in /Users/lo5er/packet-anomaly-detection)
+2025-06-13 15:33:53 [restartedMain] INFO  o.e.p.PacketAnomalyDetectionApplication - No active profile set, falling back to 1 default profile: "default"
+2025-06-13 15:33:53 [restartedMain] INFO  o.s.b.d.restart.ChangeableUrls - The Class-Path manifest attribute in /Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/java-dotenv-5.1.1.jar referenced one or more files that do not exist: file:/Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/kotlin-stdlib-1.3.41.jar,file:/Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/kotlin-stdlib-common-1.3.41.jar,file:/Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/annotations-13.0.jar
+2025-06-13 15:33:53 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-13 15:33:53 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-13 15:33:54 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-13 15:33:54 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 24 ms. Found 3 JPA repository interfaces.
+2025-06-13 15:33:54 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-06-13 15:33:54 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-06-13 15:33:54 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-13 15:33:54 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-06-13 15:33:54 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 704 ms
+2025-06-13 15:33:54 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-13 15:33:54 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-06-13 15:33:54 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-06-13 15:33:54 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-13 15:33:54 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-06-13 15:33:54 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6f9f7ef3
+2025-06-13 15:33:54 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-06-13 15:33:54 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-13 15:33:54 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-06-13 15:33:54 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 8.0
@@ -27,45 +27,228 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-06-12 13:26:06 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-12 13:26:06 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-12 13:26:06 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-06-12 13:26:07 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-06-12 13:26:07 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2025-06-12 13:26:07 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-06-12 13:26:07 [restartedMain] INFO  o.e.p.PacketAnomalyDetectionApplication - Started PacketAnomalyDetectionApplication in 6.296 seconds (process running for 7.024)
-2025-06-12 13:26:35 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-06-12 13:26:35 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-06-12 13:26:35 [SpringApplicationShutdownHook] INFO  o.e.p.s.p.PacketCaptureService - PacketCaptureService 정리 중...
-2025-06-12 13:26:35 [SpringApplicationShutdownHook] INFO  o.e.p.s.p.PacketCaptureService - 패킷 캡처 중지 요청
-2025-06-12 13:26:35 [SpringApplicationShutdownHook] WARN  o.e.p.handler.PacketCaptureHandler - 실제 패킷 캡처가 실행되고 있지 않습니다
-2025-06-12 13:26:35 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 저장할 통계 세션이 없음
-2025-06-12 13:26:35 [SpringApplicationShutdownHook] WARN  o.e.p.h.CaptureStatisticsManager - 캡처 시작 시간이 기록되지 않음
-2025-06-12 13:26:35 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-06-12 13:26:35 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2025-06-12 13:26:35 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2025-06-12 13:26:42 [restartedMain] INFO  o.e.p.PacketAnomalyDetectionApplication - Starting PacketAnomalyDetectionApplication using Java 17.0.12 with PID 7720 (/Users/lo5er/packet-anomaly-detection/build/classes/java/main started by lo5er in /Users/lo5er/packet-anomaly-detection)
-2025-06-12 13:26:42 [restartedMain] INFO  o.e.p.PacketAnomalyDetectionApplication - No active profile set, falling back to 1 default profile: "default"
-2025-06-12 13:26:42 [restartedMain] INFO  o.s.b.d.restart.ChangeableUrls - The Class-Path manifest attribute in /Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/java-dotenv-5.1.1.jar referenced one or more files that do not exist: file:/Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/kotlin-stdlib-1.3.41.jar,file:/Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/kotlin-stdlib-common-1.3.41.jar,file:/Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/annotations-13.0.jar
-2025-06-12 13:26:42 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-06-12 13:26:42 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-06-12 13:26:43 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-12 13:26:43 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 60 ms. Found 3 JPA repository interfaces.
-2025-06-12 13:26:43 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-06-12 13:26:43 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-06-12 13:26:43 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2025-06-12 13:26:43 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-06-12 13:26:43 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1782 ms
-2025-06-12 13:26:44 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-12 13:26:44 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
-2025-06-12 13:26:44 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-06-12 13:26:44 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-12 13:26:44 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-06-12 13:26:44 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3c2e2e0
-2025-06-12 13:26:44 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2025-06-12 13:26:44 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-06-12 13:26:44 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-06-12 13:26:44 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+2025-06-13 15:33:55 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-13 15:33:55 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-13 15:33:55 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-13 15:33:55 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-13 15:33:55 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-06-13 15:33:55 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-06-13 15:33:55 [restartedMain] INFO  o.e.p.PacketAnomalyDetectionApplication - Started PacketAnomalyDetectionApplication in 2.511 seconds (process running for 2.786)
+2025-06-13 15:34:12 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-13 15:34:12 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-06-13 15:34:12 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-06-13 15:34:12 [http-nio-8080-exec-2] INFO  o.e.p.c.p.PacketCaptureController -  패킷 캡처 시작 요청 받음
+2025-06-13 15:34:12 [ForkJoinPool.commonPool-worker-1] INFO  o.e.p.c.p.PacketCaptureController -  백그라운드에서 패킷 캡처 초기화 시작...
+2025-06-13 15:34:12 [ForkJoinPool.commonPool-worker-1] INFO  o.e.p.s.p.PacketCaptureService -  패킷 캡처 초기화 시작...
+2025-06-13 15:34:12 [ForkJoinPool.commonPool-worker-1] INFO  o.e.p.n.NetworkSystemValidator - 시스템 정보: OS=mac os x, Architecture=aarch64
+2025-06-13 15:34:12 [ForkJoinPool.commonPool-worker-1] WARN  o.e.p.s.p.PacketCaptureService - Apple Silicon Mac 감지 - 시뮬레이션 모드로 전환
+2025-06-13 15:34:12 [PacketCaptureThread] INFO  o.e.p.s.p.PacketCaptureService - 백그라운드 패킷 캡처 시작
+2025-06-13 15:34:12 [ForkJoinPool.commonPool-worker-1] INFO  o.e.p.s.p.PacketCaptureService - 패킷 캡처 백그라운드 스레드 시작됨
+2025-06-13 15:34:12 [PacketCaptureThread] INFO  o.e.p.s.p.PacketCaptureService -  패킷 캡처 스레드 종료
+2025-06-13 15:34:12 [ForkJoinPool.commonPool-worker-1] INFO  o.e.p.s.p.PacketCaptureService - 패킷 캡처 초기화 완료 (모드: REAL)
+2025-06-13 15:34:27 [http-nio-8080-exec-3] INFO  o.e.p.c.p.PacketCaptureController -  패킷 캡처 시작 요청 받음
+2025-06-13 15:35:40 [http-nio-8080-exec-5] INFO  o.e.p.c.p.PacketCaptureController -  패킷 캡처 중지 요청 받음
+2025-06-13 15:35:40 [http-nio-8080-exec-5] INFO  o.e.p.s.p.PacketCaptureService - PacketCaptureService 정리 중...
+2025-06-13 15:35:40 [http-nio-8080-exec-5] INFO  o.e.p.s.p.PacketCaptureService - 패킷 캡처 중지 요청
+2025-06-13 15:35:40 [http-nio-8080-exec-5] WARN  o.e.p.handler.PacketCaptureHandler - 실제 패킷 캡처가 실행되고 있지 않습니다
+2025-06-13 15:35:40 [http-nio-8080-exec-5] INFO  o.e.p.h.CaptureStatisticsManager - 저장할 통계 세션이 없음
+2025-06-13 15:35:40 [http-nio-8080-exec-5] WARN  o.e.p.h.CaptureStatisticsManager - 캡처 시작 시간이 기록되지 않음
+2025-06-13 15:35:47 [http-nio-8080-exec-6] INFO  o.e.p.c.p.PacketCaptureController -  패킷 캡처 시작 요청 받음
+2025-06-13 15:35:47 [ForkJoinPool.commonPool-worker-2] INFO  o.e.p.c.p.PacketCaptureController -  백그라운드에서 패킷 캡처 초기화 시작...
+2025-06-13 15:35:47 [ForkJoinPool.commonPool-worker-2] INFO  o.e.p.s.p.PacketCaptureService -  패킷 캡처 초기화 시작...
+2025-06-13 15:35:47 [ForkJoinPool.commonPool-worker-2] INFO  o.e.p.n.NetworkSystemValidator - 시스템 정보: OS=mac os x, Architecture=aarch64
+2025-06-13 15:35:47 [ForkJoinPool.commonPool-worker-2] WARN  o.e.p.s.p.PacketCaptureService - Apple Silicon Mac 감지 - 시뮬레이션 모드로 전환
+2025-06-13 15:35:47 [ForkJoinPool.commonPool-worker-2] INFO  o.e.p.s.p.PacketCaptureService - 패킷 캡처 백그라운드 스레드 시작됨
+2025-06-13 15:35:47 [PacketCaptureThread] INFO  o.e.p.s.p.PacketCaptureService - 백그라운드 패킷 캡처 시작
+2025-06-13 15:35:47 [ForkJoinPool.commonPool-worker-2] INFO  o.e.p.s.p.PacketCaptureService - 패킷 캡처 초기화 완료 (모드: REAL)
+2025-06-13 15:35:47 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 통계 관리 시작: 2025-06-13T15:35:47.606814
+2025-06-13 15:35:47 [PacketCaptureThread] INFO  o.e.p.h.SimulationPacketCaptureHandler - 시뮬레이션 모드 패킷 캡처 시작
+2025-06-13 15:35:47 [PacketCaptureThread] INFO  o.e.p.h.SimulationPacketCaptureHandler - 학습 목적: 실제 패킷 대신 가상 데이터로 위협 탐지 테스트
+2025-06-13 15:35:50 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
+2025-06-13 15:35:51 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
+2025-06-13 15:35:51 [PacketCaptureThread] INFO  o.e.p.s.a.AlertNotificationService - MEDIUM 알림: LARGE_PACKET - 172.16.0.50
+2025-06-13 15:35:51 [PacketCaptureThread] INFO  o.e.p.service.alert.AlertService - 알림 생성 완료: [MEDIUM] LARGE_PACKET - 172.16.0.50
+2025-06-13 15:35:52 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
+2025-06-13 15:35:52 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:27017
+2025-06-13 15:35:54 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
+2025-06-13 15:35:56 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
+2025-06-13 15:35:57 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 2.0 개 처리됨)
+2025-06-13 15:35:57 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:21
+2025-06-13 15:35:58 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:23
+2025-06-13 15:36:01 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
+2025-06-13 15:36:02 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:1433
+2025-06-13 15:36:04 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:22
+2025-06-13 15:36:04 [PacketCaptureThread] INFO  o.e.p.s.a.AlertNotificationService - MEDIUM 알림: SUSPICIOUS_CONNECTION - 203.0.113.50
+2025-06-13 15:36:04 [PacketCaptureThread] INFO  o.e.p.service.alert.AlertService - 알림 생성 완료: [MEDIUM] SUSPICIOUS_CONNECTION - 203.0.113.50
+2025-06-13 15:36:06 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
+2025-06-13 15:36:07 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 1.9 개 처리됨)
+2025-06-13 15:36:09 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
+2025-06-13 15:36:10 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:3306
+2025-06-13 15:36:12 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:23
+2025-06-13 15:36:15 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:1433
+2025-06-13 15:36:17 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 2.0 개 처리됨)
+2025-06-13 15:36:18 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:1433
+2025-06-13 15:36:18 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
+2025-06-13 15:36:19 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
+2025-06-13 15:36:20 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:3306
+2025-06-13 15:36:21 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
+2025-06-13 15:36:24 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:1433
+2025-06-13 15:36:25 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
+2025-06-13 15:36:27 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 2.0 개 처리됨)
+2025-06-13 15:36:28 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
+2025-06-13 15:36:30 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:23
+2025-06-13 15:36:31 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
+2025-06-13 15:36:34 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
+2025-06-13 15:36:35 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:6379
+2025-06-13 15:36:35 [PacketCaptureThread] INFO  o.e.p.s.a.AlertNotificationService - MEDIUM 알림: SUSPICIOUS_CONNECTION - 10.0.0.99
+2025-06-13 15:36:35 [PacketCaptureThread] INFO  o.e.p.service.alert.AlertService - 알림 생성 완료: [MEDIUM] SUSPICIOUS_CONNECTION - 10.0.0.99
+2025-06-13 15:36:35 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:23
+2025-06-13 15:36:36 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
+2025-06-13 15:36:37 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 1.9 개 처리됨)
+2025-06-13 15:36:40 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
+2025-06-13 15:36:41 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
+2025-06-13 15:36:43 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
+2025-06-13 15:36:44 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:3389
+2025-06-13 15:36:47 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 2.0 개 처리됨)
+2025-06-13 15:36:47 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
+2025-06-13 15:36:49 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
+2025-06-13 15:36:49 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:21
+2025-06-13 15:36:50 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
+2025-06-13 15:36:52 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
+2025-06-13 15:36:56 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
+2025-06-13 15:36:57 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 1.9 개 처리됨)
+2025-06-13 15:36:58 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
+2025-06-13 15:36:59 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
+2025-06-13 15:37:00 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:23
+2025-06-13 15:37:03 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:1433
+2025-06-13 15:37:04 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:3389
+2025-06-13 15:37:05 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
+2025-06-13 15:37:06 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
+2025-06-13 15:37:07 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 2.0 개 처리됨)
+2025-06-13 15:37:07 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
+2025-06-13 15:37:07 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:5432
+2025-06-13 15:37:08 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
+2025-06-13 15:37:10 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:1433
+2025-06-13 15:37:10 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
+2025-06-13 15:37:11 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:3306
+2025-06-13 15:37:12 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
+2025-06-13 15:37:13 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:6379
+2025-06-13 15:37:14 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:3389
+2025-06-13 15:37:16 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:6379
+2025-06-13 15:37:17 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 2.0 개 처리됨)
+2025-06-13 15:37:17 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
+2025-06-13 15:37:19 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
+2025-06-13 15:37:21 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
+2025-06-13 15:37:23 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:6379
+2025-06-13 15:37:27 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 1.9 개 처리됨)
+2025-06-13 15:37:28 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
+2025-06-13 15:37:30 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:22
+2025-06-13 15:37:34 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:1433
+2025-06-13 15:37:34 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
+2025-06-13 15:37:36 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:23
+2025-06-13 15:37:37 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 2.0 개 처리됨)
+2025-06-13 15:37:37 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService - 🔨 브루트포스 공격 탐지: 192.168.1.10 (5분간 50회 연결 시도)
+2025-06-13 15:37:37 [PacketCaptureThread] WARN  o.e.p.s.a.AlertNotificationService - HIGH 알림: MULTIPLE_FAILED_ATTEMPTS - 192.168.1.10
+2025-06-13 15:37:37 [PacketCaptureThread] INFO  o.e.p.service.alert.AlertService - 알림 생성 완료: [HIGH] MULTIPLE_FAILED_ATTEMPTS - 192.168.1.10
+2025-06-13 15:37:37 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:5432
+2025-06-13 15:37:38 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
+2025-06-13 15:37:38 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService - 🔨 브루트포스 공격 탐지: 192.168.1.15 (5분간 50회 연결 시도)
+2025-06-13 15:37:38 [PacketCaptureThread] WARN  o.e.p.s.a.AlertNotificationService - HIGH 알림: MULTIPLE_FAILED_ATTEMPTS - 192.168.1.15
+2025-06-13 15:37:38 [PacketCaptureThread] INFO  o.e.p.service.alert.AlertService - 알림 생성 완료: [HIGH] MULTIPLE_FAILED_ATTEMPTS - 192.168.1.15
+2025-06-13 15:37:39 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:3306
+2025-06-13 15:37:40 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:5432
+2025-06-13 15:37:41 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:21
+2025-06-13 15:37:46 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
+2025-06-13 15:37:47 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 1.9 개 처리됨)
+2025-06-13 15:37:48 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:21
+2025-06-13 15:37:50 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService - 🔨 브루트포스 공격 탐지: 192.168.1.20 (5분간 50회 연결 시도)
+2025-06-13 15:37:50 [PacketCaptureThread] WARN  o.e.p.s.a.AlertNotificationService - HIGH 알림: MULTIPLE_FAILED_ATTEMPTS - 192.168.1.20
+2025-06-13 15:37:50 [PacketCaptureThread] INFO  o.e.p.service.alert.AlertService - 알림 생성 완료: [HIGH] MULTIPLE_FAILED_ATTEMPTS - 192.168.1.20
+2025-06-13 15:37:52 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
+2025-06-13 15:37:55 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
+2025-06-13 15:37:56 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:1433
+2025-06-13 15:37:57 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 2.0 개 처리됨)
+2025-06-13 15:37:59 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:3306
+2025-06-13 15:38:04 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:22
+2025-06-13 15:38:05 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:6379
+2025-06-13 15:38:06 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
+2025-06-13 15:38:07 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 2.0 개 처리됨)
+2025-06-13 15:38:08 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
+2025-06-13 15:38:08 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:27017
+2025-06-13 15:38:17 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 1.9 개 처리됨)
+2025-06-13 15:38:18 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:1433
+2025-06-13 15:38:19 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
+2025-06-13 15:38:20 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:5432
+2025-06-13 15:38:20 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:27017
+2025-06-13 15:38:23 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
+2025-06-13 15:38:24 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:23
+2025-06-13 15:38:25 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
+2025-06-13 15:38:27 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 2.0 개 처리됨)
+2025-06-13 15:38:28 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
+2025-06-13 15:38:29 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
+2025-06-13 15:38:30 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:22
+2025-06-13 15:38:33 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
+2025-06-13 15:38:34 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:3306
+2025-06-13 15:38:34 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:22
+2025-06-13 15:38:36 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
+2025-06-13 15:38:37 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 2.0 개 처리됨)
+2025-06-13 15:38:37 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:3306
+2025-06-13 15:38:38 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:3306
+2025-06-13 15:38:38 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
+2025-06-13 15:38:40 [http-nio-8080-exec-9] INFO  o.e.p.c.p.PacketCaptureController -  패킷 캡처 중지 요청 받음
+2025-06-13 15:38:40 [http-nio-8080-exec-9] INFO  o.e.p.s.p.PacketCaptureService - PacketCaptureService 정리 중...
+2025-06-13 15:38:40 [http-nio-8080-exec-9] INFO  o.e.p.s.p.PacketCaptureService - 패킷 캡처 중지 요청
+2025-06-13 15:38:40 [http-nio-8080-exec-9] INFO  o.e.p.h.SimulationPacketCaptureHandler - 시뮬레이션 캡처 중지
+2025-06-13 15:38:40 [http-nio-8080-exec-9] INFO  o.e.p.h.SimulationPacketCaptureHandler - 시뮬레이션 캡처 완전 중지됨
+2025-06-13 15:38:40 [http-nio-8080-exec-9] INFO  o.e.p.h.CaptureStatisticsManager - 통계 관리 중지
+2025-06-13 15:38:40 [http-nio-8080-exec-9] INFO  o.e.p.h.CaptureStatisticsManager - 통계 세션 종료: 314f80d9-a154-4052-a09a-210863fe011b
+2025-06-13 15:38:40 [http-nio-8080-exec-9] INFO  o.e.p.h.CaptureStatisticsManager - === 패킷 캡처 최종 통계 (시뮬레이션 모드) ===
+2025-06-13 15:38:40 [http-nio-8080-exec-9] INFO  o.e.p.h.CaptureStatisticsManager - 총 처리 패킷: 339 개
+2025-06-13 15:38:40 [http-nio-8080-exec-9] INFO  o.e.p.h.CaptureStatisticsManager - 실행 시간: 172 초
+2025-06-13 15:38:40 [http-nio-8080-exec-9] INFO  o.e.p.h.CaptureStatisticsManager - 평균 처리량: {:.2f} 패킷/초
+2025-06-13 15:38:40 [http-nio-8080-exec-9] INFO  o.e.p.h.CaptureStatisticsManager - 시작 시간: 2025-06-13T15:35:47.606814
+2025-06-13 15:38:40 [http-nio-8080-exec-9] INFO  o.e.p.h.CaptureStatisticsManager - 종료 시간: 2025-06-13T15:38:40.119342
+2025-06-13 15:38:40 [http-nio-8080-exec-9] INFO  o.e.p.h.CaptureStatisticsManager - 마지막 패킷: 2025-06-13T15:38:40.115245
+2025-06-13 15:38:40 [PacketCaptureThread] INFO  o.e.p.s.p.PacketCaptureService -  패킷 캡처 스레드 종료
+2025-06-13 15:41:43 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-13 15:41:43 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-06-13 15:41:43 [SpringApplicationShutdownHook] INFO  o.e.p.s.p.PacketCaptureService - PacketCaptureService 정리 중...
+2025-06-13 15:41:43 [SpringApplicationShutdownHook] INFO  o.e.p.s.p.PacketCaptureService - 패킷 캡처 중지 요청
+2025-06-13 15:41:43 [SpringApplicationShutdownHook] INFO  o.e.p.h.SimulationPacketCaptureHandler - 시뮬레이션 캡처 완전 중지됨
+2025-06-13 15:41:43 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 통계 관리 중지
+2025-06-13 15:41:43 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 통계 세션 종료: 314f80d9-a154-4052-a09a-210863fe011b
+2025-06-13 15:41:43 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - === 패킷 캡처 최종 통계 (시뮬레이션 모드) ===
+2025-06-13 15:41:43 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 총 처리 패킷: 339 개
+2025-06-13 15:41:43 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 실행 시간: 355 초
+2025-06-13 15:41:43 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 평균 처리량: {:.2f} 패킷/초
+2025-06-13 15:41:43 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 시작 시간: 2025-06-13T15:35:47.606814
+2025-06-13 15:41:43 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 종료 시간: 2025-06-13T15:41:43.512909
+2025-06-13 15:41:43 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 마지막 패킷: 2025-06-13T15:41:43.477295
+2025-06-13 15:41:43 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-13 15:41:43 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-06-13 15:41:43 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-06-13 15:41:54 [restartedMain] INFO  o.e.p.PacketAnomalyDetectionApplication - Starting PacketAnomalyDetectionApplication using Java 17.0.12 with PID 32267 (/Users/lo5er/packet-anomaly-detection/build/classes/java/main started by lo5er in /Users/lo5er/packet-anomaly-detection)
+2025-06-13 15:41:54 [restartedMain] INFO  o.e.p.PacketAnomalyDetectionApplication - No active profile set, falling back to 1 default profile: "default"
+2025-06-13 15:41:54 [restartedMain] INFO  o.s.b.d.restart.ChangeableUrls - The Class-Path manifest attribute in /Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/java-dotenv-5.1.1.jar referenced one or more files that do not exist: file:/Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/kotlin-stdlib-1.3.41.jar,file:/Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/kotlin-stdlib-common-1.3.41.jar,file:/Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/annotations-13.0.jar
+2025-06-13 15:41:54 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-13 15:41:54 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-13 15:41:55 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-13 15:41:55 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 25 ms. Found 3 JPA repository interfaces.
+2025-06-13 15:41:55 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-06-13 15:41:55 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-06-13 15:41:55 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-13 15:41:55 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-06-13 15:41:55 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 784 ms
+2025-06-13 15:41:55 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-13 15:41:55 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-06-13 15:41:55 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-06-13 15:41:55 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-13 15:41:55 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-06-13 15:41:55 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7ce7b766
+2025-06-13 15:41:55 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-06-13 15:41:55 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-13 15:41:55 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-06-13 15:41:55 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 8.0
@@ -73,128 +256,49 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-06-12 13:26:45 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-12 13:26:45 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-12 13:26:45 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-06-12 13:26:46 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-06-12 13:26:46 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2025-06-12 13:26:46 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-06-12 13:26:46 [restartedMain] INFO  o.e.p.PacketAnomalyDetectionApplication - Started PacketAnomalyDetectionApplication in 5.372 seconds (process running for 6.275)
-2025-06-12 13:27:26 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-06-12 13:27:26 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2025-06-12 13:27:26 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2025-06-12 13:27:26 [http-nio-8080-exec-2] INFO  o.e.p.c.p.PacketCaptureController -  패킷 캡처 시작 요청 받음
-2025-06-12 13:27:26 [ForkJoinPool.commonPool-worker-1] INFO  o.e.p.c.p.PacketCaptureController -  백그라운드에서 패킷 캡처 초기화 시작...
-2025-06-12 13:27:26 [ForkJoinPool.commonPool-worker-1] INFO  o.e.p.s.p.PacketCaptureService -  패킷 캡처 초기화 시작...
-2025-06-12 13:27:26 [ForkJoinPool.commonPool-worker-1] INFO  o.e.p.n.NetworkSystemValidator - 시스템 정보: OS=mac os x, Architecture=aarch64
-2025-06-12 13:27:26 [ForkJoinPool.commonPool-worker-1] WARN  o.e.p.s.p.PacketCaptureService - Apple Silicon Mac 감지 - 시뮬레이션 모드로 전환
-2025-06-12 13:27:26 [ForkJoinPool.commonPool-worker-1] INFO  o.e.p.s.p.PacketCaptureService - 패킷 캡처 백그라운드 스레드 시작됨
-2025-06-12 13:27:26 [PacketCaptureThread] INFO  o.e.p.s.p.PacketCaptureService - 백그라운드 패킷 캡처 시작
-2025-06-12 13:27:26 [ForkJoinPool.commonPool-worker-1] INFO  o.e.p.s.p.PacketCaptureService - 패킷 캡처 초기화 완료 (모드: REAL)
-2025-06-12 13:27:26 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 통계 관리 시작: 2025-06-12T13:27:26.208361
-2025-06-12 13:27:26 [PacketCaptureThread] INFO  o.e.p.h.SimulationPacketCaptureHandler - 시뮬레이션 모드 패킷 캡처 시작
-2025-06-12 13:27:26 [PacketCaptureThread] INFO  o.e.p.h.SimulationPacketCaptureHandler - 학습 목적: 실제 패킷 대신 가상 데이터로 위협 탐지 테스트
-2025-06-12 13:27:27 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:27017
-2025-06-12 13:27:31 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 13:27:32 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
-2025-06-12 13:27:32 [PacketCaptureThread] INFO  o.e.p.s.a.AlertNotificationService - MEDIUM 알림: LARGE_PACKET - 172.16.0.50
-2025-06-12 13:27:32 [PacketCaptureThread] INFO  o.e.p.service.alert.AlertService - 알림 생성 완료: [MEDIUM] LARGE_PACKET - 172.16.0.50
-2025-06-12 13:27:36 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 2.1 개 처리됨)
-2025-06-12 13:27:37 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 13:27:39 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:23
-2025-06-12 13:27:43 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:3306
-2025-06-12 13:27:44 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:5432
-2025-06-12 13:27:46 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 1.9 개 처리됨)
-2025-06-12 13:27:46 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:3306
-2025-06-12 13:27:48 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
-2025-06-12 13:27:49 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 13:27:50 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:27017
-2025-06-12 13:27:51 [PacketCaptureThread] ERROR o.e.p.s.p.PacketCaptureService - 패킷 처리 중 오류
-java.util.IllegalFormatConversionException: d != java.util.concurrent.atomic.AtomicLong
-	at java.base/java.util.Formatter$FormatSpecifier.failConversion(Formatter.java:4442)
-	at java.base/java.util.Formatter$FormatSpecifier.printInteger(Formatter.java:2963)
-	at java.base/java.util.Formatter$FormatSpecifier.print(Formatter.java:2918)
-	at java.base/java.util.Formatter.format(Formatter.java:2689)
-	at java.base/java.io.PrintStream.format(PrintStream.java:1209)
-	at java.base/java.io.PrintStream.printf(PrintStream.java:1105)
-	at org.example.packetanomalydetection.service.packetData.PacketCaptureService.printCaptureProgress(PacketCaptureService.java:192)
-	at org.example.packetanomalydetection.service.packetData.PacketCaptureService.handleCapturedPacket(PacketCaptureService.java:180)
-	at org.example.packetanomalydetection.handler.SimulationPacketCaptureHandler.startSimulationLoop(SimulationPacketCaptureHandler.java:89)
-	at org.example.packetanomalydetection.handler.SimulationPacketCaptureHandler.startCapture(SimulationPacketCaptureHandler.java:47)
-	at org.example.packetanomalydetection.service.packetData.PacketCaptureService.lambda$startCaptureInBackground$0(PacketCaptureService.java:85)
-	at java.base/java.lang.Thread.run(Thread.java:842)
-2025-06-12 13:27:51 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:5432
-2025-06-12 13:27:52 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
-2025-06-12 13:27:53 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:21
-2025-06-12 13:27:53 [PacketCaptureThread] INFO  o.e.p.s.a.AlertNotificationService - MEDIUM 알림: SUSPICIOUS_CONNECTION - 203.0.113.50
-2025-06-12 13:27:53 [PacketCaptureThread] INFO  o.e.p.service.alert.AlertService - 알림 생성 완료: [MEDIUM] SUSPICIOUS_CONNECTION - 203.0.113.50
-2025-06-12 13:27:56 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 2.0 개 처리됨)
-2025-06-12 13:27:56 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 13:27:57 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
-2025-06-12 13:27:58 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:6379
-2025-06-12 13:27:58 [PacketCaptureThread] INFO  o.e.p.s.a.AlertNotificationService - MEDIUM 알림: SUSPICIOUS_CONNECTION - 10.0.0.99
-2025-06-12 13:27:58 [PacketCaptureThread] INFO  o.e.p.service.alert.AlertService - 알림 생성 완료: [MEDIUM] SUSPICIOUS_CONNECTION - 10.0.0.99
-2025-06-12 13:28:01 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
-2025-06-12 13:28:03 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:5432
-2025-06-12 13:28:04 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:23
-2025-06-12 13:28:04 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 13:28:06 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 1.9 개 처리됨)
-2025-06-12 13:28:07 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:3389
-2025-06-12 13:28:16 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 2.0 개 처리됨)
-2025-06-12 13:28:16 [http-nio-8080-exec-3] INFO  o.e.p.c.p.PacketCaptureController -  패킷 캡처 중지 요청 받음
-2025-06-12 13:28:16 [http-nio-8080-exec-3] INFO  o.e.p.s.p.PacketCaptureService - PacketCaptureService 정리 중...
-2025-06-12 13:28:16 [http-nio-8080-exec-3] INFO  o.e.p.s.p.PacketCaptureService - 패킷 캡처 중지 요청
-2025-06-12 13:28:16 [http-nio-8080-exec-3] INFO  o.e.p.h.SimulationPacketCaptureHandler - 시뮬레이션 캡처 중지
-2025-06-12 13:28:16 [http-nio-8080-exec-3] INFO  o.e.p.h.SimulationPacketCaptureHandler - 시뮬레이션 캡처 완전 중지됨
-2025-06-12 13:28:16 [http-nio-8080-exec-3] INFO  o.e.p.h.CaptureStatisticsManager - 통계 관리 중지
-2025-06-12 13:28:16 [http-nio-8080-exec-3] INFO  o.e.p.h.CaptureStatisticsManager - 통계 세션 종료: 9825df12-f38f-4645-90d2-db3fd02eeb43
-2025-06-12 13:28:16 [http-nio-8080-exec-3] INFO  o.e.p.h.CaptureStatisticsManager - === 패킷 캡처 최종 통계 (시뮬레이션 모드) ===
-2025-06-12 13:28:16 [http-nio-8080-exec-3] INFO  o.e.p.h.CaptureStatisticsManager - 총 처리 패킷: 99 개
-2025-06-12 13:28:16 [http-nio-8080-exec-3] INFO  o.e.p.h.CaptureStatisticsManager - 실행 시간: 50 초
-2025-06-12 13:28:16 [http-nio-8080-exec-3] INFO  o.e.p.h.CaptureStatisticsManager - 평균 처리량: {:.2f} 패킷/초
-2025-06-12 13:28:16 [http-nio-8080-exec-3] INFO  o.e.p.h.CaptureStatisticsManager - 시작 시간: 2025-06-12T13:27:26.208361
-2025-06-12 13:28:16 [http-nio-8080-exec-3] INFO  o.e.p.h.CaptureStatisticsManager - 종료 시간: 2025-06-12T13:28:16.704462
-2025-06-12 13:28:16 [http-nio-8080-exec-3] INFO  o.e.p.h.CaptureStatisticsManager - 마지막 패킷: 2025-06-12T13:28:16.699999
-2025-06-12 13:28:17 [PacketCaptureThread] INFO  o.e.p.s.p.PacketCaptureService -  패킷 캡처 스레드 종료
-2025-06-12 13:29:21 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-06-12 13:29:21 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-06-12 13:29:21 [SpringApplicationShutdownHook] INFO  o.e.p.s.p.PacketCaptureService - PacketCaptureService 정리 중...
-2025-06-12 13:29:21 [SpringApplicationShutdownHook] INFO  o.e.p.s.p.PacketCaptureService - 패킷 캡처 중지 요청
-2025-06-12 13:29:21 [SpringApplicationShutdownHook] INFO  o.e.p.h.SimulationPacketCaptureHandler - 시뮬레이션 캡처 완전 중지됨
-2025-06-12 13:29:21 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 통계 관리 중지
-2025-06-12 13:29:21 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 통계 세션 종료: 9825df12-f38f-4645-90d2-db3fd02eeb43
-2025-06-12 13:29:21 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - === 패킷 캡처 최종 통계 (시뮬레이션 모드) ===
-2025-06-12 13:29:21 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 총 처리 패킷: 99 개
-2025-06-12 13:29:21 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 실행 시간: 115 초
-2025-06-12 13:29:21 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 평균 처리량: {:.2f} 패킷/초
-2025-06-12 13:29:21 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 시작 시간: 2025-06-12T13:27:26.208361
-2025-06-12 13:29:21 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 종료 시간: 2025-06-12T13:29:21.720931
-2025-06-12 13:29:21 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 마지막 패킷: 2025-06-12T13:29:21.698276
-2025-06-12 13:29:21 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-06-12 13:29:21 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2025-06-12 13:29:21 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2025-06-12 14:16:53 [restartedMain] INFO  o.e.p.PacketAnomalyDetectionApplication - Starting PacketAnomalyDetectionApplication using Java 17.0.12 with PID 8357 (/Users/lo5er/packet-anomaly-detection/build/classes/java/main started by lo5er in /Users/lo5er/packet-anomaly-detection)
-2025-06-12 14:16:53 [restartedMain] INFO  o.e.p.PacketAnomalyDetectionApplication - No active profile set, falling back to 1 default profile: "default"
-2025-06-12 14:16:53 [restartedMain] INFO  o.s.b.d.restart.ChangeableUrls - The Class-Path manifest attribute in /Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/java-dotenv-5.1.1.jar referenced one or more files that do not exist: file:/Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/kotlin-stdlib-1.3.41.jar,file:/Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/kotlin-stdlib-common-1.3.41.jar,file:/Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/annotations-13.0.jar
-2025-06-12 14:16:53 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-06-12 14:16:53 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-06-12 14:16:54 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-12 14:16:54 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 32 ms. Found 3 JPA repository interfaces.
-2025-06-12 14:16:54 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-06-12 14:16:54 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-06-12 14:16:54 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2025-06-12 14:16:54 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-06-12 14:16:54 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1069 ms
-2025-06-12 14:16:55 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-12 14:16:55 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
-2025-06-12 14:16:55 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-06-12 14:16:55 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-12 14:16:55 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-06-12 14:16:55 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@b6bad75
-2025-06-12 14:16:55 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2025-06-12 14:16:55 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-06-12 14:16:55 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-06-12 14:16:55 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+2025-06-13 15:41:56 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-13 15:41:56 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-13 15:41:56 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-13 15:41:56 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-13 15:41:57 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-06-13 15:41:57 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-06-13 15:41:57 [restartedMain] INFO  o.e.p.PacketAnomalyDetectionApplication - Started PacketAnomalyDetectionApplication in 2.621 seconds (process running for 2.875)
+2025-06-13 15:42:16 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-13 15:42:16 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-06-13 15:42:16 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2025-06-13 16:07:16 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m20s703ms).
+2025-06-13 16:07:31 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-13 16:07:31 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-06-13 16:07:31 [SpringApplicationShutdownHook] INFO  o.e.p.s.p.PacketCaptureService - PacketCaptureService 정리 중...
+2025-06-13 16:07:31 [SpringApplicationShutdownHook] INFO  o.e.p.s.p.PacketCaptureService - 패킷 캡처 중지 요청
+2025-06-13 16:07:31 [SpringApplicationShutdownHook] WARN  o.e.p.handler.PacketCaptureHandler - 실제 패킷 캡처가 실행되고 있지 않습니다
+2025-06-13 16:07:31 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 저장할 통계 세션이 없음
+2025-06-13 16:07:31 [SpringApplicationShutdownHook] WARN  o.e.p.h.CaptureStatisticsManager - 캡처 시작 시간이 기록되지 않음
+2025-06-13 16:07:31 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-13 16:07:31 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-06-13 16:07:31 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-06-13 16:07:36 [restartedMain] INFO  o.e.p.PacketAnomalyDetectionApplication - Starting PacketAnomalyDetectionApplication using Java 17.0.12 with PID 33832 (/Users/lo5er/packet-anomaly-detection/build/classes/java/main started by lo5er in /Users/lo5er/packet-anomaly-detection)
+2025-06-13 16:07:36 [restartedMain] INFO  o.e.p.PacketAnomalyDetectionApplication - No active profile set, falling back to 1 default profile: "default"
+2025-06-13 16:07:36 [restartedMain] INFO  o.s.b.d.restart.ChangeableUrls - The Class-Path manifest attribute in /Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/java-dotenv-5.1.1.jar referenced one or more files that do not exist: file:/Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/kotlin-stdlib-1.3.41.jar,file:/Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/kotlin-stdlib-common-1.3.41.jar,file:/Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/annotations-13.0.jar
+2025-06-13 16:07:36 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-13 16:07:36 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-13 16:07:36 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-13 16:07:36 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 23 ms. Found 3 JPA repository interfaces.
+2025-06-13 16:07:36 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-06-13 16:07:36 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-06-13 16:07:36 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-13 16:07:37 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-06-13 16:07:37 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 645 ms
+2025-06-13 16:07:37 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-13 16:07:37 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-06-13 16:07:37 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-06-13 16:07:37 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-13 16:07:37 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-06-13 16:07:37 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@33da5673
+2025-06-13 16:07:37 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-06-13 16:07:37 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-13 16:07:37 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-06-13 16:07:37 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 8.0
@@ -202,45 +306,45 @@ java.util.IllegalFormatConversionException: d != java.util.concurrent.atomic.Ato
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-06-12 14:16:55 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-12 14:16:55 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-12 14:16:56 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-06-12 14:16:56 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-06-12 14:16:56 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2025-06-12 14:16:56 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-06-12 14:16:56 [restartedMain] INFO  o.e.p.PacketAnomalyDetectionApplication - Started PacketAnomalyDetectionApplication in 3.64 seconds (process running for 4.294)
-2025-06-12 14:17:26 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-06-12 14:17:26 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-06-12 14:17:26 [SpringApplicationShutdownHook] INFO  o.e.p.s.p.PacketCaptureService - PacketCaptureService 정리 중...
-2025-06-12 14:17:26 [SpringApplicationShutdownHook] INFO  o.e.p.s.p.PacketCaptureService - 패킷 캡처 중지 요청
-2025-06-12 14:17:26 [SpringApplicationShutdownHook] WARN  o.e.p.handler.PacketCaptureHandler - 실제 패킷 캡처가 실행되고 있지 않습니다
-2025-06-12 14:17:26 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 저장할 통계 세션이 없음
-2025-06-12 14:17:26 [SpringApplicationShutdownHook] WARN  o.e.p.h.CaptureStatisticsManager - 캡처 시작 시간이 기록되지 않음
-2025-06-12 14:17:26 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-06-12 14:17:26 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2025-06-12 14:17:26 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2025-06-12 14:17:30 [restartedMain] INFO  o.e.p.PacketAnomalyDetectionApplication - Starting PacketAnomalyDetectionApplication using Java 17.0.12 with PID 8405 (/Users/lo5er/packet-anomaly-detection/build/classes/java/main started by lo5er in /Users/lo5er/packet-anomaly-detection)
-2025-06-12 14:17:30 [restartedMain] INFO  o.e.p.PacketAnomalyDetectionApplication - No active profile set, falling back to 1 default profile: "default"
-2025-06-12 14:17:30 [restartedMain] INFO  o.s.b.d.restart.ChangeableUrls - The Class-Path manifest attribute in /Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/java-dotenv-5.1.1.jar referenced one or more files that do not exist: file:/Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/kotlin-stdlib-1.3.41.jar,file:/Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/kotlin-stdlib-common-1.3.41.jar,file:/Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/annotations-13.0.jar
-2025-06-12 14:17:30 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-06-12 14:17:30 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-06-12 14:17:30 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-12 14:17:30 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 35 ms. Found 3 JPA repository interfaces.
-2025-06-12 14:17:31 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-06-12 14:17:31 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-06-12 14:17:31 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2025-06-12 14:17:31 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-06-12 14:17:31 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1097 ms
-2025-06-12 14:17:31 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-12 14:17:31 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
-2025-06-12 14:17:31 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-06-12 14:17:31 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-12 14:17:31 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-06-12 14:17:31 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@a9f10c7
-2025-06-12 14:17:31 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2025-06-12 14:17:31 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-06-12 14:17:31 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-06-12 14:17:31 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+2025-06-13 16:07:37 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-13 16:07:37 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-13 16:07:37 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-13 16:07:38 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-13 16:07:38 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-06-13 16:07:38 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-06-13 16:07:38 [restartedMain] INFO  o.e.p.PacketAnomalyDetectionApplication - Started PacketAnomalyDetectionApplication in 2.389 seconds (process running for 2.646)
+2025-06-13 16:08:03 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-13 16:08:03 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-06-13 16:08:03 [SpringApplicationShutdownHook] INFO  o.e.p.s.p.PacketCaptureService - PacketCaptureService 정리 중...
+2025-06-13 16:08:03 [SpringApplicationShutdownHook] INFO  o.e.p.s.p.PacketCaptureService - 패킷 캡처 중지 요청
+2025-06-13 16:08:03 [SpringApplicationShutdownHook] WARN  o.e.p.handler.PacketCaptureHandler - 실제 패킷 캡처가 실행되고 있지 않습니다
+2025-06-13 16:08:03 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 저장할 통계 세션이 없음
+2025-06-13 16:08:03 [SpringApplicationShutdownHook] WARN  o.e.p.h.CaptureStatisticsManager - 캡처 시작 시간이 기록되지 않음
+2025-06-13 16:08:03 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-13 16:08:03 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-06-13 16:08:03 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-06-13 16:55:49 [restartedMain] INFO  o.e.p.PacketAnomalyDetectionApplication - Starting PacketAnomalyDetectionApplication using Java 17.0.12 with PID 36763 (/Users/lo5er/packet-anomaly-detection/build/classes/java/main started by lo5er in /Users/lo5er/packet-anomaly-detection)
+2025-06-13 16:55:49 [restartedMain] INFO  o.e.p.PacketAnomalyDetectionApplication - No active profile set, falling back to 1 default profile: "default"
+2025-06-13 16:55:49 [restartedMain] INFO  o.s.b.d.restart.ChangeableUrls - The Class-Path manifest attribute in /Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/java-dotenv-5.1.1.jar referenced one or more files that do not exist: file:/Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/kotlin-stdlib-1.3.41.jar,file:/Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/kotlin-stdlib-common-1.3.41.jar,file:/Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/annotations-13.0.jar
+2025-06-13 16:55:49 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-13 16:55:49 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-13 16:55:49 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-13 16:55:49 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 37 ms. Found 3 JPA repository interfaces.
+2025-06-13 16:55:50 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-06-13 16:55:50 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-06-13 16:55:50 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-13 16:55:50 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-06-13 16:55:50 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 837 ms
+2025-06-13 16:55:50 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-13 16:55:50 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-06-13 16:55:50 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-06-13 16:55:50 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-13 16:55:50 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-06-13 16:55:50 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7f507905
+2025-06-13 16:55:50 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-06-13 16:55:50 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-13 16:55:50 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-06-13 16:55:50 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 8.0
@@ -248,125 +352,41 @@ java.util.IllegalFormatConversionException: d != java.util.concurrent.atomic.Ato
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-06-12 14:17:32 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-12 14:17:32 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-12 14:17:32 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-06-12 14:17:33 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-06-12 14:17:34 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2025-06-12 14:17:34 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-06-12 14:17:34 [restartedMain] INFO  o.e.p.PacketAnomalyDetectionApplication - Started PacketAnomalyDetectionApplication in 4.326 seconds (process running for 4.821)
-2025-06-12 14:17:41 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-06-12 14:17:41 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2025-06-12 14:17:41 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2025-06-12 14:17:41 [http-nio-8080-exec-2] INFO  o.e.p.c.p.PacketCaptureController -  패킷 캡처 시작 요청 받음
-2025-06-12 14:17:41 [ForkJoinPool.commonPool-worker-1] INFO  o.e.p.c.p.PacketCaptureController -  백그라운드에서 패킷 캡처 초기화 시작...
-2025-06-12 14:17:41 [ForkJoinPool.commonPool-worker-1] INFO  o.e.p.s.p.PacketCaptureService -  패킷 캡처 초기화 시작...
-2025-06-12 14:17:41 [ForkJoinPool.commonPool-worker-1] INFO  o.e.p.n.NetworkSystemValidator - 시스템 정보: OS=mac os x, Architecture=aarch64
-2025-06-12 14:17:41 [ForkJoinPool.commonPool-worker-1] WARN  o.e.p.s.p.PacketCaptureService - Apple Silicon Mac 감지 - 시뮬레이션 모드로 전환
-2025-06-12 14:17:41 [ForkJoinPool.commonPool-worker-1] INFO  o.e.p.s.p.PacketCaptureService - 패킷 캡처 백그라운드 스레드 시작됨
-2025-06-12 14:17:41 [PacketCaptureThread] INFO  o.e.p.s.p.PacketCaptureService - 백그라운드 패킷 캡처 시작
-2025-06-12 14:17:41 [ForkJoinPool.commonPool-worker-1] INFO  o.e.p.s.p.PacketCaptureService - 패킷 캡처 초기화 완료 (모드: REAL)
-2025-06-12 14:17:41 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 통계 관리 시작: 2025-06-12T14:17:41.156686
-2025-06-12 14:17:41 [PacketCaptureThread] INFO  o.e.p.h.SimulationPacketCaptureHandler - 시뮬레이션 모드 패킷 캡처 시작
-2025-06-12 14:17:41 [PacketCaptureThread] INFO  o.e.p.h.SimulationPacketCaptureHandler - 학습 목적: 실제 패킷 대신 가상 데이터로 위협 탐지 테스트
-2025-06-12 14:17:41 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
-2025-06-12 14:17:41 [PacketCaptureThread] INFO  o.e.p.s.a.AlertNotificationService - MEDIUM 알림: LARGE_PACKET - 172.16.0.50
-2025-06-12 14:17:41 [PacketCaptureThread] INFO  o.e.p.service.alert.AlertService - 알림 생성 완료: [MEDIUM] LARGE_PACKET - 172.16.0.50
-2025-06-12 14:17:41 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
-2025-06-12 14:17:43 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:5432
-2025-06-12 14:17:45 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:17:46 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
-2025-06-12 14:17:47 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:17:48 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:21
-2025-06-12 14:17:48 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:17:49 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:17:49 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:23
-2025-06-12 14:17:51 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 2.1 개 처리됨)
-2025-06-12 14:17:51 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:17:52 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:3306
-2025-06-12 14:17:53 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:17:54 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:17:56 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:17:59 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:23
-2025-06-12 14:18:00 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
-2025-06-12 14:18:01 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 1.9 개 처리됨)
-2025-06-12 14:18:01 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
-2025-06-12 14:18:02 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:21
-2025-06-12 14:18:03 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:18:04 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:18:08 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:18:11 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 2.0 개 처리됨)
-2025-06-12 14:18:12 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
-2025-06-12 14:18:12 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:18:14 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
-2025-06-12 14:18:15 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:18:15 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:22
-2025-06-12 14:18:15 [PacketCaptureThread] INFO  o.e.p.s.a.AlertNotificationService - MEDIUM 알림: SUSPICIOUS_CONNECTION - 203.0.113.50
-2025-06-12 14:18:15 [PacketCaptureThread] INFO  o.e.p.service.alert.AlertService - 알림 생성 완료: [MEDIUM] SUSPICIOUS_CONNECTION - 203.0.113.50
-2025-06-12 14:18:19 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:1433
-2025-06-12 14:18:19 [PacketCaptureThread] INFO  o.e.p.s.a.AlertNotificationService - MEDIUM 알림: SUSPICIOUS_CONNECTION - 10.0.0.99
-2025-06-12 14:18:19 [PacketCaptureThread] INFO  o.e.p.service.alert.AlertService - 알림 생성 완료: [MEDIUM] SUSPICIOUS_CONNECTION - 10.0.0.99
-2025-06-12 14:18:21 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 1.9 개 처리됨)
-2025-06-12 14:18:23 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:18:24 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:3306
-2025-06-12 14:18:28 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:18:31 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 2.0 개 처리됨)
-2025-06-12 14:18:31 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:18:34 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:18:38 [http-nio-8080-exec-3] INFO  o.e.p.c.p.PacketCaptureController -  패킷 캡처 중지 요청 받음
-2025-06-12 14:18:38 [http-nio-8080-exec-3] INFO  o.e.p.s.p.PacketCaptureService - PacketCaptureService 정리 중...
-2025-06-12 14:18:38 [http-nio-8080-exec-3] INFO  o.e.p.s.p.PacketCaptureService - 패킷 캡처 중지 요청
-2025-06-12 14:18:38 [http-nio-8080-exec-3] INFO  o.e.p.h.SimulationPacketCaptureHandler - 시뮬레이션 캡처 중지
-2025-06-12 14:18:38 [http-nio-8080-exec-3] INFO  o.e.p.h.SimulationPacketCaptureHandler - 시뮬레이션 캡처 완전 중지됨
-2025-06-12 14:18:38 [http-nio-8080-exec-3] INFO  o.e.p.h.CaptureStatisticsManager - 통계 관리 중지
-2025-06-12 14:18:38 [http-nio-8080-exec-3] INFO  o.e.p.h.CaptureStatisticsManager - 통계 세션 종료: ae01114a-e021-47d3-bc5f-c11f854bb5ac
-2025-06-12 14:18:38 [http-nio-8080-exec-3] INFO  o.e.p.h.CaptureStatisticsManager - === 패킷 캡처 최종 통계 (시뮬레이션 모드) ===
-2025-06-12 14:18:38 [http-nio-8080-exec-3] INFO  o.e.p.h.CaptureStatisticsManager - 총 처리 패킷: 113 개
-2025-06-12 14:18:38 [http-nio-8080-exec-3] INFO  o.e.p.h.CaptureStatisticsManager - 실행 시간: 57 초
-2025-06-12 14:18:38 [http-nio-8080-exec-3] INFO  o.e.p.h.CaptureStatisticsManager - 평균 처리량: {:.2f} 패킷/초
-2025-06-12 14:18:38 [http-nio-8080-exec-3] INFO  o.e.p.h.CaptureStatisticsManager - 시작 시간: 2025-06-12T14:17:41.156686
-2025-06-12 14:18:38 [http-nio-8080-exec-3] INFO  o.e.p.h.CaptureStatisticsManager - 종료 시간: 2025-06-12T14:18:38.774295
-2025-06-12 14:18:38 [http-nio-8080-exec-3] INFO  o.e.p.h.CaptureStatisticsManager - 마지막 패킷: 2025-06-12T14:18:38.769341
-2025-06-12 14:18:39 [PacketCaptureThread] INFO  o.e.p.s.p.PacketCaptureService -  패킷 캡처 스레드 종료
-2025-06-12 14:25:10 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-06-12 14:25:10 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-06-12 14:25:10 [SpringApplicationShutdownHook] INFO  o.e.p.s.p.PacketCaptureService - PacketCaptureService 정리 중...
-2025-06-12 14:25:10 [SpringApplicationShutdownHook] INFO  o.e.p.s.p.PacketCaptureService - 패킷 캡처 중지 요청
-2025-06-12 14:25:10 [SpringApplicationShutdownHook] INFO  o.e.p.h.SimulationPacketCaptureHandler - 시뮬레이션 캡처 완전 중지됨
-2025-06-12 14:25:10 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 통계 관리 중지
-2025-06-12 14:25:10 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 통계 세션 종료: ae01114a-e021-47d3-bc5f-c11f854bb5ac
-2025-06-12 14:25:10 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - === 패킷 캡처 최종 통계 (시뮬레이션 모드) ===
-2025-06-12 14:25:10 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 총 처리 패킷: 113 개
-2025-06-12 14:25:10 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 실행 시간: 448 초
-2025-06-12 14:25:10 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 평균 처리량: {:.2f} 패킷/초
-2025-06-12 14:25:10 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 시작 시간: 2025-06-12T14:17:41.156686
-2025-06-12 14:25:10 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 종료 시간: 2025-06-12T14:25:10.058655
-2025-06-12 14:25:10 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 마지막 패킷: 2025-06-12T14:25:10.034358
-2025-06-12 14:25:10 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-06-12 14:25:10 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2025-06-12 14:25:10 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2025-06-12 14:25:24 [restartedMain] INFO  o.e.p.PacketAnomalyDetectionApplication - Starting PacketAnomalyDetectionApplication using Java 17.0.12 with PID 8922 (/Users/lo5er/packet-anomaly-detection/build/classes/java/main started by lo5er in /Users/lo5er/packet-anomaly-detection)
-2025-06-12 14:25:24 [restartedMain] INFO  o.e.p.PacketAnomalyDetectionApplication - No active profile set, falling back to 1 default profile: "default"
-2025-06-12 14:25:24 [restartedMain] INFO  o.s.b.d.restart.ChangeableUrls - The Class-Path manifest attribute in /Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/java-dotenv-5.1.1.jar referenced one or more files that do not exist: file:/Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/kotlin-stdlib-1.3.41.jar,file:/Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/kotlin-stdlib-common-1.3.41.jar,file:/Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/annotations-13.0.jar
-2025-06-12 14:25:24 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-06-12 14:25:24 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-06-12 14:25:25 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-12 14:25:25 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 48 ms. Found 3 JPA repository interfaces.
-2025-06-12 14:25:26 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-06-12 14:25:26 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-06-12 14:25:26 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2025-06-12 14:25:26 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-06-12 14:25:26 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1625 ms
-2025-06-12 14:25:26 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-12 14:25:26 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
-2025-06-12 14:25:26 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-06-12 14:25:26 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-12 14:25:26 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-06-12 14:25:26 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@75025c97
-2025-06-12 14:25:26 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2025-06-12 14:25:26 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-06-12 14:25:26 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-06-12 14:25:26 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+2025-06-13 16:55:50 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-13 16:55:50 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-13 16:55:50 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-13 16:55:51 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-13 16:55:51 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-06-13 16:55:51 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-06-13 16:55:51 [restartedMain] INFO  o.e.p.PacketAnomalyDetectionApplication - Started PacketAnomalyDetectionApplication in 2.848 seconds (process running for 3.116)
+2025-06-13 16:56:47 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-13 16:56:47 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-06-13 16:56:47 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-06-13 16:56:47 [http-nio-8080-exec-2] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Method parameter 'date': Failed to convert value of type 'java.lang.String' to required type 'java.time.LocalDate'; Failed to convert from type [java.lang.String] to type [@org.springframework.web.bind.annotation.RequestParam java.time.LocalDate] for value [06-13]]
+2025-06-13 17:28:07 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-13 17:28:07 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-06-13 17:28:07 [SpringApplicationShutdownHook] INFO  o.e.p.s.p.PacketCaptureService - PacketCaptureService 정리 중...
+2025-06-13 17:28:07 [SpringApplicationShutdownHook] INFO  o.e.p.s.p.PacketCaptureService - 패킷 캡처 중지 요청
+2025-06-13 17:28:07 [SpringApplicationShutdownHook] WARN  o.e.p.handler.PacketCaptureHandler - 실제 패킷 캡처가 실행되고 있지 않습니다
+2025-06-13 17:28:07 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 저장할 통계 세션이 없음
+2025-06-13 17:28:07 [SpringApplicationShutdownHook] WARN  o.e.p.h.CaptureStatisticsManager - 캡처 시작 시간이 기록되지 않음
+2025-06-13 17:28:07 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-13 17:28:07 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-06-13 17:28:07 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-06-13 17:33:36 [Test worker] INFO  o.e.p.p.HourlyPacketQueryPerformanceTest - Starting HourlyPacketQueryPerformanceTest using Java 17.0.12 with PID 39135 (started by lo5er in /Users/lo5er/packet-anomaly-detection)
+2025-06-13 17:33:36 [Test worker] INFO  o.e.p.p.HourlyPacketQueryPerformanceTest - No active profile set, falling back to 1 default profile: "default"
+2025-06-13 17:33:36 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-13 17:33:36 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 35 ms. Found 3 JPA repository interfaces.
+2025-06-13 17:33:37 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-13 17:33:37 [Test worker] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-06-13 17:33:37 [Test worker] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-06-13 17:33:37 [Test worker] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-13 17:33:37 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-06-13 17:33:37 [Test worker] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2d3eecda
+2025-06-13 17:33:37 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-06-13 17:33:37 [Test worker] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-13 17:33:37 [Test worker] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-06-13 17:33:37 [Test worker] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 8.0
@@ -374,279 +394,16 @@ java.util.IllegalFormatConversionException: d != java.util.concurrent.atomic.Ato
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-06-12 14:25:27 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-12 14:25:27 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-12 14:25:27 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-06-12 14:25:28 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-06-12 14:25:28 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2025-06-12 14:25:28 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-06-12 14:25:28 [restartedMain] INFO  o.e.p.PacketAnomalyDetectionApplication - Started PacketAnomalyDetectionApplication in 5.112 seconds (process running for 6.015)
-2025-06-12 14:25:43 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-06-12 14:25:43 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2025-06-12 14:25:43 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2025-06-12 14:25:43 [http-nio-8080-exec-1] INFO  o.e.p.c.p.PacketCaptureController -  패킷 캡처 시작 요청 받음
-2025-06-12 14:25:43 [ForkJoinPool.commonPool-worker-1] INFO  o.e.p.c.p.PacketCaptureController -  백그라운드에서 패킷 캡처 초기화 시작...
-2025-06-12 14:25:43 [ForkJoinPool.commonPool-worker-1] INFO  o.e.p.s.p.PacketCaptureService -  패킷 캡처 초기화 시작...
-2025-06-12 14:25:43 [ForkJoinPool.commonPool-worker-1] INFO  o.e.p.n.NetworkSystemValidator - 시스템 정보: OS=mac os x, Architecture=aarch64
-2025-06-12 14:25:43 [ForkJoinPool.commonPool-worker-1] WARN  o.e.p.s.p.PacketCaptureService - Apple Silicon Mac 감지 - 시뮬레이션 모드로 전환
-2025-06-12 14:25:43 [ForkJoinPool.commonPool-worker-1] INFO  o.e.p.s.p.PacketCaptureService - 패킷 캡처 백그라운드 스레드 시작됨
-2025-06-12 14:25:43 [PacketCaptureThread] INFO  o.e.p.s.p.PacketCaptureService - 백그라운드 패킷 캡처 시작
-2025-06-12 14:25:43 [ForkJoinPool.commonPool-worker-1] INFO  o.e.p.s.p.PacketCaptureService - 패킷 캡처 초기화 완료 (모드: REAL)
-2025-06-12 14:25:43 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 통계 관리 시작: 2025-06-12T14:25:43.755462
-2025-06-12 14:25:43 [PacketCaptureThread] INFO  o.e.p.h.SimulationPacketCaptureHandler - 시뮬레이션 모드 패킷 캡처 시작
-2025-06-12 14:25:43 [PacketCaptureThread] INFO  o.e.p.h.SimulationPacketCaptureHandler - 학습 목적: 실제 패킷 대신 가상 데이터로 위협 탐지 테스트
-2025-06-12 14:25:45 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:1433
-2025-06-12 14:25:46 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:3389
-2025-06-12 14:25:48 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:25:50 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
-2025-06-12 14:25:50 [PacketCaptureThread] INFO  o.e.p.s.a.AlertNotificationService - MEDIUM 알림: LARGE_PACKET - 172.16.0.50
-2025-06-12 14:25:50 [PacketCaptureThread] INFO  o.e.p.service.alert.AlertService - 알림 생성 완료: [MEDIUM] LARGE_PACKET - 172.16.0.50
-2025-06-12 14:25:51 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:1433
-2025-06-12 14:25:52 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:25:52 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:25:53 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 1.9 개 처리됨)
-2025-06-12 14:25:53 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
-2025-06-12 14:25:56 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:26:02 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:21
-2025-06-12 14:26:02 [PacketCaptureThread] INFO  o.e.p.s.a.AlertNotificationService - MEDIUM 알림: SUSPICIOUS_CONNECTION - 203.0.113.50
-2025-06-12 14:26:02 [PacketCaptureThread] INFO  o.e.p.service.alert.AlertService - 알림 생성 완료: [MEDIUM] SUSPICIOUS_CONNECTION - 203.0.113.50
-2025-06-12 14:26:03 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 2.0 개 처리됨)
-2025-06-12 14:26:03 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:22
-2025-06-12 14:26:03 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:26:05 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:3306
-2025-06-12 14:26:06 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:21
-2025-06-12 14:26:06 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
-2025-06-12 14:26:08 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:1433
-2025-06-12 14:26:11 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:26:11 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:26:13 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 2.0 개 처리됨)
-2025-06-12 14:26:18 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:1433
-2025-06-12 14:26:20 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:26:22 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
-2025-06-12 14:26:22 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:26:23 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 1.9 개 처리됨)
-2025-06-12 14:26:23 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:3306
-2025-06-12 14:26:24 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:1433
-2025-06-12 14:26:33 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 2.0 개 처리됨)
-2025-06-12 14:26:33 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:26:33 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:5432
-2025-06-12 14:26:33 [PacketCaptureThread] INFO  o.e.p.s.a.AlertNotificationService - MEDIUM 알림: SUSPICIOUS_CONNECTION - 10.0.0.99
-2025-06-12 14:26:33 [PacketCaptureThread] INFO  o.e.p.service.alert.AlertService - 알림 생성 완료: [MEDIUM] SUSPICIOUS_CONNECTION - 10.0.0.99
-2025-06-12 14:26:35 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:3389
-2025-06-12 14:26:36 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:26:39 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:26:42 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:26:43 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 1.9 개 처리됨)
-2025-06-12 14:26:46 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:3306
-2025-06-12 14:26:47 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:3306
-2025-06-12 14:26:50 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:22
-2025-06-12 14:26:53 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 2.0 개 처리됨)
-2025-06-12 14:26:56 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:26:58 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:26:59 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:27017
-2025-06-12 14:26:59 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:27:03 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 1.9 개 처리됨)
-2025-06-12 14:27:03 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:27:03 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
-2025-06-12 14:27:05 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:27:06 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:27:08 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:6379
-2025-06-12 14:27:09 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
-2025-06-12 14:27:10 [http-nio-8080-exec-5] INFO  o.e.p.c.p.PacketCaptureController -  패킷 캡처 중지 요청 받음
-2025-06-12 14:27:10 [http-nio-8080-exec-5] INFO  o.e.p.s.p.PacketCaptureService - PacketCaptureService 정리 중...
-2025-06-12 14:27:10 [http-nio-8080-exec-5] INFO  o.e.p.s.p.PacketCaptureService - 패킷 캡처 중지 요청
-2025-06-12 14:27:10 [http-nio-8080-exec-5] INFO  o.e.p.h.SimulationPacketCaptureHandler - 시뮬레이션 캡처 중지
-2025-06-12 14:27:10 [http-nio-8080-exec-5] INFO  o.e.p.h.SimulationPacketCaptureHandler - 시뮬레이션 캡처 완전 중지됨
-2025-06-12 14:27:10 [http-nio-8080-exec-5] INFO  o.e.p.h.CaptureStatisticsManager - 통계 관리 중지
-2025-06-12 14:27:10 [http-nio-8080-exec-5] INFO  o.e.p.h.CaptureStatisticsManager - 통계 세션 종료: eb89bd47-a9db-481c-b8b2-179817687a91
-2025-06-12 14:27:10 [http-nio-8080-exec-5] INFO  o.e.p.h.CaptureStatisticsManager - === 패킷 캡처 최종 통계 (시뮬레이션 모드) ===
-2025-06-12 14:27:10 [http-nio-8080-exec-5] INFO  o.e.p.h.CaptureStatisticsManager - 총 처리 패킷: 169 개
-2025-06-12 14:27:10 [http-nio-8080-exec-5] INFO  o.e.p.h.CaptureStatisticsManager - 실행 시간: 86 초
-2025-06-12 14:27:10 [http-nio-8080-exec-5] INFO  o.e.p.h.CaptureStatisticsManager - 평균 처리량: {:.2f} 패킷/초
-2025-06-12 14:27:10 [http-nio-8080-exec-5] INFO  o.e.p.h.CaptureStatisticsManager - 시작 시간: 2025-06-12T14:25:43.755462
-2025-06-12 14:27:10 [http-nio-8080-exec-5] INFO  o.e.p.h.CaptureStatisticsManager - 종료 시간: 2025-06-12T14:27:10.015446
-2025-06-12 14:27:10 [http-nio-8080-exec-5] INFO  o.e.p.h.CaptureStatisticsManager - 마지막 패킷: 2025-06-12T14:27:10.011182
-2025-06-12 14:27:10 [PacketCaptureThread] INFO  o.e.p.s.p.PacketCaptureService -  패킷 캡처 스레드 종료
-2025-06-12 14:33:46 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-06-12 14:33:46 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-06-12 14:33:46 [SpringApplicationShutdownHook] INFO  o.e.p.s.p.PacketCaptureService - PacketCaptureService 정리 중...
-2025-06-12 14:33:46 [SpringApplicationShutdownHook] INFO  o.e.p.s.p.PacketCaptureService - 패킷 캡처 중지 요청
-2025-06-12 14:33:46 [SpringApplicationShutdownHook] INFO  o.e.p.h.SimulationPacketCaptureHandler - 시뮬레이션 캡처 완전 중지됨
-2025-06-12 14:33:46 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 통계 관리 중지
-2025-06-12 14:33:46 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 통계 세션 종료: eb89bd47-a9db-481c-b8b2-179817687a91
-2025-06-12 14:33:46 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - === 패킷 캡처 최종 통계 (시뮬레이션 모드) ===
-2025-06-12 14:33:46 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 총 처리 패킷: 169 개
-2025-06-12 14:33:46 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 실행 시간: 482 초
-2025-06-12 14:33:46 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 평균 처리량: {:.2f} 패킷/초
-2025-06-12 14:33:46 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 시작 시간: 2025-06-12T14:25:43.755462
-2025-06-12 14:33:46 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 종료 시간: 2025-06-12T14:33:46.314717
-2025-06-12 14:33:46 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 마지막 패킷: 2025-06-12T14:33:46.288427
-2025-06-12 14:33:46 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-06-12 14:33:46 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2025-06-12 14:33:46 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2025-06-12 14:53:02 [restartedMain] INFO  o.e.p.PacketAnomalyDetectionApplication - Starting PacketAnomalyDetectionApplication using Java 17.0.12 with PID 10702 (/Users/lo5er/packet-anomaly-detection/build/classes/java/main started by lo5er in /Users/lo5er/packet-anomaly-detection)
-2025-06-12 14:53:02 [restartedMain] INFO  o.e.p.PacketAnomalyDetectionApplication - No active profile set, falling back to 1 default profile: "default"
-2025-06-12 14:53:02 [restartedMain] INFO  o.s.b.d.restart.ChangeableUrls - The Class-Path manifest attribute in /Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/java-dotenv-5.1.1.jar referenced one or more files that do not exist: file:/Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/kotlin-stdlib-1.3.41.jar,file:/Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/kotlin-stdlib-common-1.3.41.jar,file:/Users/lo5er/.gradle/caches/modules-2/files-2.1/io.github.cdimascio/java-dotenv/5.1.1/6c5712d04751e707b9f925aab756302e74103f59/annotations-13.0.jar
-2025-06-12 14:53:02 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-06-12 14:53:02 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-06-12 14:53:03 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-12 14:53:03 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 41 ms. Found 3 JPA repository interfaces.
-2025-06-12 14:53:03 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-06-12 14:53:03 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-06-12 14:53:03 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2025-06-12 14:53:03 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-06-12 14:53:03 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1468 ms
-2025-06-12 14:53:03 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-12 14:53:03 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
-2025-06-12 14:53:03 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-06-12 14:53:03 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-12 14:53:03 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-06-12 14:53:04 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1e6df4ab
-2025-06-12 14:53:04 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2025-06-12 14:53:04 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-06-12 14:53:04 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2025-06-12 14:53:04 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 8.0
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-06-12 14:53:04 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-12 14:53:04 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-12 14:53:04 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-06-12 14:53:05 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-06-12 14:53:06 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2025-06-12 14:53:06 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-06-12 14:53:06 [restartedMain] INFO  o.e.p.PacketAnomalyDetectionApplication - Started PacketAnomalyDetectionApplication in 4.819 seconds (process running for 5.781)
-2025-06-12 14:53:14 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-06-12 14:53:14 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2025-06-12 14:53:14 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
-2025-06-12 14:53:14 [http-nio-8080-exec-2] INFO  o.e.p.c.p.PacketCaptureController -  패킷 캡처 시작 요청 받음
-2025-06-12 14:53:14 [ForkJoinPool.commonPool-worker-1] INFO  o.e.p.c.p.PacketCaptureController -  백그라운드에서 패킷 캡처 초기화 시작...
-2025-06-12 14:53:14 [ForkJoinPool.commonPool-worker-1] INFO  o.e.p.s.p.PacketCaptureService -  패킷 캡처 초기화 시작...
-2025-06-12 14:53:14 [ForkJoinPool.commonPool-worker-1] INFO  o.e.p.n.NetworkSystemValidator - 시스템 정보: OS=mac os x, Architecture=aarch64
-2025-06-12 14:53:14 [ForkJoinPool.commonPool-worker-1] WARN  o.e.p.s.p.PacketCaptureService - Apple Silicon Mac 감지 - 시뮬레이션 모드로 전환
-2025-06-12 14:53:14 [ForkJoinPool.commonPool-worker-1] INFO  o.e.p.s.p.PacketCaptureService - 패킷 캡처 백그라운드 스레드 시작됨
-2025-06-12 14:53:14 [PacketCaptureThread] INFO  o.e.p.s.p.PacketCaptureService - 백그라운드 패킷 캡처 시작
-2025-06-12 14:53:14 [ForkJoinPool.commonPool-worker-1] INFO  o.e.p.s.p.PacketCaptureService - 패킷 캡처 초기화 완료 (모드: REAL)
-2025-06-12 14:53:14 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 통계 관리 시작: 2025-06-12T14:53:14.956452
-2025-06-12 14:53:14 [PacketCaptureThread] INFO  o.e.p.h.SimulationPacketCaptureHandler - 시뮬레이션 모드 패킷 캡처 시작
-2025-06-12 14:53:14 [PacketCaptureThread] INFO  o.e.p.h.SimulationPacketCaptureHandler - 학습 목적: 실제 패킷 대신 가상 데이터로 위협 탐지 테스트
-2025-06-12 14:53:14 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:53:16 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:53:17 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:53:19 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:53:24 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 1.9 개 처리됨)
-2025-06-12 14:53:26 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:22
-2025-06-12 14:53:31 [http-nio-8080-exec-3] INFO  o.e.p.c.p.PacketCaptureController -  패킷 캡처 중지 요청 받음
-2025-06-12 14:53:31 [http-nio-8080-exec-3] INFO  o.e.p.s.p.PacketCaptureService - PacketCaptureService 정리 중...
-2025-06-12 14:53:31 [http-nio-8080-exec-3] INFO  o.e.p.s.p.PacketCaptureService - 패킷 캡처 중지 요청
-2025-06-12 14:53:31 [http-nio-8080-exec-3] INFO  o.e.p.h.SimulationPacketCaptureHandler - 시뮬레이션 캡처 중지
-2025-06-12 14:53:31 [http-nio-8080-exec-3] INFO  o.e.p.h.SimulationPacketCaptureHandler - 시뮬레이션 캡처 완전 중지됨
-2025-06-12 14:53:31 [http-nio-8080-exec-3] INFO  o.e.p.h.CaptureStatisticsManager - 통계 관리 중지
-2025-06-12 14:53:31 [http-nio-8080-exec-3] INFO  o.e.p.h.CaptureStatisticsManager - 통계 세션 종료: 81059a8c-4491-42a2-91b7-12a7fd3b5997
-2025-06-12 14:53:31 [http-nio-8080-exec-3] INFO  o.e.p.h.CaptureStatisticsManager - === 패킷 캡처 최종 통계 (시뮬레이션 모드) ===
-2025-06-12 14:53:31 [http-nio-8080-exec-3] INFO  o.e.p.h.CaptureStatisticsManager - 총 처리 패킷: 32 개
-2025-06-12 14:53:31 [http-nio-8080-exec-3] INFO  o.e.p.h.CaptureStatisticsManager - 실행 시간: 16 초
-2025-06-12 14:53:31 [http-nio-8080-exec-3] INFO  o.e.p.h.CaptureStatisticsManager - 평균 처리량: {:.2f} 패킷/초
-2025-06-12 14:53:31 [http-nio-8080-exec-3] INFO  o.e.p.h.CaptureStatisticsManager - 시작 시간: 2025-06-12T14:53:14.956452
-2025-06-12 14:53:31 [http-nio-8080-exec-3] INFO  o.e.p.h.CaptureStatisticsManager - 종료 시간: 2025-06-12T14:53:31.247697
-2025-06-12 14:53:31 [http-nio-8080-exec-3] INFO  o.e.p.h.CaptureStatisticsManager - 마지막 패킷: 2025-06-12T14:53:31.240541
-2025-06-12 14:53:31 [PacketCaptureThread] INFO  o.e.p.s.p.PacketCaptureService -  패킷 캡처 스레드 종료
-2025-06-12 14:55:24 [http-nio-8080-exec-9] INFO  o.e.p.c.p.PacketCaptureController -  패킷 캡처 시작 요청 받음
-2025-06-12 14:55:24 [ForkJoinPool.commonPool-worker-2] INFO  o.e.p.c.p.PacketCaptureController -  백그라운드에서 패킷 캡처 초기화 시작...
-2025-06-12 14:55:24 [ForkJoinPool.commonPool-worker-2] INFO  o.e.p.s.p.PacketCaptureService -  패킷 캡처 초기화 시작...
-2025-06-12 14:55:24 [ForkJoinPool.commonPool-worker-2] INFO  o.e.p.n.NetworkSystemValidator - 시스템 정보: OS=mac os x, Architecture=aarch64
-2025-06-12 14:55:24 [ForkJoinPool.commonPool-worker-2] WARN  o.e.p.s.p.PacketCaptureService - Apple Silicon Mac 감지 - 시뮬레이션 모드로 전환
-2025-06-12 14:55:24 [ForkJoinPool.commonPool-worker-2] INFO  o.e.p.s.p.PacketCaptureService - 패킷 캡처 백그라운드 스레드 시작됨
-2025-06-12 14:55:24 [PacketCaptureThread] INFO  o.e.p.s.p.PacketCaptureService - 백그라운드 패킷 캡처 시작
-2025-06-12 14:55:24 [ForkJoinPool.commonPool-worker-2] INFO  o.e.p.s.p.PacketCaptureService - 패킷 캡처 초기화 완료 (모드: SIMULATION)
-2025-06-12 14:55:24 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 통계 관리 시작: 2025-06-12T14:55:24.826801
-2025-06-12 14:55:24 [PacketCaptureThread] INFO  o.e.p.h.SimulationPacketCaptureHandler - 시뮬레이션 모드 패킷 캡처 시작
-2025-06-12 14:55:24 [PacketCaptureThread] INFO  o.e.p.h.SimulationPacketCaptureHandler - 학습 목적: 실제 패킷 대신 가상 데이터로 위협 탐지 테스트
-2025-06-12 14:55:25 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:6379
-2025-06-12 14:55:27 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:55:27 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
-2025-06-12 14:55:27 [PacketCaptureThread] INFO  o.e.p.s.a.AlertNotificationService - MEDIUM 알림: LARGE_PACKET - 172.16.0.50
-2025-06-12 14:55:27 [PacketCaptureThread] INFO  o.e.p.service.alert.AlertService - 알림 생성 완료: [MEDIUM] LARGE_PACKET - 172.16.0.50
-2025-06-12 14:55:28 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:3389
-2025-06-12 14:55:29 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
-2025-06-12 14:55:30 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:55:34 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 1.9 개 처리됨)
-2025-06-12 14:55:34 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:55:42 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:23
-2025-06-12 14:55:42 [PacketCaptureThread] INFO  o.e.p.s.a.AlertNotificationService - MEDIUM 알림: SUSPICIOUS_CONNECTION - 203.0.113.50
-2025-06-12 14:55:42 [PacketCaptureThread] INFO  o.e.p.service.alert.AlertService - 알림 생성 완료: [MEDIUM] SUSPICIOUS_CONNECTION - 203.0.113.50
-2025-06-12 14:55:44 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 2.0 개 처리됨)
-2025-06-12 14:55:44 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:55:44 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:22
-2025-06-12 14:55:47 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:3306
-2025-06-12 14:55:48 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:21
-2025-06-12 14:55:49 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
-2025-06-12 14:55:54 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 2.0 개 처리됨)
-2025-06-12 14:55:56 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:3389
-2025-06-12 14:55:57 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:3306
-2025-06-12 14:56:00 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
-2025-06-12 14:56:02 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:56:04 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 1.9 개 처리됨)
-2025-06-12 14:56:04 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:56:12 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:56:14 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 2.0 개 처리됨)
-2025-06-12 14:56:14 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:3389
-2025-06-12 14:56:18 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:3389
-2025-06-12 14:56:21 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:56:24 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 1.9 개 처리됨)
-2025-06-12 14:56:27 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:56:28 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:5432
-2025-06-12 14:56:28 [PacketCaptureThread] INFO  o.e.p.s.a.AlertNotificationService - MEDIUM 알림: SUSPICIOUS_CONNECTION - 10.0.0.99
-2025-06-12 14:56:28 [PacketCaptureThread] INFO  o.e.p.service.alert.AlertService - 알림 생성 완료: [MEDIUM] SUSPICIOUS_CONNECTION - 10.0.0.99
-2025-06-12 14:56:31 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService - 🔨 브루트포스 공격 탐지: 192.168.1.10 (5분간 50회 연결 시도)
-2025-06-12 14:56:31 [PacketCaptureThread] WARN  o.e.p.s.a.AlertNotificationService - HIGH 알림: MULTIPLE_FAILED_ATTEMPTS - 192.168.1.10
-2025-06-12 14:56:31 [PacketCaptureThread] INFO  o.e.p.service.alert.AlertService - 알림 생성 완료: [HIGH] MULTIPLE_FAILED_ATTEMPTS - 192.168.1.10
-2025-06-12 14:56:34 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 2.0 개 처리됨)
-2025-06-12 14:56:37 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService - 🔨 브루트포스 공격 탐지: 192.168.1.15 (5분간 50회 연결 시도)
-2025-06-12 14:56:37 [PacketCaptureThread] WARN  o.e.p.s.a.AlertNotificationService - HIGH 알림: MULTIPLE_FAILED_ATTEMPTS - 192.168.1.15
-2025-06-12 14:56:37 [PacketCaptureThread] INFO  o.e.p.service.alert.AlertService - 알림 생성 완료: [HIGH] MULTIPLE_FAILED_ATTEMPTS - 192.168.1.15
-2025-06-12 14:56:38 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:56:44 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 2.0 개 처리됨)
-2025-06-12 14:56:45 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:1433
-2025-06-12 14:56:50 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:3389
-2025-06-12 14:56:50 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
-2025-06-12 14:56:51 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:23
-2025-06-12 14:56:52 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
-2025-06-12 14:56:53 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:3389
-2025-06-12 14:56:54 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 1.9 개 처리됨)
-2025-06-12 14:56:54 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:3306
-2025-06-12 14:56:55 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:27017
-2025-06-12 14:56:55 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:56:56 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:21
-2025-06-12 14:56:57 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:3306
-2025-06-12 14:56:58 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 198.51.100.75:54321 → 192.168.1.200:22
-2025-06-12 14:56:59 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 10.0.0.99:33333 → 192.168.1.150:6379
-2025-06-12 14:57:00 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:1433
-2025-06-12 14:57:01 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:3389
-2025-06-12 14:57:02 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService - 🔨 브루트포스 공격 탐지: 192.168.1.20 (5분간 50회 연결 시도)
-2025-06-12 14:57:02 [PacketCaptureThread] WARN  o.e.p.s.a.AlertNotificationService - HIGH 알림: MULTIPLE_FAILED_ATTEMPTS - 192.168.1.20
-2025-06-12 14:57:02 [PacketCaptureThread] INFO  o.e.p.service.alert.AlertService - 알림 생성 완료: [HIGH] MULTIPLE_FAILED_ATTEMPTS - 192.168.1.20
-2025-06-12 14:57:04 [PacketCaptureThread] INFO  o.e.p.h.CaptureStatisticsManager - 처리량 통계: {:.1f} 패킷/초 (총 2.0 개 처리됨)
-2025-06-12 14:57:04 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:22
-2025-06-12 14:57:05 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:3306
-2025-06-12 14:57:10 [PacketCaptureThread] WARN  o.e.p.s.t.ThreatDetectionService -  대용량 패킷 탐지: 8000 bytes (임계값: 1500 bytes)
-2025-06-12 14:57:11 [PacketCaptureThread] INFO  o.e.p.s.t.ThreatDetectionService -  의심스러운 포트 접근: 203.0.113.50:12345 → 192.168.1.100:23
-2025-06-12 14:57:12 [http-nio-8080-exec-2] INFO  o.e.p.c.p.PacketCaptureController -  패킷 캡처 중지 요청 받음
-2025-06-12 14:57:12 [http-nio-8080-exec-2] INFO  o.e.p.s.p.PacketCaptureService - PacketCaptureService 정리 중...
-2025-06-12 14:57:12 [http-nio-8080-exec-2] INFO  o.e.p.s.p.PacketCaptureService - 패킷 캡처 중지 요청
-2025-06-12 14:57:12 [http-nio-8080-exec-2] INFO  o.e.p.h.SimulationPacketCaptureHandler - 시뮬레이션 캡처 중지
-2025-06-12 14:57:12 [http-nio-8080-exec-2] INFO  o.e.p.h.SimulationPacketCaptureHandler - 시뮬레이션 캡처 완전 중지됨
-2025-06-12 14:57:12 [http-nio-8080-exec-2] INFO  o.e.p.h.CaptureStatisticsManager - 통계 관리 중지
-2025-06-12 14:57:12 [http-nio-8080-exec-2] INFO  o.e.p.h.CaptureStatisticsManager - 통계 세션 종료: 3846b055-4029-4bbb-91e7-03f295d243e6
-2025-06-12 14:57:12 [http-nio-8080-exec-2] INFO  o.e.p.h.CaptureStatisticsManager - === 패킷 캡처 최종 통계 (시뮬레이션 모드) ===
-2025-06-12 14:57:12 [http-nio-8080-exec-2] INFO  o.e.p.h.CaptureStatisticsManager - 총 처리 패킷: 211 개
-2025-06-12 14:57:12 [http-nio-8080-exec-2] INFO  o.e.p.h.CaptureStatisticsManager - 실행 시간: 107 초
-2025-06-12 14:57:12 [http-nio-8080-exec-2] INFO  o.e.p.h.CaptureStatisticsManager - 평균 처리량: {:.2f} 패킷/초
-2025-06-12 14:57:12 [http-nio-8080-exec-2] INFO  o.e.p.h.CaptureStatisticsManager - 시작 시간: 2025-06-12T14:55:24.826801
-2025-06-12 14:57:12 [http-nio-8080-exec-2] INFO  o.e.p.h.CaptureStatisticsManager - 종료 시간: 2025-06-12T14:57:12.411828
-2025-06-12 14:57:12 [http-nio-8080-exec-2] INFO  o.e.p.h.CaptureStatisticsManager - 마지막 패킷: 2025-06-12T14:57:12.406797
-2025-06-12 14:57:12 [PacketCaptureThread] INFO  o.e.p.s.p.PacketCaptureService -  패킷 캡처 스레드 종료
+2025-06-13 17:33:37 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-13 17:33:38 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-13 17:33:38 [Test worker] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-13 17:33:39 [Test worker] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-13 17:33:39 [Test worker] INFO  o.e.p.p.HourlyPacketQueryPerformanceTest - Started HourlyPacketQueryPerformanceTest in 3.37 seconds (process running for 4.146)
+2025-06-13 17:33:40 [SpringApplicationShutdownHook] INFO  o.e.p.s.p.PacketCaptureService - PacketCaptureService 정리 중...
+2025-06-13 17:33:40 [SpringApplicationShutdownHook] INFO  o.e.p.s.p.PacketCaptureService - 패킷 캡처 중지 요청
+2025-06-13 17:33:40 [SpringApplicationShutdownHook] WARN  o.e.p.handler.PacketCaptureHandler - 실제 패킷 캡처가 실행되고 있지 않습니다
+2025-06-13 17:33:40 [SpringApplicationShutdownHook] INFO  o.e.p.h.CaptureStatisticsManager - 저장할 통계 세션이 없음
+2025-06-13 17:33:40 [SpringApplicationShutdownHook] WARN  o.e.p.h.CaptureStatisticsManager - 캡처 시작 시간이 기록되지 않음
+2025-06-13 17:33:40 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-13 17:33:40 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-06-13 17:33:40 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

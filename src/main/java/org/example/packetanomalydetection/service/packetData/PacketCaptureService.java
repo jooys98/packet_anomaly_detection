@@ -54,11 +54,12 @@ public class PacketCaptureService {
         try {
             // 캡처 모드 결정
             boolean captureMode = determineCaptureMode();
-
+            this.useSimulationMode = captureMode;
             // 별도 스레드에서 캡처 시작
             startCaptureInBackground(captureMode);
 
             isRunning.set(true);
+
             log.info("패킷 캡처 초기화 완료 (모드: {})", getCaptureMode());
 
         } catch (Exception e) {
@@ -81,17 +82,14 @@ public class PacketCaptureService {
                     if (captureMode) {
                         CaptureMode mode = CaptureMode.SIMULATION;
                         useSimulationMode = true;
-                        statisticsManager.startCapture(mode,null);
+                        statisticsManager.startCapture(mode, null);
                         simulationCaptureHandler.startCapture(this::handleCapturedPacket);
                     } else {
                         try {
                             CaptureMode mode = CaptureMode.REAL_CAPTURE;
                             useSimulationMode = false;
                             networkInterfaceManager.initializeInterface();
-                            realCaptureHandler.startCapture(
-                                    networkInterfaceManager.getSelectedInterface(),
-                                    this::handleCapturedPacket
-                            );
+                            realCaptureHandler.startCapture(networkInterfaceManager.getSelectedInterface(), this::handleCapturedPacket);
                             statisticsManager.startCapture(mode, String.valueOf(networkInterfaceManager.getSelectedInterface()));
                         } catch (Exception e) {
                             log.error("실제 패킷 캡처 시작 실패 - 시뮬레이션 모드로 전환", e);
@@ -189,16 +187,7 @@ public class PacketCaptureService {
      * 캡처 진행 상황 출력
      */
     private void printCaptureProgress(PacketData packet) {
-        System.out.printf("[%s #%d] %s:%s -> %s:%s (%s, %d bytes)\n",
-                useSimulationMode ? "시뮬레이션" : "실제 패킷",
-                statisticsManager.getTotalCapturedPackets().get(),
-                packet.getSourceIp(),
-                packet.getSourcePort() != null ? packet.getSourcePort() : "?",
-                packet.getDestIp(),
-                packet.getDestPort() != null ? packet.getDestPort() : "?",
-                packet.getProtocol(),
-                packet.getPacketSize()
-        );
+        System.out.printf("[%s #%d] %s:%s -> %s:%s (%s, %d bytes)\n", useSimulationMode ? "시뮬레이션" : "실제 패킷", statisticsManager.getTotalCapturedPackets().get(), packet.getSourceIp(), packet.getSourcePort() != null ? packet.getSourcePort() : "?", packet.getDestIp(), packet.getDestPort() != null ? packet.getDestPort() : "?", packet.getProtocol(), packet.getPacketSize());
     }
 
     public boolean isRunning() {

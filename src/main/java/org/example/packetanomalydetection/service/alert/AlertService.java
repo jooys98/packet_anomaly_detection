@@ -47,6 +47,7 @@ public class AlertService {
             // 1. 입력 검증
             if (!isValidAlert(alert)) {
                 log.warn(" 유효하지 않은 알림 요청: {}", alert);
+
                 return;
             }
 
@@ -127,23 +128,10 @@ public class AlertService {
 
 
     /**
-     * 긴급 상황 대응 - 모든 알림 일시 중단
-     */
-    public void emergencyMuteAll(int durationMinutes, String reason) {
-
-        log.warn(" 긴급 알림 중단: {}분간 - 사유: {}", durationMinutes, reason);
-
-        // 실제 구현에서는 플래그를 설정하여 createAlert에서 체크
-        // 또는 별도의 알림 중단 테이블 사용
-
-        System.out.println(" 모든 알림이 " + durationMinutes + "분간 중단됩니다.");
-        System.out.println(" 중단 사유: " + reason);
-    }
-
-    /**
      * 알림 유효성 검증
+     * 검증- true
      */
-    private boolean isValidAlert(Alert alert) {
+    public boolean isValidAlert(Alert alert) {
 
         // 필수 필드 체크
         if (alert.getAlertType() == null || alert.getAlertType().trim().isEmpty()) {

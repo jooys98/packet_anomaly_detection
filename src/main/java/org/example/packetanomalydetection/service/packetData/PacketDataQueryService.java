@@ -6,8 +6,6 @@ import org.example.packetanomalydetection.dto.packetData.HourlyPacketCountRespon
 import org.example.packetanomalydetection.dto.packetData.PacketDataResponseDTO;
 import org.example.packetanomalydetection.dto.packetData.PacketStaticsResponseDTO;
 import org.example.packetanomalydetection.entity.CaptureStatistics;
-import org.example.packetanomalydetection.handler.CaptureStatisticsManager;
-import org.example.packetanomalydetection.networkInterface.NetworkInterfaceManager;
 import org.example.packetanomalydetection.repository.CaptureStatisticsRepository;
 import org.example.packetanomalydetection.repository.PacketDataRepository;
 import org.springframework.stereotype.Service;

@@ -38,7 +38,7 @@ public class NetworkSystemValidator {
             // 네트워크 인터페이스 조회 시도
             Pcaps.findAllDevs();
 
-            log.info("Pcap4J 호환성 테스트 성공");
+            log.info("Pcap4J 호환성 테스트 성공, 실제 패킷 캡처 모드로 진행");
             return false;
 
         } catch (Exception e) {

@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.example.packetanomalydetection.entity.constants.AlertType;
 import org.example.packetanomalydetection.entity.enums.AlertSeverity;
+import org.example.packetanomalydetection.repository.projection.AlertStatisticsProjection;
 
 import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
@@ -23,7 +24,6 @@ public class AlertStatisticsResponseDTO {
 
     private Long activeAlerts;
     private Long totalAlerts; // 오늘의 알림 수
-    private Long totalCreatedSinceStart;
     private SeverityDistribution severityDistribution;
     private Map<String, Long> typeDistribution;
     private Map<String, String> typeDescriptions;
@@ -32,19 +32,17 @@ public class AlertStatisticsResponseDTO {
 
 
     public static AlertStatisticsResponseDTO fromQueryResults(
-            Object[] basicStats,
+            AlertStatisticsProjection basicStats,
             List<Object[]> typeDistribution) {
 
-        // 기본 통계 처리
-        //TODO : number 캐스팅 문제 으아아아아앙아악!!
-        Long totalAlerts = ((Number) basicStats[0]).longValue();
-        Long activeAlerts = ((Number) basicStats[1]).longValue();
+        Long totalAlerts = basicStats.getTotalAlerts();
+        Long activeAlerts = basicStats.getActiveAlertsAsLong();
 
         SeverityDistribution severityDist = SeverityDistribution.builder()
-                .low(((Number) basicStats[2]).longValue())
-                .medium(((Number) basicStats[3]).longValue())
-                .high(((Number) basicStats[4]).longValue())
-                .critical(((Number) basicStats[5]).longValue())
+                .low(basicStats.getLowCountAsLong())
+                .medium(basicStats.getMediumCountAsLong())
+                .high(basicStats.getHighCountAsLong())
+                .critical(basicStats.getCriticalCountAsLong())
                 .build();
 
 
@@ -73,6 +71,7 @@ public class AlertStatisticsResponseDTO {
                 .totalAlerts(severityTotal)
                 .severityDistribution(severityDist)
                 .typeDistribution(typeStats)
+                .typeDescriptions(typeDescs)
                 .typeDefaultSeverities(typeSeverities)
                 .generatedAt(LocalDateTime.now())
                 .build();

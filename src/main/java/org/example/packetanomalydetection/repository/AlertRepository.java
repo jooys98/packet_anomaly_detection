@@ -2,6 +2,7 @@ package org.example.packetanomalydetection.repository;
 
 import org.example.packetanomalydetection.entity.Alert;
 import org.example.packetanomalydetection.entity.enums.AlertSeverity;
+import org.example.packetanomalydetection.repository.projection.AlertStatisticsProjection;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -85,14 +86,14 @@ public interface AlertRepository extends JpaRepository<Alert, Long> {
             COUNT(*) as total_alerts,
             SUM(CASE WHEN a.resolved = 0 THEN 1 ELSE 0 END) as active_alerts,
             SUM(CASE WHEN a.severity = 'LOW' THEN 1 ELSE 0 END) as low_count,
-            SUM(CASE WHEN a.severity = 'MEDIUM' THEN 2 ELSE 0 END) as medium_count,
-            SUM(CASE WHEN a.severity = 'HIGH' THEN 3 ELSE 0 END) as high_count,
-            SUM(CASE WHEN a.severity = 'CRITICAL' THEN 4 ELSE 0 END) as critical_count
+            SUM(CASE WHEN a.severity = 'MEDIUM' THEN 1 ELSE 0 END) as medium_count,
+            SUM(CASE WHEN a.severity = 'HIGH' THEN 1 ELSE 0 END) as high_count,
+            SUM(CASE WHEN a.severity = 'CRITICAL' THEN 1 ELSE 0 END) as critical_count
         FROM alert a
         WHERE timestamp BETWEEN :startTime AND :endTime
         """, nativeQuery = true)
-   Object[] findAlertStatisticsByBetweenTime(@Param("startTime") LocalDateTime startTime,
-                                             @Param("endTime") LocalDateTime endTime);
+   List <AlertStatisticsProjection> findAlertStatisticsByBetweenTime(@Param("startTime") LocalDateTime startTime,
+                                                                    @Param("endTime") LocalDateTime endTime);
 
     /**
      * GROUP BY 로 알람 타입별로 AlertType 과 갯수를 반환

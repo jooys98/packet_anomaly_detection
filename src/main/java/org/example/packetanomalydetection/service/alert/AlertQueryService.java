@@ -7,6 +7,7 @@ import org.example.packetanomalydetection.dto.alert.AlertStatisticsResponseDTO;
 import org.example.packetanomalydetection.entity.Alert;
 import org.example.packetanomalydetection.entity.enums.AlertSeverity;
 import org.example.packetanomalydetection.repository.AlertRepository;
+import org.example.packetanomalydetection.repository.projection.AlertStatisticsProjection;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -71,11 +72,18 @@ public class AlertQueryService {
         LocalDateTime startTime = date.atStartOfDay(); // 2025-06-07 00:00:00
         LocalDateTime endTime = date.atTime(LocalTime.MAX);
         //해당 날짜의 알림들
-        Object[] statisticsResult = alertRepository.findAlertStatisticsByBetweenTime(startTime, endTime);
+        List<AlertStatisticsProjection> statistics = alertRepository.findAlertStatisticsByBetweenTime(startTime, endTime);
         List<Object[]> alertTypeDistribution = alertRepository.findAlertTypeDistribution(startTime, endTime);
 
+        AlertStatisticsProjection basicStats = null;
+        if (!statistics.isEmpty()) {
+            basicStats = statistics.get(0); // 첫 번째 (이자 유일한) 결과 로우
+        } else {
+            // 해당 날짜에 알림이 전혀 없는 경우
+            throw new IllegalArgumentException("해당 날짜의 알림이 존재하지 않습니다");
+        }
         //  기본 통계
-        return AlertStatisticsResponseDTO.fromQueryResults(statisticsResult, alertTypeDistribution);
+        return AlertStatisticsResponseDTO.fromQueryResults(basicStats, alertTypeDistribution);
 
     }
 

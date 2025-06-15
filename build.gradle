@@ -24,7 +24,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-validation'
 
     // 데이터베이스
-    runtimeOnly 'mysql:mysql-connector-java:8.0.33'
+    runtimeOnly 'com.mysql:mysql-connector-j'
 
     // 패킷 캡처 라이브러리
     implementation 'org.pcap4j:pcap4j-core:1.8.2'

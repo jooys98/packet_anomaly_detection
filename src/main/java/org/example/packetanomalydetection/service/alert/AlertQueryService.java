@@ -10,7 +10,9 @@ import org.example.packetanomalydetection.repository.AlertRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -40,7 +42,7 @@ public class AlertQueryService {
      * 심각도별 알림 조회
      */
     public List<AlertResponseDTO> getAlertsBySeverity(int priority) {
-        AlertSeverity alertSeverity= AlertSeverity.fromPriority(priority);
+        AlertSeverity alertSeverity = AlertSeverity.fromPriority(priority);
         return alertRepository.findBySeverityOrderByTimestampDesc(alertSeverity)
                 .stream().map(AlertResponseDTO::from).toList();
     }
@@ -64,39 +66,16 @@ public class AlertQueryService {
     /**
      * 알림 통계 조회
      */
-    public AlertStatisticsResponseDTO getAlertStatistics() {
+    public AlertStatisticsResponseDTO getAlertStatistics(LocalDate date) {
+
+        LocalDateTime startTime = date.atStartOfDay(); // 2025-06-07 00:00:00
+        LocalDateTime endTime = date.atTime(LocalTime.MAX);
+        //해당 날짜의 알림들
+        Object[] statisticsResult = alertRepository.findAlertStatisticsByBetweenTime(startTime, endTime);
+        List<Object[]> alertTypeDistribution = alertRepository.findAlertTypeDistribution(startTime, endTime);
 
         //  기본 통계
-        long totalAlerts = alertRepository.count();
-        long activeAlerts = alertRepository.countActiveAlerts();
-
-        // 오늘의 알림 수
-        LocalDateTime todayStart = LocalDateTime.now().toLocalDate().atStartOfDay();
-        List<Alert> todayAlerts = alertRepository.findByTimestampBetweenOrderByTimestampDesc(
-                todayStart, LocalDateTime.now()
-        );
-        long todayAlertsCount = todayAlerts.size();
-
-        //  심각도별 통계
-        Map<AlertSeverity, Long> severityStats = todayAlerts.stream()
-                .collect(Collectors.groupingBy(
-                        Alert::getSeverity,
-                        Collectors.counting()
-                ));
-
-        //위험도 분포
-        AlertStatisticsResponseDTO.SeverityDistribution severityDistribution
-                = AlertStatisticsResponseDTO.SeverityDistribution.from(severityStats);
-
-
-        // 타입별 분포 계산
-        Map<String, Long> typeDistribution = todayAlerts.stream()
-                .collect(Collectors.groupingBy(Alert::getAlertType, Collectors.counting()));
-
-
-        log.debug("📊 알림 통계 조회 완료: 총 {}개, 활성 {}개", totalAlerts, activeAlerts);
-        return AlertStatisticsResponseDTO.from(totalAlerts,activeAlerts,todayAlertsCount,severityDistribution,typeDistribution);
-
+        return AlertStatisticsResponseDTO.fromQueryResults(statisticsResult, alertTypeDistribution);
 
     }
 
@@ -121,21 +100,5 @@ public class AlertQueryService {
         return false;
     }
 
-    /**
-     * 여러 알림 일괄 해결
-     */
-    @Transactional
-    public int resolveMultipleAlerts(List<Long> alertIds, String resolvedBy) {
 
-        int resolvedCount = 0;
-
-        for (Long alertId : alertIds) {
-            if (resolveAlert(alertId, resolvedBy)) {
-                resolvedCount++;
-            }
-        }
-
-        log.info("일괄 해결 완료: {}개 알림 by {}", resolvedCount, resolvedBy);
-        return resolvedCount;
-    }
 }

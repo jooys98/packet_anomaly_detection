@@ -22,14 +22,17 @@ web:
 
 
 spring:
+  config:
+    import: optional:file:.env[.properties]
+
   application:
     name: packet-anomaly-detection
 
 
   datasource:
-    url: jdbc:mysql://localhost:3306/packet_anomaly?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul
-    username: root
-    password: 1234
+    url: ${URL}
+    username: ${USER_NAME}
+    password: ${PASS_WORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 

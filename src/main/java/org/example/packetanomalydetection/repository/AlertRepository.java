@@ -13,30 +13,33 @@ public interface AlertRepository extends JpaRepository<Alert, Long> {
 
 
     //TODO : JPQL vs native 쿼리 속도 성능 분석 비교
+
     /**
      * 해결되지 않은 알림 조회
      */
-    @Query("SELECT a FROM Alert a WHERE a.resolved = false ORDER BY timestamp DESC")
+    @Query("SELECT a FROM Alert a WHERE a.resolved =false ORDER BY a.timestamp DESC")
     List<Alert> findByResolvedFalseOrderByTimestampDesc();
 
     /**
      * 특정 심각도의 알림 조회
      */
-    @Query("SELECT a FROM Alert a WHERE a.severity =:severity ORDER BY timestamp DESC")
+    @Query("SELECT a FROM Alert a WHERE a.severity =:severity ORDER BY a.timestamp DESC")
     List<Alert> findBySeverityOrderByTimestampDesc(AlertSeverity severity);
 
     /**
      * 특정 시간 범위의 알림 조회
      */
-    @Query("SELECT a FROM Alert a WHERE a.timestamp BETWEEN :start AND :end ORDER BY a.timestamp DESC")
+    @Query("SELECT a FROM Alert a WHERE a.timestamp BETWEEN :start AND :end AND a.resolved=false ORDER BY a.timestamp DESC")
     List<Alert> findByTimestampBetweenOrderByTimestampDesc(@Param("start") LocalDateTime start,
                                                            @Param("end") LocalDateTime end);
+
 
     /**
      * 특정 IP 관련 알림 조회
      */
-    @Query("SELECT a FROM Alert a WHERE a.sourceIp =:sourceIp OR a.destIp =: destIp ORDER BY timestamp DESC")
-    List<Alert> findBySourceIpOrDestIpOrderByTimestampDesc(String sourceIp, String destIp);
+    @Query("SELECT a FROM Alert a WHERE a.sourceIp =:sourceIp OR a.destIp =:destIp ORDER BY timestamp DESC")
+    List<Alert> findBySourceIpOrDestIpOrderByTimestampDesc(@Param("sourceIp") String sourceIp,
+                                                           @Param("destIp") String destIp);
 
     /**
      * 최근 알림 50개 조회
@@ -58,19 +61,50 @@ public interface AlertRepository extends JpaRepository<Alert, Long> {
     @Query("SELECT a FROM Alert a WHERE a.resolved = true AND a.timestamp < timestamp ")
     List<Alert> findByResolvedTrueAndTimestampBefore(LocalDateTime timestamp);
 
-    /**
-     * 심각도별 알림 통계
-     */
-    @Query("SELECT a.severity, COUNT(a) FROM Alert a " +
-            "WHERE a.timestamp >= :since " +
-            "GROUP BY a.severity")
-    List<Object[]> getSeverityStats(@Param("since") LocalDateTime since);
+//    /**
+//     * 심각도별 알림 통계
+//     */
+//    @Query("SELECT a.severity, COUNT(a) FROM Alert a " +
+//            "WHERE a.timestamp >= :since " +
+//            "GROUP BY a.severity")
+//    List<Object[]> getSeverityStats(@Param("since") LocalDateTime since);
+//
+//    /**
+//     * 알림 타입별 통계
+//     */
+//    @Query("SELECT a.alertType, COUNT(a) FROM Alert a " +
+//            "WHERE a.timestamp >= :since " +
+//            "GROUP BY a.alertType")
+//    List<Object[]> getAlertTypeStats(@Param("since") LocalDateTime since);
 
     /**
-     * 알림 타입별 통계
+     * GROUP BY 로 집계 처리로 AlertType 의 위험도 반환
      */
-    @Query("SELECT a.alertType, COUNT(a) FROM Alert a " +
-            "WHERE a.timestamp >= :since " +
-            "GROUP BY a.alertType")
-    List<Object[]> getAlertTypeStats(@Param("since") LocalDateTime since);
+    @Query(value = """
+        SELECT
+            COUNT(*) as total_alerts,
+            SUM(CASE WHEN a.resolved = 0 THEN 1 ELSE 0 END) as active_alerts,
+            SUM(CASE WHEN a.severity = 'LOW' THEN 1 ELSE 0 END) as low_count,
+            SUM(CASE WHEN a.severity = 'MEDIUM' THEN 2 ELSE 0 END) as medium_count,
+            SUM(CASE WHEN a.severity = 'HIGH' THEN 3 ELSE 0 END) as high_count,
+            SUM(CASE WHEN a.severity = 'CRITICAL' THEN 4 ELSE 0 END) as critical_count
+        FROM alert a
+        WHERE timestamp BETWEEN :startTime AND :endTime
+        """, nativeQuery = true)
+   Object[] findAlertStatisticsByBetweenTime(@Param("startTime") LocalDateTime startTime,
+                                             @Param("endTime") LocalDateTime endTime);
+
+    /**
+     * GROUP BY 로 알람 타입별로 AlertType 과 갯수를 반환
+     */
+    @Query(value = """
+        SELECT a.alert_type, COUNT(*) as count
+        FROM alert a
+        WHERE timestamp BETWEEN :startTime AND :endTime
+        GROUP BY a.alert_type
+        """, nativeQuery = true)
+    List<Object[]> findAlertTypeDistribution(
+            @Param("startTime") LocalDateTime startTime,
+            @Param("endTime") LocalDateTime endTime
+    );
 }

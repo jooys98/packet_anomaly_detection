@@ -18,7 +18,7 @@ public class PacketDataResponseDTO {
     private Integer destPort;
     private String protocol;
     private Integer packetSize;
-    private LocalDateTime timestamp = LocalDateTime.now();
+    private LocalDateTime timestamp;
     private Integer payloadLength;
     private String flags;
 

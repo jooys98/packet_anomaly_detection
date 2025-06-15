@@ -5,10 +5,14 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.example.packetanomalydetection.entity.constants.AlertType;
 import org.example.packetanomalydetection.entity.enums.AlertSeverity;
 
 import java.time.LocalDateTime;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Getter
 @NoArgsConstructor
@@ -16,27 +20,64 @@ import java.util.Map;
 @Builder
 public class AlertStatisticsResponseDTO {
 
-    //전체 알림 수
-    private Long totalAlerts;
+
     private Long activeAlerts;
-    private Long todayAlerts;
+    private Long totalAlerts; // 오늘의 알림 수
     private Long totalCreatedSinceStart;
     private SeverityDistribution severityDistribution;
     private Map<String, Long> typeDistribution;
+    private Map<String, String> typeDescriptions;
+    private Map<String, AlertSeverity> typeDefaultSeverities;
     private LocalDateTime generatedAt;
 
 
+    public static AlertStatisticsResponseDTO fromQueryResults(
+            Object[] basicStats,
+            List<Object[]> typeDistribution) {
 
-    public static AlertStatisticsResponseDTO from(long totalAlerts, long activeAlerts, long todayAlertsCount, SeverityDistribution severityDistribution, Map<String, Long> typeDistribution) {
-        return  AlertStatisticsResponseDTO.builder()
-                .totalAlerts(totalAlerts)
+        // 기본 통계 처리
+        //TODO : number 캐스팅 문제 으아아아아앙아악!!
+        Long totalAlerts = ((Number) basicStats[0]).longValue();
+        Long activeAlerts = ((Number) basicStats[1]).longValue();
+
+        SeverityDistribution severityDist = SeverityDistribution.builder()
+                .low(((Number) basicStats[2]).longValue())
+                .medium(((Number) basicStats[3]).longValue())
+                .high(((Number) basicStats[4]).longValue())
+                .critical(((Number) basicStats[5]).longValue())
+                .build();
+
+
+        Long severityTotal = severityDist.getTotal();
+        if (!totalAlerts.equals(severityTotal)) {
+            throw new IllegalArgumentException("Total alerts mismatch");
+        }
+
+        //  AlertType 클래스 활용한 타입별 통계 처리
+        Map<String, Long> typeStats = new LinkedHashMap<>();
+        Map<String, String> typeDescs = new LinkedHashMap<>();
+        Map<String, AlertSeverity> typeSeverities = new LinkedHashMap<>();
+
+        for (Object[] row : typeDistribution) {
+            String alertType = (String) row[0];
+            Long count = ((Long) row[1]);
+
+            if (count > 0) {  // 실제 발생한 알림만 포함
+                typeStats.put(alertType, count);
+                typeDescs.put(alertType, AlertType.getKoreanDescription(alertType));
+                typeSeverities.put(alertType, AlertType.getDefaultSeverity(alertType));
+            }
+        }
+        return AlertStatisticsResponseDTO.builder()
                 .activeAlerts(activeAlerts)
-                .todayAlerts(todayAlertsCount)
-                .severityDistribution(severityDistribution)
-                .typeDistribution(typeDistribution)
+                .totalAlerts(severityTotal)
+                .severityDistribution(severityDist)
+                .typeDistribution(typeStats)
+                .typeDefaultSeverities(typeSeverities)
                 .generatedAt(LocalDateTime.now())
                 .build();
     }
+
 
     @Getter
     @Builder
@@ -72,25 +113,7 @@ public class AlertStatisticsResponseDTO {
                     (critical != null ? critical : 0);
         }
 
-        /**
-         * 높은 우선순위 알림 수 (HIGH + CRITICAL)
-         */
-        public Long getHighPriorityCount() {
-            return (high != null ? high : 0) + (critical != null ? critical : 0);
-        }
 
-        /**
-         * 가장 많은 심각도 반환
-         */
-        public AlertSeverity getMostFrequentSeverity() {
-            long maxCount = Math.max(Math.max(low != null ? low : 0, medium != null ? medium : 0),
-                    Math.max(high != null ? high : 0, critical != null ? critical : 0));
-
-            if (critical != null && critical == maxCount) return AlertSeverity.CRITICAL;
-            if (high != null && high == maxCount) return AlertSeverity.HIGH;
-            if (medium != null && medium == maxCount) return AlertSeverity.MEDIUM;
-            return AlertSeverity.LOW;
-        }
     }
 
 

@@ -9,10 +9,10 @@ import java.util.stream.Collectors;
 
 @Getter
 public enum AlertSeverity {
-    LOW("낮음", 1),           // 녹색
-    MEDIUM("보통", 2),        // 노란색
-    HIGH("높음", 3 ),          // 주황색
-    CRITICAL("심각", 4 );      // 빨간색
+    LOW("낮음", 1),
+    MEDIUM("보통", 2),
+    HIGH("높음", 3 ),
+    CRITICAL("심각", 4 );
 
     private final String level;
     private final int priority;

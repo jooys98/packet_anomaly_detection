@@ -1,6 +1,5 @@
 package org.example.packetanomalydetection.performance;
 
-import lombok.extern.slf4j.Slf4j;
 import org.example.packetanomalydetection.dto.packetData.HourlyPacketCountResponseDTO;
 import org.example.packetanomalydetection.repository.PacketDataRepository;
 import org.junit.jupiter.api.*;
@@ -48,14 +47,17 @@ class HourlyPacketQueryPerformanceTest {
             long startTime = System.nanoTime();
 
             // Interface Projection만 테스트
-            List<PacketDataRepository.HourlyPacketCountProjection> result =
-                    packetDataRepository.findHourlyPacketDistributionProjection(start, end);
+            List<HourlyPacketCountResponseDTO> result =
+                    packetDataRepository.findHourlyPacketDistributionProjection(start, end)
+                            .stream().map(HourlyPacketCountResponseDTO::from).toList();
+
 
             // 검증
             Assertions.assertNotNull(result);
             if (!result.isEmpty()) {
                 Assertions.assertNotNull(result.get(0).getHour());
                 Assertions.assertNotNull(result.get(0).getCount());
+                Assertions.assertNotNull(result.get(0).getDate());
             }
 
             long endTime = System.nanoTime();
@@ -106,52 +108,9 @@ class HourlyPacketQueryPerformanceTest {
         printPerformanceResults("Direct DTO Creation", executionTimes, stopWatch.getTotalTimeMillis());
     }
 
+
     @Test
     @Order(3)
-    @DisplayName("Method 3: Object[] + Service 변환 성능 테스트")
-    void testObjectArrayConversionPerformance() {
-        System.out.println(" Object[] + Service 변환 테스트 시작");
-
-        LocalDateTime start = TEST_DATE.atStartOfDay();
-        LocalDateTime end = TEST_DATE.atTime(LocalTime.MAX);
-
-        // Warm-up
-        for (int i = 0; i < 3; i++) {
-            List<Object[]> rawData = packetDataRepository.findHourlyPacketDistribution(start, end);
-            rawData.stream().map(HourlyPacketCountResponseDTO::from).toList().forEach(System.out::println);
-        }
-
-        List<Long> executionTimes = new ArrayList<>();
-        StopWatch stopWatch = new StopWatch();
-
-        stopWatch.start();
-        for (int i = 0; i < 50; i++) {
-            long startTime = System.nanoTime();
-
-            // 1. Repository에서 Object[] 조회
-            List<Object[]> rawData = packetDataRepository.findHourlyPacketDistribution(start, end);
-
-            // 2. 실제 DTO 변환 사용 (MockDTO 대신)
-            List<HourlyPacketCountResponseDTO> convertedData =
-                    rawData.stream().map(HourlyPacketCountResponseDTO::from).toList();
-
-            // 검증
-            Assertions.assertNotNull(convertedData);
-            if (!convertedData.isEmpty()) {
-                Assertions.assertNotNull(convertedData.get(0).getHour());
-                Assertions.assertNotNull(convertedData.get(0).getCount());
-            }
-
-            long endTime = System.nanoTime();
-            executionTimes.add(endTime - startTime);
-        }
-        stopWatch.stop();
-
-        printPerformanceResults("Object[] + Service Conversion", executionTimes, stopWatch.getTotalTimeMillis());
-    }
-
-    @Test
-    @Order(4)
     @DisplayName("성능 비교 및 분석")
     void performanceComparison() {
         System.out.println("성능 비교 분석");

@@ -493,7 +493,7 @@ public class ThreatDetectionService {
     }
 
     /**
-     *  지리적 패턴 분석 (간단한 예시)
+     *  지리적 패턴 분석
      */
     private void analyzeGeographicalPatterns(List<PacketData> packets) {
 

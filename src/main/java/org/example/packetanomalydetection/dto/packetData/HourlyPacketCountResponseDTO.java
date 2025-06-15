@@ -1,8 +1,9 @@
 package org.example.packetanomalydetection.dto.packetData;
 
 import lombok.*;
+import org.example.packetanomalydetection.repository.projection.HourlyPacketCountProjection;
 
-import java.util.List;
+import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -10,13 +11,17 @@ import java.util.List;
 @ToString
 @Builder
 public class HourlyPacketCountResponseDTO {
+    private LocalDate date;
     private Integer hour;
     private Long count;
 
-    public static HourlyPacketCountResponseDTO from(Object[] row) {
+    public static HourlyPacketCountResponseDTO from(HourlyPacketCountProjection projection) {
         return HourlyPacketCountResponseDTO.builder()
-                .hour((Integer) row[0])
-                .count((Long) row[1])
+                .date(projection.getDate())
+                .hour(projection.getHour())
+                .count(projection.getCount())
                 .build();
     }
+
+
     }

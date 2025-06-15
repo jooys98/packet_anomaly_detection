@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class PacketStaticsResponseDTO {
+public class PacketResponseDTO {
     private String sessionId;
     private String captureMode;
     private Long runningTimeSeconds;
@@ -21,10 +21,10 @@ public class PacketStaticsResponseDTO {
     private DayOfWeek dayOfWeek;
 
 
-    public static PacketStaticsResponseDTO of(CaptureStatistics captureStatistics) {
+    public static PacketResponseDTO of(CaptureStatistics captureStatistics) {
         DayOfWeek dayOfWeek = captureStatistics.getCaptureEndTime().getDayOfWeek();
 
-        return PacketStaticsResponseDTO.builder()
+        return PacketResponseDTO.builder()
                 .sessionId(captureStatistics.getSessionId())
                 .captureMode(captureStatistics.getCaptureMode().toString())
                 .runningTimeSeconds(captureStatistics.getRunningTimeSeconds())

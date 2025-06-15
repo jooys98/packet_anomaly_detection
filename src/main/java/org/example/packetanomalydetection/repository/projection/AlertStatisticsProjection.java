@@ -12,7 +12,7 @@ public interface AlertStatisticsProjection {
         BigDecimal getHighCount();
         BigDecimal getCriticalCount();
 
-      //BigDecimal -> Long 타입으로 캐스팅
+      //BigDecimal -> Long 타입 변환
         default Long getActiveAlertsAsLong() {
             return getActiveAlerts() != null ? getActiveAlerts().longValue() : 0L;
         }

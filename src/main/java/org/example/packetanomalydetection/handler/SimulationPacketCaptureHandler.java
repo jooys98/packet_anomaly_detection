@@ -28,6 +28,8 @@ public class SimulationPacketCaptureHandler {
     private Consumer<PacketData> packetHandler;
     private ScheduledExecutorService executorService;
     private ScheduledFuture<?> captureTask;
+
+
     /**
      * 시뮬레이션 캡처 시작
      */
@@ -109,13 +111,20 @@ public class SimulationPacketCaptureHandler {
     private PacketData generateSimulatedPacket() {
         double random = Math.random();
 
-        if (random < 0.7) {
-            return generateNormalTraffic();        // 70% - 정상 트래픽
+        if (random < 0.6) {
+            return generateNormalTraffic();        // 60% - 정상 트래픽
+        } else if (random < 0.7) {
+            return generatePortScanAttack();       // 포트 스캔 공격
+        } else if (random < 0.75) {
+            return generateBruteForceAttack();     // 브루트포스 공격
         } else if (random < 0.8) {
-            return generatePortScanAttack();       // 10% - 포트 스캔 공격
-        } else if (random < 0.9) {
-            return generateBruteForceAttack();     // 10% - 브루트포스 공격
-        } else if (random < 0.95) {
+            return generateSmurfAttack();          // ICMP 스머프공격
+        } else if (random < 0.85) {
+            return generatePingFloodAttack();      //Ping Flood 공격
+        }else if (random < 0.9) {
+            return generatePingOfDeathAttack();    //Ping of Death 공격
+        }
+        else if (random < 0.95) {
             return generateLargePacketAttack();    // 5% - 대용량 패킷 공격
         } else {
             return generateSuspiciousActivity();   // 5% - 의심스러운 활동
@@ -215,5 +224,49 @@ public class SimulationPacketCaptureHandler {
                 .build();
     }
 
+    //Ping Flood 공격
+    private PacketData generatePingFloodAttack() {
+        return PacketData.builder()
+                .sourceIp("203.0.113.45")     // 외부 공격자
+                .destIp("192.168.1.1")       // 내부 게이트웨이/서버
+                .sourcePort(0)               // ICMP는 포트 개념 없음
+                .destPort(0)
+                .protocol("ICMP")
+                .packetSize(1500)            // 큰 ICMP 패킷으로 부하 증가
+                .payloadLength(1472)         // MTU 최대 활용
+                .flags("ECHO_REQUEST")       // ICMP Echo Request
+                .timestamp(LocalDateTime.now())
+                .build();
+    }
 
+    //Ping of Death 공격
+    private PacketData generatePingOfDeathAttack() {
+        return PacketData.builder()
+                .sourceIp("198.51.100.33")   // 악의적 호스트
+                .destIp("192.168.1.100")     // 대상 서버
+                .sourcePort(0)
+                .destPort(0)
+                .protocol("ICMP")
+                .packetSize(65536)           // 비정상적으로 큰 패킷 (64KB)
+                .payloadLength(65508)        // IP 헤더 최대 크기 고려
+                .flags("ECHO_REQUEST")
+                .timestamp(LocalDateTime.now())
+                .build();
+    }
+
+
+    //Smurf 공격
+    private PacketData generateSmurfAttack() {
+        return PacketData.builder()
+                .sourceIp("192.168.1.100")   // 피해자 IP로 스푸핑
+                .destIp("192.168.1.255")     // 브로드캐스트 주소
+                .sourcePort(0)
+                .destPort(0)
+                .protocol("ICMP")
+                .packetSize(84)
+                .payloadLength(56)
+                .flags("ECHO_REQUEST")       // 브로드캐스트 ping
+                .timestamp(LocalDateTime.now())
+                .build();
+    }
 }

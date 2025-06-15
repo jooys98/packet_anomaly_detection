@@ -4,6 +4,7 @@
 
 [![Project Status](https://img.shields.io/badge/Status-[진행중]-blue)](https://github.com/jooys98/packet_anomaly_detection/commits/main)
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/jooys98/packet_anomaly_detection)](https://github.com/jooys98/packet_anomaly_detection/commits)
+[![Java](https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white)](https://www.java.com/)
 
 🔍 이 프로젝트는 **대표적인 네트워크 공격인 포트 공격, DDos 공격 , 패킷 분석의 내용들을 기반으로 침입 탐지 시스템** 을 학습하기 위해 개발되었습니다. **패킷 캡처 기능과 간단한 규칙 기반 이상 패턴 탐지로 위험도 별 알림 생성 , 날짜별 알림 통계 조회 기능** 을 제공하여 **효율적인 네트워크 보안 모니터링에** 기여합니다.
 

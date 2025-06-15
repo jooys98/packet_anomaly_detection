@@ -9,13 +9,12 @@
 
 [![Java](https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white)](https://www.java.com/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=flat-square&logo=springboot&logoColor=white)](https://spring.io/projects/spring-boot)
-[![Spring Data JPA](https://img.shields.io/badge/Spring%20Data%20JPA-6DB33F?style=flat-square&logo=spring&logoColor=white)](https://spring.io/projects/spring-data-jpa)
 [![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)](https://www.mysql.com/)
 [![Gradle](https://img.shields.io/badge/Gradle-02303A?style=flat-square&logo=gradle&logoColor=white)](https://gradle.org/)
 [![JUnit5](https://img.shields.io/badge/JUnit5-25A162?style=flat-square&logo=junit5&logoColor=white)](https://junit.org/junit5/)
 [![Mockito](https://img.shields.io/badge/Mockito-25A162?style=flat-square&logo=mockito&logoColor=white)](https://site.mockito.org/)
 [![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=flat-square&logo=swagger&logoColor=black)](https://swagger.io/)
-[![OpenAPI](https://img.shields.io/badge/OpenAPI-6BA539?style=flat-square&logo=openapiinitiative&logoColor=white)](https://www.openapis.org/)
+
 
 
 🔍 이 프로젝트는 **대표적인 네트워크 공격인 포트 공격, DDos 공격 , 패킷 분석의 내용들을 기반으로 침입 탐지 시스템** 을 학습하기 위해 개발되었습니다. **패킷 캡처 기능과 간단한 규칙 기반 이상 패턴 탐지로 위험도 별 알림 생성 , 날짜별 알림 통계 조회 기능** 을 제공하여 **효율적인 네트워크 보안 모니터링에** 기여합니다.

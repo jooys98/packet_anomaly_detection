@@ -22,6 +22,7 @@
 
 * **개발 기간:** 2025.05.15 ~ ing
 * **UML 다이어그램:** https://jooys98.atlassian.net/wiki/x/ZoAC
+* **프로젝트 개선 과정 및 트러블 슈팅:** https://whispering-shoemaker-e1d.notion.site/20945e7562a58027ac2ade2344e7f08a?source=copy_link
 
 ## ✨ 주요 기능
 
@@ -78,3 +79,12 @@ git pull origin refactoring
 window -  WinPcap 또는 Npcap 설치 ( https://npcap.com/)
 linux - sudo apt-get install libpcap-dev , sudo setcap cap_net_raw,cap_net_admin=eip java
 mac - 시뮬레이션 모드 Pcap4j 호환 문제
+```
+
+## 향후 개발 계획
+
+-  다양한 공격 탐지 옵션 추가
+-  시스템 안정성과 사용자 친화적인 ui를 위한 커스텀 예외처리 
+-  단위 테스트 커버리지 80% 달성
+-  성능 최적화 (메모리 사용량 개선)
+  

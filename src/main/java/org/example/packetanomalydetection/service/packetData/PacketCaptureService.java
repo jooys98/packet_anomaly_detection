@@ -48,18 +48,14 @@ public class PacketCaptureService {
             log.warn("패킷 캡처가 이미 실행 중입니다");
             return;
         }
-
         log.info(" 패킷 캡처 초기화 시작...");
-
         try {
             // 캡처 모드 결정
             boolean captureMode = determineCaptureMode();
             this.useSimulationMode = captureMode;
             // 별도 스레드에서 캡처 시작
             startCaptureInBackground(captureMode);
-
             isRunning.set(true);
-
             log.info("패킷 캡처 초기화 완료 (모드: {})", getCaptureMode());
 
         } catch (Exception e) {

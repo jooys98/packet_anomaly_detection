@@ -6,9 +6,9 @@ import org.example.packetanomalydetection.entity.Alert;
 import java.time.LocalDateTime;
 
 
-@Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
 @ToString
 @Builder
 public class AlertResponseDTO {

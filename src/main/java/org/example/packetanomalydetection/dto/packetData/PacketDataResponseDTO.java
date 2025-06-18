@@ -5,7 +5,6 @@ import org.example.packetanomalydetection.entity.PacketData;
 
 import java.time.LocalDateTime;
 
-@Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor

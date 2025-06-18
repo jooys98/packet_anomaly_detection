@@ -333,8 +333,6 @@ class AlertQueryServiceTest {
     }
 
     // -----------------------------------------------------------------------------------------------------------------
-    // ### 추가: DTO 및 Entity Helper Methods (테스트 데이터 생성 용이성을 위해) ###
-    // Alert.java에 Builder 패턴과 필요한 Getter/Setter가 있다고 가정
     // AlertResponseDTO.from(Alert alert) 메서드가 Alert 객체를 DTO로 변환한다고 가정
     // AlertStatisticsResponseDTO.from() 및 AlertStatisticsResponseDTO.SeverityDistribution.from()이 있다고 가정
     // AlertSeverity.fromPriority(int priority) 메서드가 있다고 가정

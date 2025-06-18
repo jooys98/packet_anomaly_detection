@@ -17,9 +17,10 @@ import java.util.concurrent.CompletableFuture;
 @RestController
 @RequestMapping("/api/packet-capture")
 @RequiredArgsConstructor
-public class PacketCaptureController {
-    private final PacketCaptureService packetCaptureService;
 
+public class PacketCaptureController {
+
+    private final PacketCaptureService packetCaptureService;
     /**
      * 패킷 캡처 시작
      */
@@ -30,7 +31,6 @@ public class PacketCaptureController {
 //TODO : 트러블 슈팅 initializeCapture() 메서드가 동기적 수행, 블로킹 방식으로 동작해서 응답이 클라이언트에 전송되지 않음
 
         Map<String, Object> response = new HashMap<>();
-
         try {
             // 현재 상태 먼저 확인
             if (packetCaptureService.isRunning()) {
@@ -40,7 +40,6 @@ public class PacketCaptureController {
                 response.put("timestamp", LocalDateTime.now());
                 return ResponseEntity.badRequest().body(response);
             }
-
             // 비동기로 캡처 시작
             CompletableFuture.runAsync(() -> {
                 try {
@@ -50,7 +49,6 @@ public class PacketCaptureController {
                     log.error(" 백그라운드 패킷 캡처 초기화 실패: {}", e.getMessage(), e);
                 }
             });
-
             // 즉시 응답 반환
             response.put("status", "SUCCESS");
             response.put("message", "패킷 캡처 시작 요청이 접수되었습니다. 백그라운드에서 초기화 중입니다.");

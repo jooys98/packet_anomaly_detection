@@ -15,10 +15,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Getter
 public class AlertStatisticsResponseDTO {
 
 

@@ -6,7 +6,6 @@ import org.example.packetanomalydetection.repository.projection.SuspiciousActivi
 import java.time.LocalDate;
 
 @Builder
-@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString

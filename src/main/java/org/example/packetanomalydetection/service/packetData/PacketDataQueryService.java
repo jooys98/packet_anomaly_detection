@@ -19,7 +19,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-
+//TODO : Alert 관련 테스트 코드 , PacketData 관련 테스트 코드 진행 하기
 public class PacketDataQueryService {
     private final PacketDataRepository packetDataRepository;
     private final CaptureStatisticsRepository captureStatisticsRepository;
@@ -29,7 +29,6 @@ public class PacketDataQueryService {
         LocalDateTime endTime = date.atTime(LocalTime.MAX);
         List<CaptureStatistics> captureStatistics = captureStatisticsRepository.findByDateRange(startTime, endTime);
         return captureStatistics.stream().map(PacketResponseDTO::of).toList();
-
     }
 
     public List<PacketDataResponseDTO> getPacketBySrcPort(Integer sourcePort) {

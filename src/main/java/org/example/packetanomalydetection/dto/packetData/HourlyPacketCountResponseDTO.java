@@ -7,7 +7,6 @@ import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
 @ToString
 @Builder
 public class HourlyPacketCountResponseDTO {

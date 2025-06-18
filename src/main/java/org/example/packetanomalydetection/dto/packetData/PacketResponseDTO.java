@@ -6,7 +6,6 @@ import org.example.packetanomalydetection.entity.CaptureStatistics;
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 
-@Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor

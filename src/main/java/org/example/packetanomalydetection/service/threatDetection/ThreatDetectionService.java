@@ -4,6 +4,7 @@ package org.example.packetanomalydetection.service.threatDetection;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.packetanomalydetection.config.DetectionConfig;
+import org.example.packetanomalydetection.dto.detection.DetectionStatusResponseDTO;
 import org.example.packetanomalydetection.entity.Alert;
 import org.example.packetanomalydetection.entity.PacketData;
 import org.example.packetanomalydetection.entity.constants.AlertType;
@@ -541,18 +542,14 @@ public class ThreatDetectionService {
                 connectionAttempts.size(), portScanAttempts.size(), trafficStats.size());
     }
 
-    // =========================================================================
-    //  유틸리티 메서드들
-    // =========================================================================
 
     /**
      * 사설 IP 주소 확인
      */
     private boolean isPrivateIp(String ip) {
-        return ip.startsWith("192.168.") ||
-                ip.startsWith("10.") ||
-                ip.startsWith("172.16.") ||
-                ip.equals("127.0.0.1");
+        return ip.startsWith("192.168.") || //C Class
+                ip.startsWith("10.") || // A Class
+                ip.startsWith("172.16.")&& ip.endsWith("172.31."); // B Class
     }
 
     /**
@@ -576,14 +573,13 @@ public class ThreatDetectionService {
     }
 
     //  현재 탐지 상태 조회 (API용)
-    //TODO : dto 로 수정하기
-    public Map<String, Object> getDetectionStatus() {
-        Map<String, Object> status = new HashMap<>();
-        status.put("autoDetectionEnabled", detectionConfig.getEnableAutoDetection());
-        status.put("activeConnectionTrackers", connectionAttempts.size());
-        status.put("activePortScanTrackers", portScanAttempts.size());
-        status.put("activeTrafficTrackers", trafficStats.size());
-        status.put("detectionConfig", detectionConfig);
-        return status;
+    public DetectionStatusResponseDTO getDetectionStatus() {
+        return DetectionStatusResponseDTO.builder()
+                .autoDetectionEnabled(detectionConfig.getEnableAutoDetection())
+                .activeConnectionTrackers(connectionAttempts.size())
+                .activePortScanTrackers(portScanAttempts.size())
+                .activeTrafficTrackers(trafficStats.size())
+                .build();
+
     }
 }

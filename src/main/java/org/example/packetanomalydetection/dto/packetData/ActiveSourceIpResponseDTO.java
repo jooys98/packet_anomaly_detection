@@ -5,7 +5,7 @@ import org.example.packetanomalydetection.repository.projection.ActiveSourceIpPr
 
 import java.time.LocalDate;
 
-@Getter
+
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor

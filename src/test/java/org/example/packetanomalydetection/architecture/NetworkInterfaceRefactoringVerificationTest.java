@@ -152,11 +152,13 @@ class NetworkInterfaceRefactoringVerificationTest {
     @Order(4)
     @DisplayName("4. 병렬 처리 안전성 검증")
     void verifyConcurrencySupport() {
-        System.out.println("⚡ 병렬 처리 안전성 검증 시작");
+        System.out.println(" 병렬 처리 안전성 검증 시작");
 
+        //가상의 스레드 풀 생성 , 동시에 동작가능한 스레드 5개 생성 
         ExecutorService executor = Executors.newFixedThreadPool(5);
+        
+        //비동기 수행 결과를 담을 리스트 
         List<CompletableFuture<Boolean>> futures = new ArrayList<>();
-
         StopWatch concurrencyTest = new StopWatch("Concurrency Test");
         concurrencyTest.start();
 
@@ -164,18 +166,19 @@ class NetworkInterfaceRefactoringVerificationTest {
         for (int i = 0; i < 5; i++) {
             CompletableFuture<Boolean> future = CompletableFuture.supplyAsync(() -> {
                 try {
+                    //각 스레드가 networkSystemValidator 클래스의 운영환경 확인 기능과 pcap4j와의 호환성을 확인하는 기능을 호출하여 검증 
                     boolean result1 = networkSystemValidator.isAppleSiliconMac();
                     boolean result2 = networkSystemValidator.testPcap4jCompatibility();
-                    return result1 || result2; // 최소한 하나는 성공
+                    return result1 || result2; // 하나만 성공해도 true 반환 
                 } catch (Exception e) {
                     return false;
                 }
             }, executor);
-
+        //각각 수행 결과를 리스트에 담아 대기 시킴 
             futures.add(future);
         }
 
-        // 모든 작업 완료 대기
+        // 모든 작업 완료 대기 , 모든 작업이 성공(true)인지 확인 
         boolean allSuccessful = futures.stream()
                 .allMatch(CompletableFuture::join);
 

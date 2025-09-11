@@ -42,6 +42,9 @@ public interface PacketDataRepository extends JpaRepository<PacketData, Long> {
     List<Object[]> getProtocolStats(@Param("since") LocalDateTime since);
 
 
+    //Test
+    //Db에서 가져온 정보를 projection 인터페이스의 형태로 반환 
+    //상위 레이어에서 dto 로 변환 
 
     @Query("SELECT DATE(p.timestamp) as date , HOUR(p.timestamp) as hour, COUNT(p) as count " +
             "FROM PacketData p " +
@@ -71,14 +74,16 @@ public interface PacketDataRepository extends JpaRepository<PacketData, Long> {
     );
 
 //Test
-//    @Query("SELECT new org.example.packetanomalydetection.dto.packetData.HourlyPacketCountResponseDTO(HOUR(p.timestamp), COUNT(p)) " +
-//            "FROM PacketData p " +
-//            "WHERE p.timestamp BETWEEN :start AND :end " +
-//            "GROUP BY HOUR(p.timestamp) " +
-//            "ORDER BY HOUR(p.timestamp)")
-//    List<HourlyPacketCountResponseDTO> findHourlyPacketDistributionDTO(
-//            @Param("start") LocalDateTime start,
-//            @Param("end") LocalDateTime end);
+//db에서 가져온 패킷 정보를 HourlyPacketCountResponseDTO로 바로 변환하여 리턴 
+
+   @Query("SELECT new org.example.packetanomalydetection.dto.packetData.HourlyPacketCountResponseDTO(HOUR(p.timestamp), COUNT(p)) " +
+           "FROM PacketData p " +
+           "WHERE p.timestamp BETWEEN :start AND :end " +
+           "GROUP BY HOUR(p.timestamp) " +
+           "ORDER BY HOUR(p.timestamp)")
+   List<HourlyPacketCountResponseDTO> findHourlyPacketDistributionDTO(
+           @Param("start") LocalDateTime start,
+           @Param("end") LocalDateTime end);
 
 
    //Test
